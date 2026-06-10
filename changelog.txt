@@ -1,3 +1,53 @@
+2026-06-10 — v0.6.6: Recover 24 more certified brands (jane iredale class: name-format
+  mismatches against PETA and Leaping Bunny registries); live-verify LB list
+  - Trigger: user screenshots showed Charlotte Tilbury and jane iredale unbadged.
+    Charlotte Tilbury is CORRECT (PETA page: "may not be cruelty-free"; not LB; the
+    peta=TRUE in brands-master.csv is the known-unreliable old scrape). jane iredale
+    was a genuine miss: PETA lists it as "jane iredale – THE SKIN CARE MAKEUP" and LB
+    as "Iredale Cosmetics, Inc." — neither matched, row sat at FALSE/FALSE.
+  - verify-ulta-csv.mjs upgrades: proper HTML-entity decoding; new "prefix" match tier
+    (PETA title = Ulta name + all-generic descriptor tail, e.g. "– THE SKIN CARE
+    MAKEUP") now auto-applied after H1 check; loose matches are printed as REVIEW
+    lines instead of silently dropped; CSV path moved to repo data/ (Desktop copy
+    kept in sync on --apply).
+  - New scripts/verify-lb-names.mjs: matches leaping_bunny=FALSE rows against
+    data/lb-raw.txt with the same exact/suffix/prefix tiers, plus a
+    distinctive-token index (token appearing in ≤2 LB names) to surface corporate-name
+    listings for manual review. 2 direct + 194 token candidates produced; all reviewed.
+  - LB list re-scraped live from leapingbunny.org to validate the local set: 0 removed,
+    1 added (Belnu) vs the previous snapshot — local data was accurate.
+  - PETA recoveries (9, each H1-verified "is Cruelty-Free" on the live page):
+    jane iredale, Each & Every, Eilish (Billie Eilish), BondiBoost, Dermelect,
+    Ginger Milk, Klairs (Dear, Klairs), Nemat, Paul Mitchell (John Paul Mitchell
+    Systems). Confirmed NOT/may-not-be and left FALSE: AHAVA, ORLY, Tocca, Essie,
+    Proactiv, Mugler, Gucci, Armani, Paco Rabanne, Charlotte Tilbury.
+  - LB recoveries (16, identity confirmed via LB brand pages incl. "available at
+    Specialty Beauty Store (Ulta)" where ambiguous): jane iredale (Iredale Cosmetics),
+    Arctic Fox (Arctic Fox Hair Color), Codex Labs (Codex Labs Corporation), Dionis
+    (Dionis Goat Milk Skincare), Divi (Divi Official), Glamnetic x Fanatics Nail
+    (GLAMNETIC), HALLY (Hally Hair), Hatch (HATCH MAMA), HERBIVORE (Herbivore
+    Botanicals), Overtone (oVertone Color LLC), STARFACE (Starface World Inc.),
+    STRIPES BEAUTY (Stripes Beauty), Sabrina Carpenter (Sweet Tooth by Sabrina
+    Carpenter), TABBEAU (TABBEAU PLACE LLC), Tricoci (Tricoci Collection), XMONDO
+    (XMONDO Hair).
+  - Rejected after review (identity not established / LB page does not list Ulta):
+    Truly→"Truly Lifestyle Brand", goop→good.clean.goop (sub-line cert only),
+    Before Oral Care→"Before", clöud café→"Cloud Haircare", hOURS→"SUMMER HOURS",
+    Bubble T→"Bubble" (that is Bubble Skincare, already TRUE), THE ROUTE→"route one
+    skin", California Naturals→"California Pure Naturals" (different company; row
+    already LB TRUE).
+  - Parent-company research recorded for the corporate-name finds: jane iredale (San
+    Francisco Equity Partners — PE, clean), Hatch (Go Global Retail/Janie and Jack —
+    apparel investor, clean), Stripes (L Catterton — PE fund, treated like
+    Cymbiotika/DIBS/Kopari precedent, clean), Sabrina Carpenter (Scent Beauty Inc. —
+    independent licensee, clean), Arctic Fox (LG H&H — BAD, amber warning stands),
+    Billie Eilish (Parlux Ltd. — status still unverified, not flagged), plus
+    independents: Dionis, Hally, Dermelect, Nemat, Ginger Milk, Codex Labs, Paul
+    Mitchell (JPMS), TABBEAU, Tricoci.
+  - brands.json: 374 → 392 entries (PETA 256, LB 187, both 51, parent warnings
+    unchanged at 52 + Arctic Fox already counted). Smoke test: 11/11 PASS.
+  - manifest.json bumped to 0.6.6.
+
 2026-06-10 — v0.6.5: Recover 67 certified brands lost to research-scraper slug misses (Tarte etc.)
   - Root cause (same class as the v0.5.6 Sol de Janeiro bug): the original research pass
     guessed PETA page slugs from Ulta brand names and recorded peta=FALSE/not_found when

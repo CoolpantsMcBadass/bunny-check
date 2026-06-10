@@ -154,7 +154,7 @@
     "ulta_slug": "arctic-fox",
     "aliases": [],
     "peta": true,
-    "leaping_bunny": false,
+    "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "LG Household & Health Care",
     "data_version": "2026-06-10"
@@ -316,6 +316,16 @@
     "generic_name": true,
     "data_version": "2026-06-10"
   },
+  "billie-eilish": {
+    "display_name": "Billie Eilish",
+    "ulta_slug": "billie-eilish",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Parlux Ltd.",
+    "data_version": "2026-06-10"
+  },
   "bio-ionic": {
     "display_name": "Bio Ionic",
     "ulta_slug": "bio-ionic",
@@ -441,6 +451,15 @@
     "aliases": [],
     "peta": false,
     "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-10"
+  },
+  "bondi-boost": {
+    "display_name": "Bondi Boost",
+    "ulta_slug": "bondi-boost",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
     "parent_cf_bad": false,
     "data_version": "2026-06-10"
   },
@@ -667,6 +686,16 @@
     "parent_cf_bad": false,
     "data_version": "2026-06-10"
   },
+  "codex-labs": {
+    "display_name": "Codex Labs",
+    "ulta_slug": "codex-labs",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Independent (Codex Labs Corporation)",
+    "data_version": "2026-06-10"
+  },
   "colourpop": {
     "display_name": "ColourPop",
     "ulta_slug": "colourpop",
@@ -778,6 +807,16 @@
     "parent_company": "Unilever",
     "data_version": "2026-06-10"
   },
+  "dermelect": {
+    "display_name": "Dermelect",
+    "ulta_slug": "dermelect",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Independent",
+    "data_version": "2026-06-10"
+  },
   "design-essentials": {
     "display_name": "Design Essentials",
     "ulta_slug": "design-essentials",
@@ -826,12 +865,22 @@
     "generic_name": true,
     "data_version": "2026-06-10"
   },
+  "dionis": {
+    "display_name": "Dionis",
+    "ulta_slug": "dionis",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Independent (Dionis Inc.)",
+    "data_version": "2026-06-10"
+  },
   "divi": {
     "display_name": "Divi",
     "ulta_slug": "divi",
     "aliases": [],
     "peta": true,
-    "leaping_bunny": false,
+    "leaping_bunny": true,
     "parent_cf_bad": false,
     "data_version": "2026-06-10"
   },
@@ -938,6 +987,17 @@
     ],
     "peta": true,
     "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-10"
+  },
+  "each-every": {
+    "display_name": "Each &amp; Every",
+    "ulta_slug": "each-every",
+    "aliases": [
+      "each every"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
     "parent_cf_bad": false,
     "data_version": "2026-06-10"
   },
@@ -1180,9 +1240,28 @@
     "generic_name": true,
     "data_version": "2026-06-10"
   },
+  "ginger-milk": {
+    "display_name": "Ginger Milk",
+    "ulta_slug": "ginger-milk",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Independent",
+    "data_version": "2026-06-10"
+  },
   "glamnetic": {
     "display_name": "Glamnetic",
     "ulta_slug": "glamnetic",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-10"
+  },
+  "glamnetic-x-fanatics-nail": {
+    "display_name": "Glamnetic x Fanatics Nail",
+    "ulta_slug": "glamnetic-x-fanatics-nail",
     "aliases": [],
     "peta": false,
     "leaping_bunny": true,
@@ -1315,6 +1394,16 @@
     "parent_company": "A24",
     "data_version": "2026-06-10"
   },
+  "hally": {
+    "display_name": "HALLY",
+    "ulta_slug": "hally",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Independent",
+    "data_version": "2026-06-10"
+  },
   "hampton-sun": {
     "display_name": "Hampton Sun",
     "ulta_slug": "hampton-sun",
@@ -1329,7 +1418,7 @@
     "ulta_slug": "hatch",
     "aliases": [],
     "peta": true,
-    "leaping_bunny": false,
+    "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Janie and Jack / Go Global Retail",
     "generic_name": true,
@@ -1353,6 +1442,16 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "TSG Consumer Partners",
+    "data_version": "2026-06-10"
+  },
+  "herbivore": {
+    "display_name": "HERBIVORE",
+    "ulta_slug": "herbivore",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "generic_name": true,
     "data_version": "2026-06-10"
   },
   "hey-honey": {
@@ -1592,6 +1691,16 @@
     "parent_cf_bad": false,
     "data_version": "2026-06-10"
   },
+  "jane-iredale": {
+    "display_name": "jane iredale",
+    "ulta_slug": "jane-iredale",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "San Francisco Equity Partners",
+    "data_version": "2026-06-10"
+  },
   "jb-skrub": {
     "display_name": "JB Skrub",
     "ulta_slug": "jb-skrub",
@@ -1722,6 +1831,15 @@
     "aliases": [],
     "peta": false,
     "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-10"
+  },
+  "klairs": {
+    "display_name": "Klairs",
+    "ulta_slug": "klairs",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
     "parent_cf_bad": false,
     "data_version": "2026-06-10"
   },
@@ -2326,6 +2444,16 @@
     "parent_company": "e.l.f. Beauty",
     "data_version": "2026-06-10"
   },
+  "nemat": {
+    "display_name": "Nemat",
+    "ulta_slug": "nemat",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Independent (Nemat International)",
+    "data_version": "2026-06-10"
+  },
   "nest-new-york": {
     "display_name": "NEST New York",
     "ulta_slug": "nest-new-york",
@@ -2584,7 +2712,7 @@
     "ulta_slug": "overtone",
     "aliases": [],
     "peta": true,
-    "leaping_bunny": false,
+    "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
     "data_version": "2026-06-10"
@@ -2636,6 +2764,16 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
+    "data_version": "2026-06-10"
+  },
+  "paul-mitchell": {
+    "display_name": "Paul Mitchell",
+    "ulta_slug": "paul-mitchell",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "John Paul Mitchell Systems (self)",
     "data_version": "2026-06-10"
   },
   "paume": {
@@ -2982,7 +3120,7 @@
     "ulta_slug": "sabrina-carpenter",
     "aliases": [],
     "peta": true,
-    "leaping_bunny": false,
+    "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Scent Beauty",
     "data_version": "2026-06-10"
@@ -3198,7 +3336,7 @@
     "ulta_slug": "starface",
     "aliases": [],
     "peta": true,
-    "leaping_bunny": false,
+    "leaping_bunny": true,
     "parent_cf_bad": false,
     "data_version": "2026-06-10"
   },
@@ -3210,6 +3348,16 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Bardin Hill Capital",
+    "data_version": "2026-06-10"
+  },
+  "stripes-beauty-by-naomi-watts": {
+    "display_name": "STRIPES BEAUTY by Naomi Watts",
+    "ulta_slug": "stripes-beauty-by-naomi-watts",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "L Catterton",
     "data_version": "2026-06-10"
   },
   "sun-bum": {
@@ -3270,6 +3418,16 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
+    "data_version": "2026-06-10"
+  },
+  "tabbeau": {
+    "display_name": "TABBEAU",
+    "ulta_slug": "tabbeau",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "TABBEAU PLACE LLC (self)",
     "data_version": "2026-06-10"
   },
   "tad": {
@@ -3466,6 +3624,15 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Naterra",
+    "data_version": "2026-06-10"
+  },
+  "tricoci": {
+    "display_name": "Tricoci",
+    "ulta_slug": "tricoci",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
     "data_version": "2026-06-10"
   },
   "trilastin": {
@@ -3716,6 +3883,15 @@
   "womaness": {
     "display_name": "Womaness",
     "ulta_slug": "womaness",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-10"
+  },
+  "xmondo": {
+    "display_name": "XMONDO",
+    "ulta_slug": "xmondo",
     "aliases": [],
     "peta": false,
     "leaping_bunny": true,

@@ -42,7 +42,7 @@ AquaSonic,aquasonic,FALSE,FALSE,not_found,Onyx Global Group,UNKNOWN,,,Founded by
 ARABIAN CREST DUBAI,arabian-crest-dubai,FALSE,FALSE,not_found,,,,,Independent Dubai fragrance house
 Aramis,aramis,FALSE,FALSE,not_cf,Estée Lauder Companies,FALSE,,,ELC brand since 1964
 Aramore,aramore,FALSE,TRUE,not_found,New Frontier Bio Inc.,UNKNOWN,,,Longevity skincare by New Frontier Bio
-Arctic Fox,arctic-fox,TRUE,FALSE,cf,LG Household & Health Care,FALSE,,,LG H&H majority stake 2021; sells in China
+Arctic Fox,arctic-fox,TRUE,TRUE,cf,LG Household & Health Care,FALSE,,,LG H&H majority stake 2021; sells in China; LB cert under Arctic Fox Hair Color
 Ardell,ardell,FALSE,TRUE,may_not_be,American International Industries,UNKNOWN,,,Family-owned AII
 Ariana Grande,ariana-grande,FALSE,TRUE,not_found,Luxe Brands,UNKNOWN,,,Luxe Brands manages her fragrance franchise
 ARMANI,armani,FALSE,FALSE,not_cf,L'Oréal SA,FALSE,,,Giorgio Armani Beauty; L'Oréal license
@@ -91,7 +91,7 @@ BEVEL,bevel,FALSE,FALSE,not_found,Procter & Gamble,FALSE,,,P&G via Walker & Comp
 Bewants,bewants,FALSE,FALSE,not_found,,,,,Parent unknown
 Beyoncé Parfums,beyonce-parfums,FALSE,FALSE,not_found,Parkwood Ventures,UNKNOWN,,,Beyoncé's own company; 100% independent
 billie,billie,TRUE,FALSE,cf,Edgewell Personal Care,FALSE,,,Acquired by Edgewell 2021 ($310M)
-Billie Eilish,billie-eilish,FALSE,FALSE,not_found,Parlux Ltd.,UNKNOWN,,,Parlux licensed fragrance; Give Back Beauty
+Billie Eilish,billie-eilish,TRUE,FALSE,cf,Parlux Ltd.,UNKNOWN,,,Parlux licensed fragrance; Give Back Beauty; PETA-verified cruelty-free under Eilish Billie Eilish; Parlux parent status still unverified
 Bio Ionic,bio-ionic,TRUE,FALSE,cf,Beauty By Imagination (BBI),UNKNOWN,,,JD Beauty → ACON Investments → BBI
 Bio-Oil,bio-oil,FALSE,FALSE,not_found,Union Swiss Pty Ltd. (South Africa),UNKNOWN,,,South African parent company
 Bioderma,bioderma,FALSE,FALSE,may_not_be,NAOS Group,UNKNOWN,,,French private company
@@ -117,7 +117,7 @@ BLUE LIZARD AUSTRALIAN SUNSCREEN,blue-lizard-australian-sunscreen,FALSE,FALSE,no
 BLUME,blume,FALSE,TRUE,not_found,,,,,Independent; VC-backed
 Blushly,blushly,FALSE,FALSE,not_found,,,,,Parent unknown
 BOBBI BROWN,bobbi-brown,FALSE,FALSE,not_cf,Estée Lauder Companies,FALSE,,,ELC brand
-Bondi Boost,bondi-boost,FALSE,FALSE,not_found,,,,,Independent; Australian
+Bondi Boost,bondi-boost,TRUE,FALSE,cf,,TRUE,,,Independent; Australian; PETA-verified cruelty-free under BondiBoost
 Bondi Sands,bondi-sands,TRUE,FALSE,cf,Kao Corporation,FALSE,,,Kao acquired 2023 ($450M); Kao sells in China
 Bonika Shears,bonika-shears,FALSE,FALSE,not_found,,,,,Parent unknown
 Borghese,borghese,FALSE,FALSE,not_found,,,,,Independent; Georgette Mosbacher; Saudi investors
@@ -181,7 +181,7 @@ Coach,coach,FALSE,FALSE,not_found,Inter Parfums,UNKNOWN,,,Inter Parfums fragranc
 Coco &amp; Eve,coco-eve,FALSE,FALSE,not_found,Gauge Capital (Soleil Collective),UNKNOWN,,,PE majority stake 2024; Australian brand
 cocokind,cocokind,FALSE,TRUE,not_found,,,,,Independent; VC-backed
 CODEAGE,codeage,FALSE,FALSE,not_found,,,,,Parent unknown
-Codex Labs,codex-labs,FALSE,FALSE,not_found,,,,,Parent unknown
+Codex Labs,codex-labs,FALSE,TRUE,not_found,Independent (Codex Labs Corporation),TRUE,,,Parent unknown; Founder Dr. Barbara Paldus; LB cert under Codex Labs Corporation
 Color Wow,color-wow,FALSE,FALSE,not_found,L'Oréal SA,FALSE,,,Acquisition announced June 2025; pending regulatory close
 ColourPop,colourpop,TRUE,FALSE,cf,Seed Beauty,UNKNOWN,,,Seed Beauty (Laura & John Nelson)
 Conair,conair,TRUE,FALSE,cf,Conair Corporation,UNKNOWN,,,Private company
@@ -216,7 +216,7 @@ Dermablend,dermablend,TRUE,FALSE,cf,L'Oréal SA,FALSE,,,L'Oréal brand
 DERMAFLASH,dermaflash,FALSE,FALSE,not_found,DD Karma,UNKNOWN,,,DD Karma is parent; Guthy-Renker Ventures equity investor 2017; founded by Dara Levy
 Dermalogica,dermalogica,TRUE,TRUE,cf,Unilever,FALSE,,,Acquired by Unilever 2015
 Dermasuri,dermasuri,FALSE,FALSE,not_found,,,,,Parent unknown
-Dermelect,dermelect,FALSE,FALSE,not_found,,,,,Parent unknown
+Dermelect,dermelect,TRUE,FALSE,cf,Independent,TRUE,,,Parent unknown; Founder Amos Lavian; PETA-verified cruelty-free
 Design Essentials,design-essentials,TRUE,FALSE,cf,McBride Research Laboratories,UNKNOWN,,,Black-owned independent company
 DevaCurl,devacurl,TRUE,TRUE,cf,Henkel,FALSE,,,Acquired by Henkel 2019
 DHC,dhc,FALSE,FALSE,not_found,Orix Corporation (Japan),UNKNOWN,,,Orix acquired DHC 2023
@@ -226,9 +226,9 @@ DIBS Beauty,dibs-beauty,FALSE,TRUE,not_found,,,,,"Independent; co-founders Court
 Differin,differin,FALSE,FALSE,not_found,Galderma,FALSE,,,Galderma brand
 DIGI Beauty,digi-beauty,FALSE,FALSE,not_found,,,,,Parent unknown
 DIME,dime,TRUE,TRUE,cf,,,,,Independent; founders Baylee Relf and Mitch Casey; Trilantic Capital investor
-Dionis,dionis,FALSE,FALSE,not_found,,,,,Parent unknown
+Dionis,dionis,FALSE,TRUE,not_found,Independent (Dionis Inc.),TRUE,,,Parent unknown; Family-owned NJ goat milk skincare; LB cert under Dionis Goat Milk Skincare
 Dior,dior,FALSE,FALSE,not_found,LVMH,FALSE,,,LVMH brand
-Divi,divi,TRUE,FALSE,cf,,,,,Independent; Dani Austin founder; Norwest minority investor
+Divi,divi,TRUE,TRUE,cf,,TRUE,,,Independent; Dani Austin founder; Norwest minority investor; LB cert under Divi Official
 DKNY,dkny,FALSE,FALSE,not_found,Estée Lauder Companies,FALSE,,,ELC fragrance license
 Dolce Glow,dolce-glow,FALSE,FALSE,not_found,,,,,Independent; founder Isabel Alysa; Miley Cyrus investor
 Dolce&amp;Gabbana,dolce-gabbana,FALSE,FALSE,not_found,Dolce & Gabbana,UNKNOWN,,,D&G brought beauty fully in-house 2022; previously Shiseido license
@@ -256,7 +256,7 @@ DUNE SUNCARE,dune-suncare,FALSE,FALSE,may_not_be,,,,,Parent unknown
 Duo Toothpaste,duo-toothpaste,FALSE,FALSE,not_found,,,,,Parent unknown
 Dyson,dyson,FALSE,FALSE,not_found,Dyson Ltd.,UNKNOWN,,,Private company; James Dyson
 e.l.f. Cosmetics,elf-cosmetics,TRUE,TRUE,cf,,,,,Independent; e.l.f. Beauty Inc. (NYSE: ELF)
-Each &amp; Every,each-every,FALSE,FALSE,not_found,,,,,Independent; natural deodorant and body care; not confirmed SC Johnson despite Oars+Alps acquisition
+Each &amp; Every,each-every,TRUE,FALSE,cf,,TRUE,,,Independent; natural deodorant and body care; not confirmed SC Johnson despite Oars+Alps acquisition; PETA-verified cruelty-free under Each & Every
 Earth Harbor,earth-harbor,TRUE,TRUE,cf,,,,,Independent
 Earth Therapeutics,earth-therapeutics,FALSE,FALSE,not_found,,,,,Parent unknown
 Eco Style,eco-style,FALSE,FALSE,not_found,,,,,Independent; Black-owned
@@ -324,10 +324,10 @@ Geske,geske,FALSE,FALSE,not_found,,,,,Parent unknown
 ghd,ghd,FALSE,FALSE,not_found,Coty,FALSE,,,Acquired by Coty 2016
 Gigi,gigi,FALSE,TRUE,not_found,American International Industries (AII),UNKNOWN,,,AII (family-owned LA company); GiGi wax since 1972
 GIMME beauty,gimme-beauty,FALSE,FALSE,not_found,,,,,Parent unknown
-Ginger Milk,ginger-milk,FALSE,FALSE,not_found,,,,,Parent unknown
+Ginger Milk,ginger-milk,TRUE,FALSE,cf,Independent,TRUE,,,Parent unknown; PETA-verified cruelty-free under Ginger Milk Natural Care
 Givenchy,givenchy,FALSE,FALSE,not_cf,LVMH,FALSE,,,LVMH brand
 Glamnetic,glamnetic,FALSE,TRUE,not_found,,,,,Independent; co-founders Ann McFerran and Kevin Gould; exploring acquisition 2024
-Glamnetic x Fanatics Nail,glamnetic-x-fanatics-nail,FALSE,FALSE,not_found,,,,,Independent; Glamnetic sub-brand; co-founders Ann McFerran and Kevin Gould
+Glamnetic x Fanatics Nail,glamnetic-x-fanatics-nail,FALSE,TRUE,not_found,,TRUE,,,Independent; Glamnetic sub-brand; co-founders Ann McFerran and Kevin Gould; LB cert under GLAMNETIC (parent brand)
 Glimmer Wish,glimmer-wish,TRUE,TRUE,cf,,,,,Parent unknown
 Glo24k,glo24k,FALSE,FALSE,not_found,,,,,Parent unknown
 Goli Nutrition,goli-nutrition,TRUE,FALSE,cf,Group KPS / Bastion Capital,UNKNOWN,,,Acquired May 2024 to avoid bankruptcy; Group KPS and Bastion Capital (Mexico)
@@ -350,11 +350,11 @@ Hairstory,hairstory,FALSE,TRUE,not_found,,,,,Independent
 HAIRtamin,hairtamin,TRUE,FALSE,cf,,,,,Parent unknown
 HALEYS Beauty,haleys-beauty,TRUE,FALSE,cf,,,,,Parent unknown
 HALF MAGIC,half-magic,FALSE,TRUE,not_found,A24,UNKNOWN,,,A24 film studio majority stake; co-founder Donni Davy (Euphoria MUA)
-HALLY,hally,FALSE,FALSE,not_found,,,,,Parent unknown
+HALLY,hally,FALSE,TRUE,not_found,Independent,TRUE,,,Parent unknown; Founder Kathryn Winokur; LB cert under Hally Hair
 Hampton Sun,hampton-sun,FALSE,TRUE,not_found,,,,,Independent; founder Salvatore Piazzolla; Rande Gerber minority investor
 Hanskin,hanskin,FALSE,FALSE,not_found,Celltrion,UNKNOWN,,,Celltrion Skincure; Celltrion is Korean biopharmaceutical company
 HAPPYSKINCO,happyskinco,FALSE,FALSE,not_found,,,,,Parent unknown
-Hatch,hatch,TRUE,FALSE,cf,Janie and Jack / Go Global Retail,UNKNOWN,,,HATCH Collection acquired by Go Global Retail/Janie and Jack Oct 2024
+Hatch,hatch,TRUE,TRUE,cf,Janie and Jack / Go Global Retail,TRUE,,,HATCH Collection acquired by Go Global Retail/Janie and Jack Oct 2024; Go Global Retail is an apparel/brand investment firm; no testing operations; LB cert under HATCH MAMA
 HATCH MAMA,hatch-mama,FALSE,TRUE,not_found,Janie and Jack / Go Global Retail,UNKNOWN,,,HATCH Collection acquired by Go Global Retail/Janie and Jack Oct 2024
 Hawkins &amp; Brimble,hawkins-brimble,FALSE,FALSE,not_found,,,,,Independent UK brand
 Hawthorne,hawthorne,FALSE,FALSE,not_found,,,,,Independent; co-founders Phil Wong and Brian Jeong; personalized men's fragrance
@@ -363,7 +363,7 @@ Heimish,heimish,FALSE,FALSE,not_found,,,,,Independent Korean brand
 Helight,helight,FALSE,FALSE,not_found,,,,,Parent unknown
 Hempz,hempz,FALSE,TRUE,not_found,TSG Consumer Partners,UNKNOWN,,,TSG Consumer Partners invested in Hempz (hemp/argan body care)
 Her Own,her-own,FALSE,FALSE,not_found,,,,,Parent unknown
-HERBIVORE,herbivore,FALSE,FALSE,not_found,,,,,Independent; founded by Julia Wills & Alex Kummerow; VC-backed
+HERBIVORE,herbivore,FALSE,TRUE,not_found,,TRUE,,,Independent; founded by Julia Wills & Alex Kummerow; VC-backed; LB cert under Herbivore Botanicals
 Heritage Store,heritage-store,FALSE,FALSE,not_found,The Better Being,UNKNOWN,,,The Better Being acquired Heritage Store Jan 2022; wellness company
 Hero Cosmetics,hero-cosmetics,FALSE,FALSE,not_found,Church & Dwight,FALSE,,,Acquired by Church & Dwight 2022 ($630M)
 Hey Honey,hey-honey,TRUE,TRUE,cf,,,,,Parent unknown
@@ -416,7 +416,7 @@ Izzy Zero Waste Beauty,izzy-zero-waste-beauty,FALSE,FALSE,not_found,,,,,Independ
 J.Cat Beauty,jcat-beauty,TRUE,TRUE,cf,,,,,Parent unknown
 Jack Black,jack-black,TRUE,FALSE,cf,Edgewell Personal Care,FALSE,,,Acquired by Edgewell 2018
 Jack Henry,jack-henry,FALSE,TRUE,not_found,,,,,Parent unknown
-jane iredale,jane-iredale,FALSE,FALSE,not_found,San Francisco Equity Partners,UNKNOWN,,,PE majority stake
+jane iredale,jane-iredale,TRUE,TRUE,cf,San Francisco Equity Partners,TRUE,,,PE majority stake; SFEP is a PE firm with no animal-testing operations; PETA cert under jane iredale - THE SKIN CARE MAKEUP; LB cert under Iredale Cosmetics Inc.
 Janet Collection,janet-collection,FALSE,FALSE,not_found,Beauty Plus Trading,UNKNOWN,,,Beauty Plus Trading (Beauty Plus) parent since 1991; hair extensions
 JB Skrub,jb-skrub,FALSE,TRUE,not_found,,,,,Parent unknown
 Jean Paul Gaultier,jean-paul-gaultier,FALSE,FALSE,may_not_be,Puig,UNKNOWN,,,Puig brand
@@ -450,7 +450,7 @@ KimChi Chic Beauty,kimchi-chic-beauty,TRUE,FALSE,cf,,,,,Independent; Kim Chi (dr
 Kind Patches,kind-patches,FALSE,FALSE,not_found,,,,,Parent unknown
 Kiss,kiss,TRUE,FALSE,cf,American International Industries,UNKNOWN,,,"AII brand (same parent as Ardell, China Glaze)"
 Kitsch,kitsch,FALSE,TRUE,not_found,,,,,Independent
-Klairs,klairs,FALSE,FALSE,not_found,,,,,Independent Korean brand (Wishcompany)
+Klairs,klairs,TRUE,FALSE,cf,,TRUE,,,"Independent Korean brand (Wishcompany); PETA-verified cruelty-free under Dear, Klairs"
 Knemo,knemo,TRUE,FALSE,cf,,,,,Parent unknown
 Knours.,knours,FALSE,FALSE,not_found,,,,,Parent unknown
 KOCOSTAR,kocostar,FALSE,FALSE,not_found,"Firstmarket Co., Ltd.",UNKNOWN,,,Firstmarket Co. Ltd. Korea; launched KOCOSTAR 2013
@@ -609,7 +609,7 @@ NATASHA DENONA,natasha-denona,FALSE,FALSE,not_found,,,,,Independent; founder Nat
 Nature&#x27;s Bounty,natures-bounty,FALSE,FALSE,not_found,Nestlé Health Science,FALSE,,,Nestlé acquired for $5.75B 2021; Nestlé sells in China
 NatureLab. Tokyo,naturelab-tokyo,FALSE,FALSE,not_found,"NatureLab Co., Ltd. (Japan)",UNKNOWN,,,NatureLab Japan (80+ beauty brands); co-founder Rosa Takagi
 Naturium,naturium,TRUE,TRUE,cf,e.l.f. Beauty,TRUE,,,Acquired by e.l.f. Beauty 2023 ($355M); e.l.f. is PETA CF certified
-Nemat,nemat,FALSE,FALSE,not_found,,,,,Parent unknown
+Nemat,nemat,TRUE,FALSE,cf,Independent (Nemat International),TRUE,,,Parent unknown; Family-run fragrance house since 1982; PETA-verified cruelty-free
 NEOGEN,neogen,FALSE,FALSE,not_found,,,,,Independent Korean brand
 NEOM Wellbeing,neom-wellbeing,FALSE,FALSE,not_found,,,,,Independent; Piper Private Equity investor; UK wellness and fragrance brand
 NEST New York,nest-new-york,FALSE,TRUE,not_found,North Castle Partners,UNKNOWN,,,North Castle Partners PE majority; Eurazeo sold 2022 ($200M valuation)
@@ -668,7 +668,7 @@ OSEA,osea,TRUE,TRUE,cf,General Atlantic,UNKNOWN,,,General Atlantic strategic gro
 Oster Professional,oster-professional,FALSE,FALSE,not_found,Sunbeam Products (Newell Brands),UNKNOWN,,,Sunbeam owns Oster; Sunbeam is Jarden/Newell Brands subsidiary
 OUAI,ouai,FALSE,TRUE,not_found,Procter & Gamble,FALSE,,,Acquired by P&G 2022
 Ouidad,ouidad,TRUE,FALSE,cf,Beauty By Imagination (BBI),UNKNOWN,,,JD Beauty → ACON Investments → BBI
-Overtone,overtone,TRUE,FALSE,cf,,,,,Independent; co-founders Maegan Scarlett and Liora Dudar; color-depositing hair care
+Overtone,overtone,TRUE,TRUE,cf,,TRUE,,,Independent; co-founders Maegan Scarlett and Liora Dudar; color-depositing hair care; LB cert under oVertone Color LLC
 P.CALM,pcalm,FALSE,FALSE,not_found,,,,,Parent unknown (Korean)
 Pacifica,pacifica,TRUE,FALSE,cf,,,,,Independent
 Pai-Shau,pai-shau,FALSE,FALSE,not_found,,,,,Parent unknown
@@ -681,7 +681,7 @@ Party of You,party-of-you,TRUE,FALSE,cf,,,,,Parent unknown
 PAT McGRATH LABS,pat-mcgrath-labs,FALSE,FALSE,not_found,GDA Luma,UNKNOWN,,,Emerged from Chapter 11 bankruptcy Jan 2026; GDA Luma new owner
 Patchology,patchology,TRUE,FALSE,cf,Rare Beauty Brands,UNKNOWN,,,Rare Beauty Brands (Chris Hobson) parent; also owns Kate Somerville (acquired 2025)
 PATTERN,pattern,TRUE,FALSE,cf,,,,,Independent; Tracee Ellis Ross majority owner
-Paul Mitchell,paul-mitchell,FALSE,FALSE,not_found,,,,,Independent; John Paul Mitchell Systems (JPMS)
+Paul Mitchell,paul-mitchell,TRUE,FALSE,cf,John Paul Mitchell Systems (self),TRUE,,,"Independent; John Paul Mitchell Systems (JPMS); JPMS independent, longtime CF pioneer; PETA-verified cruelty-free"
 PAUME,paume,FALSE,TRUE,not_found,,,,,Parent unknown
 Peace Out,peace-out,TRUE,TRUE,cf,,,,,Independent; 5th Century Partners minority investor
 PEACH &amp; LILY,peach-lily,FALSE,TRUE,not_found,,,,,Independent; Alicia Yoon; Sandbridge Capital minority investor
@@ -761,7 +761,7 @@ ROUND LAB,round-lab,FALSE,FALSE,not_found,,,,,Independent Korean brand
 Rovectin,rovectin,TRUE,FALSE,cf,,,,,Independent Korean brand
 Rude,rude,TRUE,FALSE,cf,,,,,Parent unknown
 Saalt,saalt,FALSE,FALSE,not_found,,,,,Independent; founder Cherie Hoeger; certified B Corp; menstrual care
-Sabrina Carpenter,sabrina-carpenter,TRUE,FALSE,cf,Scent Beauty,UNKNOWN,,,Scent Beauty (Steve Mormoris CEO) licensed fragrance partnership; developed with Firmenich
+Sabrina Carpenter,sabrina-carpenter,TRUE,TRUE,cf,Scent Beauty,TRUE,,,Scent Beauty (Steve Mormoris CEO) licensed fragrance partnership; developed with Firmenich; Scent Beauty Inc. is an independent fragrance licensee; LB cert under Sweet Tooth by Sabrina Carpenter (LB availability lists Ulta)
 SACHEU,sacheu,TRUE,FALSE,cf,,,,,Parent unknown
 Saint Jane,saint-jane,FALSE,FALSE,not_found,,,,,Independent; founder Casey Georgeson; clean CBD beauty
 Saje Natural Wellness,saje-natural-wellness,FALSE,TRUE,not_found,,,,,Independent Canadian brand
@@ -816,11 +816,11 @@ SPONGELLE,spongelle,FALSE,FALSE,not_found,,,,,Parent unknown
 Squishmallows,squishmallows,FALSE,FALSE,not_found,Jazwares,UNKNOWN,,,Jazwares owns Squishmallows IP (acquired Kellytoy 2020); beauty via SNAPBRANDS
 Squishmallows Fragrances,squishmallows-fragrances,FALSE,FALSE,not_found,Jazwares,UNKNOWN,,,Jazwares Squishmallows IP; fragrance via Blue Meadow Brands; Ulta 2025
 St. Tropez,st-tropez,FALSE,FALSE,not_found,PZ Cussons,UNKNOWN,,,Acquired by PZ Cussons 2010; sale announced April 2024
-STARFACE,starface,TRUE,FALSE,cf,,,,,Independent; co-founders Julie Schott and Brian Bordainick; exploring strategic options 2025
+STARFACE,starface,TRUE,TRUE,cf,,TRUE,,,Independent; co-founders Julie Schott and Brian Bordainick; exploring strategic options 2025; LB cert under Starface World Incorporated
 Stephan,stephan,FALSE,FALSE,not_found,,,,,Parent unknown
 Stila,stila,TRUE,TRUE,cf,Bardin Hill Capital,UNKNOWN,,,PE consortium; complex ownership history (formerly ELC → Sun Capital → Patriarch Partners)
 Stimmie,stimmie,FALSE,FALSE,not_found,,,,,Parent unknown
-STRIPES BEAUTY by Naomi Watts,stripes-beauty-by-naomi-watts,FALSE,FALSE,not_found,L Catterton,UNKNOWN,,,L Catterton (LVMH-backed PE) acquired June 2024; founder Naomi Watts
+STRIPES BEAUTY by Naomi Watts,stripes-beauty-by-naomi-watts,FALSE,TRUE,not_found,L Catterton,TRUE,,,L Catterton (LVMH-backed PE) acquired June 2024; founder Naomi Watts; L Catterton is a PE fund (LVMH-affiliated) not an operator; treated like Cymbiotika/DIBS/Kopari; LB cert under Stripes Beauty
 StriVectin,strivectin,FALSE,FALSE,not_found,Crown Laboratories,UNKNOWN,,,Crown Laboratories (Hildred Capital) acquired from L Catterton 2021; also owns PanOxyl
 SUBTL. Beauty,subtl-beauty,FALSE,FALSE,not_found,,,,,Parent unknown
 Sugarbear,sugarbear,FALSE,FALSE,not_found,,,,,Independent; founders Nicole Nightly and Dan Morris; Nexus Capital/Meaningful Partners investors
@@ -841,7 +841,7 @@ Surratt Beauty,surratt-beauty,FALSE,FALSE,not_found,2x Consumer Products Growth 
 Sweet &amp; Shimmer,sweet-shimmer,FALSE,FALSE,not_found,,,,,Parent unknown
 Swishables,swishables,FALSE,FALSE,not_found,,,,,Parent unknown
 T3,t3,FALSE,FALSE,not_found,,,,,Independent; co-founders Kent Yu and Julie Chung since 2004; hair tools
-TABBEAU,tabbeau,FALSE,FALSE,not_found,,,,,Parent unknown
+TABBEAU,tabbeau,FALSE,TRUE,not_found,TABBEAU PLACE LLC (self),TRUE,,,Parent unknown; LB cert under TABBEAU PLACE LLC (LB availability lists Ulta)
 TAD,tad,TRUE,FALSE,cf,,,,,Parent unknown
 Tallow Me Pretty,tallow-me-pretty,FALSE,FALSE,not_found,,,,,Parent unknown
 TAN-LUXE,tan-luxe,TRUE,FALSE,cf,Future Beauty Labs,UNKNOWN,,,"Future Beauty Labs (Marc Elrick); also owns Isle of Paradise, Tanologist"
@@ -889,7 +889,7 @@ Tory Burch,tory-burch,FALSE,FALSE,not_found,Shiseido,FALSE,,,Shiseido holds Tory
 Touchland,touchland,FALSE,TRUE,not_found,Church & Dwight,FALSE,,,Acquired by Church & Dwight 2025 ($880M)
 TPOB,tpob,FALSE,FALSE,not_found,,,,,Parent unknown
 Tree Hut,tree-hut,TRUE,FALSE,cf,Naterra,UNKNOWN,,,Naterra (Texas); also owns Baby Magic and bdy.
-Tricoci,tricoci,FALSE,FALSE,not_found,,,,,Parent unknown
+Tricoci,tricoci,FALSE,TRUE,not_found,,TRUE,,,Parent unknown; Tricoci Salon and Spa family business; LB cert under Tricoci Collection and TRICOCI SKIN
 Trilastin,trilastin,FALSE,TRUE,not_found,,,,,Parent unknown
 Triumph &amp; Disaster,triumph-disaster,FALSE,FALSE,not_found,,,,,Independent New Zealand brand
 True + Pure Texture,true-pure-texture,FALSE,FALSE,not_found,,,,,Parent unknown
@@ -963,7 +963,7 @@ Wrinkles Schminkles,wrinkles-schminkles,FALSE,FALSE,not_found,,,,,Independent; f
 WTHN,wthn,FALSE,FALSE,not_found,,,,,Parent unknown
 Wunderbrow,wunderbrow,FALSE,FALSE,not_found,KF Beauty (WUNDER2),UNKNOWN,,,KF Beauty (Michael Malinsky and Jon Davidman; London) parent of WUNDER2/Wunderbrow
 WYLYS,wylys,FALSE,FALSE,not_found,,,,,Parent unknown
-XMONDO,xmondo,FALSE,FALSE,not_found,,,,,Independent; founder Brad Mondo; YouTube-born hair care; self-funded
+XMONDO,xmondo,FALSE,TRUE,not_found,,TRUE,,,Independent; founder Brad Mondo; YouTube-born hair care; self-funded; LB cert under XMONDO Hair
 Yadah,yadah,FALSE,FALSE,not_found,,,,,Independent Korean brand
 Yoga Design Lab,yoga-design-lab,FALSE,FALSE,not_found,,,,,Parent unknown
 Youthforia,youthforia,FALSE,FALSE,not_found,,,,,CLOSED August 2025; founder Fiona Co Chan; True Beauty Ventures investor

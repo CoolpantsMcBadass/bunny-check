@@ -21,7 +21,10 @@ import { readFileSync, writeFileSync } from "fs";
 import os from "os";
 import path from "path";
 
-const CSV_PATH = path.join(os.homedir(), "Desktop", "ulta-brands-researched.csv");
+import { fileURLToPath } from "url";
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const CSV_PATH = path.join(__dirname, "../data/ulta-brands-researched.csv");
+const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "ulta-brands-researched.csv");
 const API = "https://crueltyfree.peta.org/wp-json/wp/v2/company";
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 const APPLY = process.argv.includes("--apply");
@@ -59,8 +62,14 @@ function parseCSV(text) {
 // ─── Name normalization ──────────────────────────────────────────────────────
 
 const SUFFIX = /\s+(cosmetics?|beauty|skincare|skin care|haircare|hair care|fragrances?|parfums?|naturals?|organics?|professional|inc\.?|llc\.?|ltd\.?|co\.?)\s*$/i;
+const ENTITIES = { "&amp;": "&", "&ndash;": "–", "&mdash;": "—", "&nbsp;": " ", "&quot;": '"', "&#039;": "'", "&apos;": "'" };
+function decodeEntities(s) {
+  return s.replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n))
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&\w+;/g, m => ENTITIES[m] ?? " ");
+}
 function norm(s) {
-  return s.normalize("NFD").replace(/[̀-ͯ]/g, "")
+  return decodeEntities(s).normalize("NFD").replace(/[̀-ͯ]/g, "")
     .toLowerCase().replace(/\s*\([^)]*\)/g, "").replace(/[®™©℗]/g, "")
     .replace(/['’]/g, "").replace(/[^\w\s-]/g, " ").replace(/\s+/g, " ").trim();
 }
@@ -71,7 +80,17 @@ function stems(name) {
   return out;
 }
 // exact = identical normalized names; suffix = equal after stripping ONE
-// category/legal suffix from one side. Anything else is "loose" (report-only).
+// category/legal suffix from one side; prefix = PETA title is the Ulta name
+// followed by a tail made entirely of generic category/legal words
+// (e.g. "jane iredale – THE SKIN CARE MAKEUP"). Anything else is "loose"
+// (report-only).
+const GENERIC_TAIL = new Set([
+  "the", "of", "and", "by", "skin", "care", "skincare", "makeup", "make",
+  "up", "cosmetics", "cosmetic", "beauty", "hair", "haircare", "fragrance",
+  "fragrances", "parfums", "professional", "collection", "company", "co",
+  "inc", "llc", "ltd", "brands", "brand", "laboratories", "labs", "usa",
+  "international",
+]);
 function matchQuality(ultaName, petaTitle) {
   const u = norm(ultaName), p = norm(petaTitle);
   if (u === p) return "exact";
@@ -79,6 +98,10 @@ function matchQuality(ultaName, petaTitle) {
   if (us.some(a => ps.includes(a))) {
     const stem = us.find(a => ps.includes(a));
     return (stem.includes(" ") || stem.length >= 6) ? "suffix" : "loose";
+  }
+  if ((u.includes(" ") || u.length >= 6) && p.startsWith(u + " ")) {
+    const tail = p.slice(u.length).trim().split(/\s+/);
+    if (tail.every(t => GENERIC_TAIL.has(t))) return "prefix";
   }
   return "loose";
 }
@@ -119,13 +142,17 @@ for (const row of candidates) {
   if (!hits.length) continue;
 
   // Best hit: highest match quality against the Ulta name.
-  const rank = { exact: 0, suffix: 1, loose: 2 };
+  const rank = { exact: 0, suffix: 1, prefix: 2, loose: 3 };
   const scored = hits
-    .map(h => ({ ...h, title: h.title?.rendered?.replace(/&#?\w+;/g, s => ({ "&amp;": "&", "&#8217;": "'", "&#8216;": "'" }[s] ?? " ")) ?? "", }))
+    .map(h => ({ ...h, title: decodeEntities(h.title?.rendered ?? "") }))
     .map(h => ({ ...h, q: matchQuality(row.brand_name, h.title) }))
     .sort((a, b) => rank[a.q] - rank[b.q]);
   const best = scored[0];
-  if (best.q === "loose") continue; // different company — not our brand
+  if (best.q === "loose") {
+    // Different company in all likelihood — report for manual review, no fetch.
+    console.log(`${row.ulta_slug}\t${best.title}\t${best.slug}\tloose\t-\tREVIEW`);
+    continue;
+  }
 
   const status = await pageH1Status(best.link);
   await new Promise(r => setTimeout(r, 200));
@@ -149,7 +176,8 @@ if (APPLY && corrections.length) {
     .concat(rows.map(r => header.map(h => quoteCell(r[h] ?? "")).join(",")))
     .join("\n") + "\n";
   writeFileSync(CSV_PATH, out, "utf8");
-  console.log(`Applied to ${CSV_PATH}. Now run: node scripts/build-ulta-brands-json.mjs`);
+  writeFileSync(DESKTOP_CSV, out, "utf8");
+  console.log(`Applied to ${CSV_PATH} (+ Desktop copy). Now run: node scripts/build-ulta-brands-json.mjs`);
 } else if (corrections.length) {
   console.log("Dry run — re-run with --apply to write the CSV.");
 }
