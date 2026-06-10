@@ -1,0 +1,359 @@
+2026-06-10 — v0.6.3: Fix tier-0 cross-card brand contamination; stop reparenting images; gate PDP fallback
+  - getUltaBrandFromAncestors: walk reduced 20 → 8 levels and now stops once an ancestor's
+    textContent exceeds 1200 chars (same single-card bound as tier-2). Previously the walk
+    reached grid/page-level containers where querySelector returns the FIRST brand element
+    in document order — a different product's brand, or a nav /brand/ link — so any image
+    whose own card lacked (or hadn't yet rendered) a brand element was badged with the
+    first brand on the page. This also silently defeated the v0.5.3/v0.5.5 empty-text
+    retry logic: tier1 was almost never empty, so hidden cards were mismatched or marked
+    done="0" permanently instead of being retried. Also a major perf win: no more
+    near-document-sized querySelector calls per image.
+  - getUltaBrandFromAncestors: additionally aborts when a selector matches MULTIPLE
+    distinct elements in the subtree (ancestor spans several cards, or a nav brand-link
+    list) — covers sparse early-render grids that are still under the 1200-char gate.
+    Nested matches (brandName wrapper around brandName span) count as one element.
+  - injectBadge: no longer moves the img into a wrapper span. Ulta's framework-rendered
+    DOM throws (NotFoundError on removeChild) or duplicates nodes when reparented children
+    are re-rendered. The badge host is now appended to the image's existing parent
+    (position:relative applied if static) and absolutely positioned at the image's
+    bottom-left via offsetLeft/offsetTop + translateY(-100%).
+  - New pruneBadges() (called at the start of every scanPage): removes badge hosts whose
+    img or host node was detached by a framework re-render, clears data-bunnycheck-done,
+    and lets the rescan re-badge the image — badges now survive hover-swap re-renders.
+  - PDP fallback (getUltaDetailPageBrand) now only fires for images with NO brand element
+    in their own card (new hasCardBrand flag from gatherNearbyText). Previously every
+    unmatched image on a /p/ page fell through to the page-level brand, so recommendation
+    carousel products ("you may also like") could be badged with the main product's brand.
+  - manifest.json version bumped to 0.6.3 (0.6.2 changelog entry shipped without a bump).
+  - README.md rewritten to match current state (Ulta-only scope, 319-brand DB, three-tier
+    matching, storage-direct init, scripts/data inventory, parent-warning badge).
+  - New scripts/smoke-test.mjs: Playwright test running the real matcher.js + content.js
+    against a synthetic Ulta-style grid with stubbed chrome.storage. Covers: correct badge
+    on a normal card, no cross-match for a text-less card (stays retry-able), no badge for
+    an uncertified brand, image never reparented, badge pruned after simulated re-render.
+    Run: node scripts/smoke-test.mjs (8 checks, exits non-zero on failure).
+  - Added .gitignore (node_modules, .DS_Store); initialized git repository.
+
+2026-06-08 — v0.6.2: Fix Estée Lauder false PETA badge
+  - Root cause: research-ulta-brands.mjs blindly trusts PETA's H1 text. PETA's site has Estée Lauder
+    listed with "is cruelty-free" — stale/incorrect data from before ELC entered China.
+    Because ELC is both the brand AND the parent that tests, it was getting a PETA badge + warning
+    simultaneously, which is self-contradictory.
+  - Fix: set peta=FALSE in ulta-brands-researched.csv for estee-lauder; rebuilt brands.json.
+    ELC no longer appears in DB (neither cert is true, so it's not included).
+  - Added PETA_DENYLIST to build-ulta-brands-json.mjs to block estee-lauder from being
+    re-added even if PETA's data remains wrong in future CSV regenerations.
+  - The other 33 brands with peta=TRUE + parent_cf_bad are correct (CF brand, bad parent).
+
+2026-06-08 — v0.6.1: Fix Sol de Janeiro PETA flag; add parent_cf_bad warning badge
+  - Sol de Janeiro: peta=FALSE was wrong — PETA's slug has a typo ("sol-de-janerio", missing second i),
+    so the research scraper got a 404 and the search fallback missed it. Fixed in ulta-brands-researched.csv
+    (peta=TRUE, peta_status=cf) and rebuilt brands.json.
+  - build-ulta-brands-json.mjs: now reads parent_cf and parent_company columns from CSV;
+    stores parent_cf_bad=true on brand entries where parent_cf="FALSE" (known sells in China)
+  - content.js: added parentWarnBadgeSVG() — amber (#b45309) badge reading "⚠ But... / parent tests"
+  - injectBadge(): when brandEntry.parent_cf_bad is true, appends the warning badge after CF badges
+    and adds "parent company ([name]) is not cruelty-free" to the screen-reader label
+  - 43 Ulta brands now show the warning alongside their CF badge:
+    Drunk Elephant (Shiseido), TATCHA (Unilever), First Aid Beauty (P&G), NYX (L'Oréal),
+    Sol de Janeiro (L'Occitane), TULA (P&G), FARMACY (P&G), KVD Beauty (LVMH), and 35 others
+
+2026-06-07 — v0.6.0: Limit extension to Ulta; rebuild data from Ulta-specific CSV; add tier-0 brand matching
+  - manifest.json: matches + host_permissions now scoped to https://www.ulta.com/* only
+  - New script: scripts/build-ulta-brands-json.mjs — builds brands.json from Desktop/ulta-brands-researched.csv
+    Produces 319 certified Ulta brands (PETA only: 171, LB only: 116, Both: 32)
+    Uses ulta_slug as the JSON key; adds slug-as-name alias for matcher
+    Includes &/and variants and accent-stripped aliases
+  - content.js: added ULTA_BRAND_SELECTORS array (Text-brandName, brandName, brand-name, data-testid, itemprop, a[href*="/brand/"])
+  - content.js: getUltaBrandFromAncestors() — walks up to 20 ancestor levels, queries each for a Ulta brand element;
+    result prepended to tier1 as the most reliable signal
+  - content.js: getUltaDetailPageBrand() — on /p/ URLs, queries the full document for the brand element;
+    called as a final fallback in tryBadgeElement when tier1+tier2 both miss (fixes PDP pages where
+    brand name is in a sibling column, structurally unrelated to the image gallery)
+
+2026-06-07 — Fixed peta flags; cleaned brands-master.csv and rebuilt brands.json
+  - Root cause: PETA's WP REST API returns all companies (CF + does-test combined);
+    old scraper had no filter, so does-test brands like Neutrogena entered peta-raw.txt
+    with peta=TRUE
+  - Fix: new script scripts/fix-peta-flags.mjs fetches all 6,837 companies from
+    PETA's API, distinguishes CF (product-type terms present) from does-test/may-not-be
+    (product-type=[]), and corrects brands-master.csv in-place
+  - 1,265 rows had peta flipped to FALSE; 1,223 removed (no cert); 42 kept (had LB)
+  - brands.json rebuilt: 7,630 unique entries
+    PETA only: 5,306 | LB only: 2,082 | Both: 242
+
+2026-06-07 — Rebuilt data/brands.json from bunny_DB/brands-master.csv
+  - New build script: scripts/build-brands-json.mjs
+  - Reads 8,859 brands from brands-master.csv (PETA + LB merged)
+  - Auto-generates aliases: strips ®/™/©, legal suffixes, category suffixes (Beauty/Cosmetics/etc.), accent variants
+  - Output: 8,852 unique brand entries (7 key collisions merged, certs OR-merged)
+    PETA only: 6,528 | LB only: 2,039 | Both: 285
+  - Extension schema unchanged; content.js / matcher.js / background.js untouched
+  - Later: switch source to bunny_DB/brands-researched.csv for full verdict/parent data
+
+2026-06-07 — v0.6.1: Parent company research — bulk source pass
+  - Checked Open Beauty Facts (brands_tags field): inconsistent, only annotates parent
+    when the product was manually entered with the parent in the brands field. Not reliable.
+  - Checked Good On You: no public API or bulk export.
+  - Queried Wikidata SPARQL (P127/P355/P749) for all subsidiaries of 12 bad parent companies.
+    Got 1,275 brand-parent pairs; 89 matched our CSV; 14 new confirmed bad-parent finds:
+      Aesop, Atelier Cologne, Clarisonic, Dermablend, Youth to the People → L'Oréal
+      The Ordinary → Estée Lauder
+      Coppertone, Eucerin → Beiersdorf
+      Benefit Cosmetics, Guerlain → LVMH
+      Drunk Elephant → Shiseido
+      OUAI → Procter & Gamble
+      Dollar Shave Club → Unilever
+      Secret → Procter & Gamble
+  - Skipped 4 stale/wrong Wikidata entries: The Body Shop (sold by L'Oréal 2017),
+    Fenty Beauty (Wikidata says Coty — incorrect), Miu Miu + Diesel (fragrance
+    licenses only, brands are Prada/OTB-owned).
+  - brands-master.csv: 8,859 brands, 166 bad, 28 gray, ~8,200 still unknown.
+  - Wikidata QIDs for reference: L'Oréal Q156077, Unilever Q157062, ELC Q1260606,
+    P&G Q212405, LVMH Q504998, Shiseido Q728185, Henkel Q276507, Coty Q1104787,
+    Beiersdorf Q201691, Clorox Q910368, Revlon Q1459595, Kao Q902855.
+2026-06-07 — v0.6.0: Add scripts/build-brand-csv.mjs — master brands CSV
+  - Merges peta-raw.txt (6,822) and lb-raw.txt (2,325) into a single CSV.
+  - Columns: brand_name, peta, leaping_bunny, parent_company, parent_status, notes
+  - Normalization: Unicode apostrophes (U+2018/2019) → straight, strip legal suffixes
+    (Inc./LLC/Ltd./Corp.) before matching so e.g. "e.l.f. Cosmetics" and
+    "e.l.f. Cosmetics, Inc." merge to one row.
+  - PETA names include parent company in parens — extracted into parent_company column.
+  - parent_status: "bad" (parent sells in China — L'Oréal, Estée Lauder, P&G, Unilever,
+    Shiseido, LVMH, Coty, Revlon, Henkel, Kao, Beiersdorf), "gray" (contested: Clorox,
+    Church & Dwight, Edgewell, Wella), "ok" (known clean), "unknown" (no parent data).
+  - Output: data/brands-master.csv and Desktop/brands-master.csv
+  - Result: 8,859 unique brands — 6,815 PETA, 2,324 LB, 280 certified by both.
+    152 bad-parent brands, 28 gray, 8,216 with no parent data yet.
+  - Run: node scripts/build-brand-csv.mjs
+2026-06-07 — v0.5.9: Add scripts/scrape-lb-names.mjs — clean Leaping Bunny brand name list
+  - LB site runs Drupal 10 (no REST API). Brands accessible by paginating
+    /shopping-guide?page=N — 198 brands/page, 12 pages (0–11), 153 on last page.
+  - Extracts brand names from <a href="/brand/..."> links, decodes HTML entities,
+    normalizes whitespace (website embeds double spaces in some names).
+  - Deduplicates 6 entries that appear twice in LB's own pagination.
+  - Cross-validated against existing LB.txt: 0 divergences after stripping LB.txt's
+    alphabetical section headers. One new brand ([ p H 7 ]) not in LB.txt — added
+    to LB's site after the file was created.
+  - Output: data/lb-raw.txt and Desktop/lb-raw.txt — 2,325 clean entries.
+  - Run: node scripts/scrape-lb-names.mjs
+2026-06-07 — v0.5.8: Add scripts/scrape-peta-names.mjs — clean PETA brand name list
+  - Uses PETA's WordPress REST API (wp-json/wp/v2/company) instead of slugs from sitemap.
+    API returns title.rendered — the real display name, not a lossy slug conversion.
+  - Fetches all 69 pages (100 brands/page) with concurrency 5 (~6,837 total).
+  - Decodes HTML entities (&#8217; → ', &amp; → &, etc.).
+  - Applies same DENYLIST as scrape-peta.mjs to filter known-bad entries.
+  - Deduplicates (10 API duplicates found: Sigma Beauty, Freeman Beauty, As I Am, etc.).
+  - Outputs sorted peta-raw.txt to data/ and Desktop/ — 6,822 clean entries.
+  - PETA embeds parent company in parens where known: "Burt's Bees (Clorox)",
+    "NYX Professional Makeup (L'Oreal)", "Cover Girl (Procter & Gamble)" etc.
+    This is the data needed for phase 2 parent-company filtering.
+  - Run: node scripts/scrape-peta-names.mjs
+2026-06-07 — v0.5.7: Add Leaping Bunny-only brands absent from PETA DB
+  - Root cause investigation: Cocokind appeared on Ulta with no badge. PETA page returns
+    404 — Cocokind is not PETA certified. It IS Leaping Bunny certified (since 2021).
+    Our DB was PETA-only, so any LB-only brand was systematically missing.
+  - Added cocokind (LB only, verified via leapingbunny.org).
+  - Added farmacy_beauty (LB only, Leaping Bunny certified since 2021).
+  - Added peach_lily (Peach & Lily, LB only, certified since 2020).
+  - Product-obsessed (Ulta hair accessories): confirmed NOT a beauty brand — no cert expected.
+  - Buttah Skin: cruelty-free/vegan by self-claim but no confirmed LB/PETA cert — not added.
+  - 6,839 brands total.
+2026-06-07 — v0.5.6: Fix corporate entity name mismatches (Rare Beauty, Sol de Janeiro)
+  - PETA sometimes registers the corporate entity name rather than the consumer brand name.
+    "Rare Beauty" is filed under slug "cosmetic-ventures" (Cosmetic Ventures LLC) — added
+    "rare beauty" alias. This is why it appeared absent despite being PETA-certified.
+  - Sol de Janeiro is listed under a PETA typo slug "sol-de-janerio" — fixed display_name
+    and added correct "sol de janeiro" alias.
+  - Versed, Kopari, Briogeo, Ouai, K18: confirmed NOT on PETA's list (Leaping Bunny only
+    or uncertified) — correctly absent from the DB.
+  - 6,836 brands total.
+2026-06-07 — v0.5.5: Fix CSS-hidden card race + systematic alias bugs in brand DB
+  CONTENT.JS:
+  - gatherNearbyText: when innerText is empty but textContent is not, the card body is
+    CSS-hidden (Ulta uses visibility:hidden during card reveal animations). Previously we
+    fell back to raw textContent which concatenates block elements without separators:
+    "essencePure Nude Highlighter" — prefix "essencePure" ≠ "essence" → false "0" mark.
+    Fix: if innerText is empty, break out of ancestor walk with empty tier2 — the existing
+    retry logic (unobserve + observedElements.delete) will re-process when card reveals.
+    This is the root cause of ~50% of Essence products and likely Dr. Squatch/others missing.
+
+  BRANDS DB:
+  - Removed 2 conflicting L'Oréal duplicate entries: nyx_professional_makeup_loreal and
+    urban_decay_loreal — these were re-added by the scraper and their clean aliases were
+    overwriting the correct standalone entries in the BrandMatcher map.
+  - Added "clean" short aliases to 226 entries where PETA scraper appended parent company
+    names to display_name (e.g. "Burts Bees Clorox" → alias "burts bees", "Acure Better
+    Planet Brands" → alias "acure", "Alba Botanica Hain Celestial" → alias "alba botanica",
+    "Mario Badescu Skin Care" → alias "mario badescu").
+  - Fixed Burt's Bees display_name (was "Burts Bees Clorox", now "Burt's Bees").
+  - Fixed Naturium display_name (was "Naturium E L F Cosmetics Inc.", now "Naturium").
+  - Added Tower 28 space variant aliases ("tower 28 beauty", "tower 28").
+  - Added Soap & Glory ampersand alias.
+  - NOTE: Rare Beauty is NOT on PETA's cruelty-free list — absent from all 7 sitemaps
+    (6,832 total slugs). Cannot badge what isn't certified.
+  - 6,836 brands total.
+2026-06-07 — v0.5.4: Re-scrape PETA database; add denylist to scraper; fix hardcoded date
+  - scrape-peta.mjs: added DENYLIST constant — prevents known bad PETA entries from being re-added
+    on future scrapes (Dior/LVMH, NARS reversed CF, Estée Lauder/L'Oréal China subsidiaries, retailers)
+  - scrape-peta.mjs: TODAY now uses new Date().toISOString() instead of hardcoded string
+  - Re-ran scraper: 47 new brands added (including NYX Professional Makeup), 6,838 total
+  - Future scrapes can be run any time to pick up newly listed PETA brands
+2026-06-07 — v0.5.3: Fix timing race causing ~70% of Essence products to miss badges; add NYX
+  - Root cause: Ulta reveals cards progressively (data-visible="false") so card body text may not exist
+    when IntersectionObserver fires on the image
+  - Fix: when both tier1 and tier2 return empty (no text found at all), unobserve + delete from
+    observedElements instead of marking "0" — next MutationObserver scan (fired when card text loads)
+    will re-observe and retry
+  - Moved intersectionObserver.unobserve() into tryBadgeElement for full flow control
+  - Added NYX Professional Makeup (aliases: NYX Cosmetics, NYX) — major gap in PETA DB; 6,791 brands
+2026-06-07 — v0.5.2: Use innerText first-line of card ancestor as T2 signal
+  - Ulta product images have no alt text and no <a> wrapper — previous T2 was always empty
+  - DOM inspection revealed the pal-c-ProductCard ancestor always has ~110-150 chars of text
+  - innerText of that ancestor starts with "Brand Product Name\n\nBrand\n\nProduct Name\n..."
+  - Taking the first non-empty line gives exactly "Brand Product Name" for prefix matching
+  - Walk uses textContent.length for efficiency; only calls innerText once on the card element
+  - <a>-with-text path kept for sites that do wrap images in product links
+  - Max card text threshold raised to 1200 chars to handle products with many shades
+2026-06-07 — v0.5.1: Use nearest <a> ancestor text as T2 brand signal
+  - gatherNearbyText T2 now walks up to the nearest <a> ancestor and reads its aria-label or textContent
+  - Product links on Ulta and most e-commerce sites always start with "Brand Product Name" — brand is the prefix
+  - matchWithPrefixes trims the prefix word-by-word to extract the brand without full text fuzzy matching
+  - Eliminated all sibling/branch walking, product card pattern matching, and text length thresholds
+  - Deduplication kept at 3 DOM levels for primary+hover image pairs
+2026-06-07 — v0.5.0: Replace findProductCardAncestor with sibling-walk text gathering
+  - gatherNearbyText now walks UP from the image collecting text from SIBLING branches at each level
+  - No more product card pattern matching, no text length thresholds — those were the source of all inconsistency
+  - Naturally finds brand labels that sit adjacent to the image (e.g. Ulta's brand span in ProductCardBody)
+  - Stops at nav/header/footer/banner/hero/promo/carousel to prevent matching promotional text
+  - Deduplication check kept at 3 DOM levels to handle primary+hover image pairs
+2026-06-07 — v0.4.8: Fix inconsistent badges on same-brand product rows
+  - Duplicate-badge check now walks only 3 DOM levels (not full card ancestor)
+  - Previously: findProductCardAncestor returning a row/section container caused first product to badge and all siblings to be skipped as "already badged"
+  - Now: only primary+hover pairs within the same tight image wrapper are deduplicated
+2026-06-07 — v0.4.7: Data + fuzzy matcher fixes from Ulta audit
+  - Removed dior — LVMH sells in China, not cruelty-free; bad PETA scrape entry
+  - Removed nars — reversed CF status in 2017 to enter China market; still on PETA list erroneously
+  - Both fuzzy substring checks now require word-boundary alignment at match start
+  - Fixes "IT Cosmetics" matching inside "benefit cosmetics" (idx=5, key[4]="f", not a boundary)
+  - 6,790 brands total
+2026-06-07 — v0.4.5: DOM event bridge for console audit tool
+  - Content script listens for "bunnycheck-audit-request" DOM event and dispatches "bunnycheck-audit-response" with full match results
+  - DOM events cross the content-script isolated-world boundary, allowing the DevTools console to trigger audits
+  - console-audit.js updated to use event bridge instead of window._bunnyMatcher (which is in the isolated world, invisible to page context)
+2026-06-07 — v0.4.4: Bypass service worker messaging — read storage directly from content script
+  - init() now calls chrome.storage.local.get("bunnycheck_brands") directly instead of sendMessage GET_BRANDS
+  - Fixes MV3 bug where Chrome closes the message channel before sendResponse fires
+  - Retries up to 3x with backoff in case storage isn't populated yet on first install
+2026-06-07 — v0.4.3: Retry init() on service worker startup failure
+  - init() now retries up to 3 times with 1s/2s/3s backoff if GET_BRANDS returns an error or empty response
+  - Handles MV3 service worker cold-start delay where worker isn't ready when content script first runs
+2026-06-06 — v0.4.2: Skip secondary images already covered by a badge in the same card
+  - tryBadgeElement now checks if any sibling img in the same product card already has a badge
+  - Prevents hover/alt-view images from getting a second badge overlay on the same product
+2026-06-06 — v0.4.1: Fix "New" → Newma false positive via reverse fuzzy
+  - Reverse fuzzy (key.includes(norm)) now requires norm.length >= 5, same gate as key length
+  - "new" (3 chars) no longer matches "newma" even though 3 >= 5*0.6; common words like "air", "gel", "lip" also blocked
+2026-06-06 — v0.4.0: Add upper text-length bound to block grid-level false positives; add debug logging
+  - findProductCardAncestor now requires 15 < textLen < 600 — single cards fit this range; grid containers with thousands of chars are skipped
+  - tryBadgeElement logs T1/T2 matches to console for diagnosis
+2026-06-06 — v0.3.9: Unified text-content gate for all product card signals
+  - Both stable-attr AND class-pattern matches now require textContent.length > 15 before stopping
+  - Previously stable-attr stopped immediately — on Target, data-test="ProductCardImage" has 0 chars and is just the image container; real card (ProductCardVariant) is 3 levels higher
+  - Now walks past ALL product-indicating elements with no text, stops at first with real content
+  - Playwright DOM audit confirmed Target/Ulta both have image-only sub-containers that match product signals but carry no text
+2026-06-06 — v0.3.8: Fix first-match stopping at image-only sub-containers
+  - Class/id pattern match now requires textContent.length > 15 before stopping
+  - Image-only sub-containers (e.g. ProductCardHeader__mainMedia) have zero text — walk skips them
+  - Real product cards have brand+title text and match; grid containers never reached because card matched first
+2026-06-06 — v0.3.7: Fix over-walking in findProductCardAncestor — prevent grid-level false positives
+  - Stable data attributes (data-sku-id, data-item-id, data-test*product, itemtype*Product) now stop the walk immediately — these are single-product identifiers so walking higher is never correct
+  - Class/id pattern matches now return on first match instead of highest match — prevents reaching a grid container that holds many products and picking up adjacent product text
+  - Fixes L'Oréal product line names ("shadow", "stick", "shimmer") fuzzy-matching CF brands in DB
+2026-06-06 — v0.2.6: Targeted brand-element matching to reduce false positives
+  - Tier2 now prioritizes brand-designated elements ([class*='brandName'], [data-brand], etc.) when present, skipping broad text scan entirely
+  - Fallback broad scan now caps text at 60 chars and only checks brand/label/maker class elements
+  - Added data-sku-id, data-item-id, data-test, data-comp to product card detection (catches Ulta's stable attributes)
+2026-06-06 — v0.3.6: Consistency fix + data cleanup
+  - findProductCardAncestor now walks to the HIGHEST matching ancestor (not first), so the full product card (brand+title+price) is used instead of sub-containers
+  - Removed 25 L'Oréal subsidiary entries — not cruelty-free, same issue as Estée Lauder
+  - Removed all debug logging; 6,792 brands total
+2026-06-06 — v0.2.5: Data quality + false positive fixes
+  - Removed 20 Estée Lauder brand entries (parent + subsidiaries) — EL sells in China and is not cruelty-free; PETA scrape pulled them via a lesser "Does Not Test" designation
+  - Removed sephora_cosmetics — retailer, not a brand
+  - findProductCardAncestor now returns null when no product card confirmed, fully activating two-tier matching; banners/footers no longer get tier2 DOM text
+  - 6,817 brands total
+2026-06-06 — v0.2.4: Two-tier text matching — image attributes match anywhere, DOM context text only inside confirmed product cards; fixes footer/banner false positives
+2026-06-06 — v0.2.3: Fix false positives via matcher length gating
+  - Fuzzy substring match now requires input text <= 2x the key length
+  - Prevents brand names buried in long banner/promo headlines from triggering
+2026-06-06 — v0.2.2: Fix false positives on banner/promo images
+  - findProductCardAncestor now returns null (not highest ancestor) when no product card confirmed
+  - Added PROMO_EXCLUSION_PATTERNS — banner/hero/carousel wrappers abort matching immediately
+  - tryBadgeElement skips images with no product card context and no brand-specific attributes
+  - Reduced MAX_ANCESTOR_WALK from 6 to 5
+2026-06-06 — v0.2.1: Deduplication pass — removed 3 duplicate entries (herbivore_botanicals, nars_cosmetics, colourpop_cosmetics), merged aliases into originals; 6,838 brands total
+2026-06-06 — v0.2.0: Expand brand database from 15 to 6,841 entries via PETA sitemap scraper
+  - Added scripts/scrape-peta.mjs — fetches all 7 PETA company sitemaps, converts slugs to display names, merges into brands.json
+  - All new entries marked peta:true, leaping_bunny:false (LB cross-reference pending)
+2026-06-06 — v0.1.1: Fix missing "alarms" permission — service worker was crashing on startup, stalling popup and badges
+2026-06-06 — v0.1.0: Initial scaffold
+  - manifest.json (MV3, storage permission, all_urls host)
+  - brands.json seeded with 15 cruelty-free brands (PETA/LB status verified)
+  - background.js: service worker, bundled data load, storage caching, remote refresh stub
+  - matcher.js: BrandMatcher class with exact + fuzzy alias matching
+  - content.js: img/bg-image scanner, Shadow DOM badge injection, MutationObserver + IntersectionObserver
+  - badges/peta-badge.svg, badges/lb-badge.svg
+  - popup/popup.html + popup.js: brand count, PETA/LB counts, data version, resource links
+  - data/SOURCES.md: documents PETA + Leaping Bunny data provenance
+  - icons/icon16.png, icon48.png, icon128.png: placeholder solid-green PNGs
+
+2026-06-07 – brands-researched.csv: brands 51–150 appended
+  - 100 brands researched and added (brands 8Greens through Afterglow Cosmetics)
+  - Method: direct web research (no parallel agents)
+  - Running totals: 150 brands researched
+    certified-clean: 127 | certified-gray: 5 | needs-review: 16 | data-error: 2
+    confidence: high 38 | medium 63 | low 49
+  - Notable findings:
+    - A.W.Faber-Castell S.A = Brazilian cosmetics division of German family-owned Faber-Castell
+    - Abbott = Abbott NYC (small eco brand), NOT Abbott Laboratories pharma
+    - Absolute Soap formerly called Product Body (prior name ≠ parent company)
+    - aboutface likely PETA data duplicate of about-face (both Halsey brand)
+    - ACE parent = Beauty by Imagination (BBI), ACON Investments PE-backed
+    - Acure parent = Better Planet Brands, family-founded/independent
+    - Aesop confirmed bad-parent (L'Oréal, acquired 2023)
+    - Abercrombie & Fitch: certified-gray (China stores but fragrances = general cosmetics, exempt post-2021)
+    - Acuvue: certified-gray (J&J MedTech; Kenvue spinoff 2023 complicates parent status)
+    - Affinage Professional: largest independently-owned CF professional haircare co. in AU/NZ
+    - af94 + about-face = both Halsey's indie brands
+
+2026-06-07 – brands-researched.csv: brands 151–250 appended
+  - 100 brands researched directly (no agents)
+  - Running totals: 250 brands researched
+    certified-clean: 221 | certified-gray: 8 | needs-review: 20 | data-error: 1
+  - Notable findings:
+    - AHAVA: BAD parent — acquired by Fosun International (Chinese conglomerate) 2016; sells in China
+    - AG Care: independent Canadian, largest indie professional haircare manufacturer in Canada
+    - Agave / Agave Healing Oil: both BioIonic brands under BBI (ACON Investments)
+    - Air Wick: certified-gray — parent Reckitt Benckiser tests on animals and sells in China
+    - Alba Botanica: certified-gray — Hain Celestial has China JV (though Alba Botanica itself not sold in China)
+    - Algenist: Tengram Capital PE-backed, not a bad parent
+    - AHAVA master CSV parent_status was "unknown" — corrected to "bad" (Fosun)
+    - Air Wick master CSV parent_status was "ok" — corrected to "bad" (Reckitt)
+
+2026-06-07 – brands-researched.csv: brands 251–450 appended
+  - 200 more brands researched directly
+  - Running totals: 450 brands | clean: ~410 | gray: ~14 | needs-review: ~22 | data-error: ~1
+  - Notable findings (251-450):
+    - Anna Sui: BAD parent — Kose Corporation (Japan) tests on animals for China market
+    - Aqua di Parma (= Acqua di Parma): BAD parent — LVMH
+    - Aramis: BAD parent — Estée Lauder
+    - Almay: BAD — Revlon
+    - Arbonne: GRAY — Groupe Rocher parent owns Yves Rocher (sells in China)
+    - Anua: GRAY — Korean brand, sells in China (general cosmetics, post-2021 exempt)
+    - Aquafresh: GRAY — Haleon (GSK spinoff 2022), China presence
+    - Amika: Bansk Group (PE, clean)
+    - Anastasia Beverly Hills: founder-controlled post-Jan 2026 recapitalization
+    - Ardell/Ardell Beauty: American International Industries (independent family co., clean)
+    - Arctic Fox Hair Color: independent, both PETA + LB
+    - Anomaly Haircare: Priyanka Chopra Jonas, independent

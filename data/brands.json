@@ -1,0 +1,3139 @@
+{
+  "107": {
+    "display_name": "107",
+    "ulta_slug": "107",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "abature": {
+    "display_name": "Abature",
+    "ulta_slug": "abature",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "about-face": {
+    "display_name": "about-face",
+    "ulta_slug": "about-face",
+    "aliases": [
+      "about face"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Celebrands",
+    "data_version": "2026-06-08"
+  },
+  "admire-my-skin": {
+    "display_name": "Admire My Skin",
+    "ulta_slug": "admire-my-skin",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "af94": {
+    "display_name": "af94",
+    "ulta_slug": "af94",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Celebrands",
+    "data_version": "2026-06-08"
+  },
+  "ag-care": {
+    "display_name": "AG Care",
+    "ulta_slug": "ag-care",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "ulta-beauty-collection": {
+    "display_name": "All Ulta Beauty Collection",
+    "ulta_slug": "ulta-beauty-collection",
+    "aliases": [
+      "ulta beauty collection"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Ulta Beauty",
+    "data_version": "2026-06-08"
+  },
+  "alleyoop": {
+    "display_name": "Alleyoop",
+    "ulta_slug": "alleyoop",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "amika": {
+    "display_name": "amika",
+    "ulta_slug": "amika",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Bansk Group",
+    "data_version": "2026-06-08"
+  },
+  "anastasia-beverly-hills": {
+    "display_name": "Anastasia Beverly Hills",
+    "ulta_slug": "anastasia-beverly-hills",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "andrew-fitzsimons": {
+    "display_name": "Andrew Fitzsimons",
+    "ulta_slug": "andrew-fitzsimons",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "anthony": {
+    "display_name": "Anthony",
+    "ulta_slug": "anthony",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Skyline Beauty Group",
+    "data_version": "2026-06-08"
+  },
+  "apothekary": {
+    "display_name": "Apothékary",
+    "ulta_slug": "apothekary",
+    "aliases": [
+      "Apothekary",
+      "apothekary"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "apotheke": {
+    "display_name": "APOTHEKE",
+    "ulta_slug": "apotheke",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "arctic-fox": {
+    "display_name": "Arctic Fox",
+    "ulta_slug": "arctic-fox",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "LG Household & Health Care",
+    "data_version": "2026-06-08"
+  },
+  "ascention-parfums": {
+    "display_name": "ASCENTION Parfums",
+    "ulta_slug": "ascention-parfums",
+    "aliases": [
+      "ASCENTION"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "atwater": {
+    "display_name": "ATWATER",
+    "ulta_slug": "atwater",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "axis-y": {
+    "display_name": "AXIS-Y",
+    "ulta_slug": "axis-y",
+    "aliases": [
+      "axis y"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "babe-original": {
+    "display_name": "Babe Original",
+    "ulta_slug": "babe-original",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "bali-body": {
+    "display_name": "Bali Body",
+    "ulta_slug": "bali-body",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "beautybio": {
+    "display_name": "BeautyBio",
+    "ulta_slug": "beautybio",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "beautyblender": {
+    "display_name": "beautyblender",
+    "ulta_slug": "beautyblender",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "beautystat-cosmetics": {
+    "display_name": "BeautyStat Cosmetics",
+    "ulta_slug": "beautystat-cosmetics",
+    "aliases": [
+      "BeautyStat"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "beekman-1802": {
+    "display_name": "Beekman 1802",
+    "ulta_slug": "beekman-1802",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Eurazeo Brands",
+    "data_version": "2026-06-08"
+  },
+  "being": {
+    "display_name": "being",
+    "ulta_slug": "being",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "bejou": {
+    "display_name": "Bejou",
+    "ulta_slug": "bejou",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "billie": {
+    "display_name": "billie",
+    "ulta_slug": "billie",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Edgewell Personal Care",
+    "data_version": "2026-06-08"
+  },
+  "bio-ionic": {
+    "display_name": "Bio Ionic",
+    "ulta_slug": "bio-ionic",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Beauty By Imagination (BBI)",
+    "data_version": "2026-06-08"
+  },
+  "biore": {
+    "display_name": "Bioré",
+    "ulta_slug": "biore",
+    "aliases": [
+      "Biore",
+      "biore"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Kao Corporation",
+    "data_version": "2026-06-08"
+  },
+  "biosilk": {
+    "display_name": "Biosilk",
+    "ulta_slug": "biosilk",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Farouk Systems",
+    "data_version": "2026-06-08"
+  },
+  "black-girl-sunscreen": {
+    "display_name": "Black Girl Sunscreen",
+    "ulta_slug": "black-girl-sunscreen",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "blinc": {
+    "display_name": "Blinc",
+    "ulta_slug": "blinc",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "blind-barber": {
+    "display_name": "Blind Barber",
+    "ulta_slug": "blind-barber",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "bloom": {
+    "display_name": "Bloom",
+    "ulta_slug": "bloom",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "bloomeffects": {
+    "display_name": "Bloomeffects",
+    "ulta_slug": "bloomeffects",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "blossom": {
+    "display_name": "BLOSSOM",
+    "ulta_slug": "blossom",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "blossom-essentials": {
+    "display_name": "Blossom Essentials",
+    "ulta_slug": "blossom-essentials",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "blume": {
+    "display_name": "BLUME",
+    "ulta_slug": "blume",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "bondi-sands": {
+    "display_name": "Bondi Sands",
+    "ulta_slug": "bondi-sands",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Kao Corporation",
+    "data_version": "2026-06-08"
+  },
+  "briogeo": {
+    "display_name": "Briogeo",
+    "ulta_slug": "briogeo",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "Henkel",
+    "data_version": "2026-06-08"
+  },
+  "bubble": {
+    "display_name": "Bubble",
+    "ulta_slug": "bubble",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "bushbalm": {
+    "display_name": "Bushbalm",
+    "ulta_slug": "bushbalm",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "buxom": {
+    "display_name": "Buxom",
+    "ulta_slug": "buxom",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Orveon",
+    "data_version": "2026-06-08"
+  },
+  "byoma": {
+    "display_name": "BYOMA",
+    "ulta_slug": "byoma",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Bansk Group",
+    "data_version": "2026-06-08"
+  },
+  "caldera-lab": {
+    "display_name": "Caldera + Lab",
+    "ulta_slug": "caldera-lab",
+    "aliases": [
+      "Caldera +",
+      "caldera lab"
+    ],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "california-naturals": {
+    "display_name": "California Naturals",
+    "ulta_slug": "california-naturals",
+    "aliases": [
+      "California"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "carols-daughter": {
+    "display_name": "Carol&#x27;s Daughter",
+    "ulta_slug": "carols-daughter",
+    "aliases": [
+      "carols daughter"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "L'Oréal SA",
+    "data_version": "2026-06-08"
+  },
+  "cayla-gray": {
+    "display_name": "Cayla Gray",
+    "ulta_slug": "cayla-gray",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "chi": {
+    "display_name": "CHI",
+    "ulta_slug": "chi",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Farouk Systems",
+    "data_version": "2026-06-08"
+  },
+  "china-glaze": {
+    "display_name": "China Glaze",
+    "ulta_slug": "china-glaze",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "American International Industries",
+    "data_version": "2026-06-08"
+  },
+  "cinema-secrets": {
+    "display_name": "Cinema Secrets",
+    "ulta_slug": "cinema-secrets",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "clarins": {
+    "display_name": "Clarins",
+    "ulta_slug": "clarins",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Clarins Group",
+    "data_version": "2026-06-08"
+  },
+  "cle-cosmetics": {
+    "display_name": "CLE Cosmetics",
+    "ulta_slug": "cle-cosmetics",
+    "aliases": [
+      "CLE"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "clean": {
+    "display_name": "Clean",
+    "ulta_slug": "clean",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "cleverman": {
+    "display_name": "Cleverman",
+    "ulta_slug": "cleverman",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "cocokind": {
+    "display_name": "cocokind",
+    "ulta_slug": "cocokind",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "colourpop": {
+    "display_name": "ColourPop",
+    "ulta_slug": "colourpop",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Seed Beauty",
+    "data_version": "2026-06-08"
+  },
+  "conair": {
+    "display_name": "Conair",
+    "ulta_slug": "conair",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Conair Corporation",
+    "data_version": "2026-06-08"
+  },
+  "coola": {
+    "display_name": "COOLA",
+    "ulta_slug": "coola",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "SC Johnson",
+    "data_version": "2026-06-08"
+  },
+  "corpus": {
+    "display_name": "CORPUS",
+    "ulta_slug": "corpus",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "covergirl": {
+    "display_name": "CoverGirl",
+    "ulta_slug": "covergirl",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "Coty",
+    "data_version": "2026-06-08"
+  },
+  "curlsmith": {
+    "display_name": "Curlsmith",
+    "ulta_slug": "curlsmith",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "Helen of Troy",
+    "data_version": "2026-06-08"
+  },
+  "dashing-diva": {
+    "display_name": "Dashing Diva",
+    "ulta_slug": "dashing-diva",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "KMC Exim",
+    "data_version": "2026-06-08"
+  },
+  "dehiya-beauty": {
+    "display_name": "Dehiya Beauty",
+    "ulta_slug": "dehiya-beauty",
+    "aliases": [
+      "Dehiya"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "derma-e": {
+    "display_name": "DERMA E",
+    "ulta_slug": "derma-e",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Topix Pharmaceuticals",
+    "data_version": "2026-06-08"
+  },
+  "dermablend": {
+    "display_name": "Dermablend",
+    "ulta_slug": "dermablend",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "L'Oréal SA",
+    "data_version": "2026-06-08"
+  },
+  "dermalogica": {
+    "display_name": "Dermalogica",
+    "ulta_slug": "dermalogica",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "Unilever",
+    "data_version": "2026-06-08"
+  },
+  "design-essentials": {
+    "display_name": "Design Essentials",
+    "ulta_slug": "design-essentials",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "McBride Research Laboratories",
+    "data_version": "2026-06-08"
+  },
+  "devacurl": {
+    "display_name": "DevaCurl",
+    "ulta_slug": "devacurl",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "Henkel",
+    "data_version": "2026-06-08"
+  },
+  "dime": {
+    "display_name": "DIME",
+    "ulta_slug": "dime",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "divi": {
+    "display_name": "Divi",
+    "ulta_slug": "divi",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "doll-10": {
+    "display_name": "Doll 10",
+    "ulta_slug": "doll-10",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "dore": {
+    "display_name": "Doré",
+    "ulta_slug": "dore",
+    "aliases": [
+      "Dore",
+      "dore"
+    ],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "dphue": {
+    "display_name": "dpHUE",
+    "ulta_slug": "dphue",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "dr-brandt": {
+    "display_name": "Dr. Brandt",
+    "ulta_slug": "dr-brandt",
+    "aliases": [
+      "dr brandt"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "dr-squatch": {
+    "display_name": "Dr. Squatch",
+    "ulta_slug": "dr-squatch",
+    "aliases": [
+      "dr squatch"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Unilever",
+    "data_version": "2026-06-08"
+  },
+  "drmtlgy": {
+    "display_name": "DRMTLGY",
+    "ulta_slug": "drmtlgy",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "drunk-elephant": {
+    "display_name": "Drunk Elephant",
+    "ulta_slug": "drunk-elephant",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "Shiseido",
+    "data_version": "2026-06-08"
+  },
+  "drybar": {
+    "display_name": "Drybar",
+    "ulta_slug": "drybar",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "Helen of Troy",
+    "data_version": "2026-06-08"
+  },
+  "elf-cosmetics": {
+    "display_name": "e.l.f. Cosmetics",
+    "ulta_slug": "elf-cosmetics",
+    "aliases": [
+      "e.l.f.",
+      "elf cosmetics"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "earth-harbor": {
+    "display_name": "Earth Harbor",
+    "ulta_slug": "earth-harbor",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "ecotools": {
+    "display_name": "EcoTools",
+    "ulta_slug": "ecotools",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Paris Presents (Yellow Wood Partners)",
+    "data_version": "2026-06-08"
+  },
+  "ellis-brooklyn": {
+    "display_name": "Ellis Brooklyn",
+    "ulta_slug": "ellis-brooklyn",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "eos": {
+    "display_name": "Eos",
+    "ulta_slug": "eos",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "ere-perez": {
+    "display_name": "Ere Perez",
+    "ulta_slug": "ere-perez",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "erly": {
+    "display_name": "ERLY",
+    "ulta_slug": "erly",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "esha": {
+    "display_name": "Esha",
+    "ulta_slug": "esha",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "essence": {
+    "display_name": "Essence",
+    "ulta_slug": "essence",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Cosnova GmbH",
+    "data_version": "2026-06-08"
+  },
+  "etude": {
+    "display_name": "ETUDE",
+    "ulta_slug": "etude",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "AmorePacific",
+    "data_version": "2026-06-08"
+  },
+  "eva-nyc": {
+    "display_name": "Eva Nyc",
+    "ulta_slug": "eva-nyc",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Bansk Group",
+    "data_version": "2026-06-08"
+  },
+  "eve-lom": {
+    "display_name": "Eve Lom",
+    "ulta_slug": "eve-lom",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Yatsen",
+    "data_version": "2026-06-08"
+  },
+  "evil-goods": {
+    "display_name": "Evil Goods",
+    "ulta_slug": "evil-goods",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "eyeko": {
+    "display_name": "Eyeko",
+    "ulta_slug": "eyeko",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "The Hut Group (THG)",
+    "data_version": "2026-06-08"
+  },
+  "farmacy": {
+    "display_name": "FARMACY",
+    "ulta_slug": "farmacy",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Procter & Gamble",
+    "data_version": "2026-06-08"
+  },
+  "first-aid-beauty": {
+    "display_name": "First Aid Beauty",
+    "ulta_slug": "first-aid-beauty",
+    "aliases": [
+      "First Aid"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Procter & Gamble",
+    "data_version": "2026-06-08"
+  },
+  "florence-by-mills": {
+    "display_name": "florence by mills",
+    "ulta_slug": "florence-by-mills",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "flowery": {
+    "display_name": "Flowery",
+    "ulta_slug": "flowery",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Columbia Manicure Manufacturing",
+    "data_version": "2026-06-08"
+  },
+  "frank-body": {
+    "display_name": "frank body",
+    "ulta_slug": "frank-body",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "fur": {
+    "display_name": "Fur",
+    "ulta_slug": "fur",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "garden-of-life": {
+    "display_name": "Garden of Life",
+    "ulta_slug": "garden-of-life",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Nestlé Health Science",
+    "data_version": "2026-06-08"
+  },
+  "gigi": {
+    "display_name": "Gigi",
+    "ulta_slug": "gigi",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "American International Industries (AII)",
+    "data_version": "2026-06-08"
+  },
+  "glamnetic": {
+    "display_name": "Glamnetic",
+    "ulta_slug": "glamnetic",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "glimmer-wish": {
+    "display_name": "Glimmer Wish",
+    "ulta_slug": "glimmer-wish",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "goli-nutrition": {
+    "display_name": "Goli Nutrition",
+    "ulta_slug": "goli-nutrition",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Group KPS / Bastion Capital",
+    "data_version": "2026-06-08"
+  },
+  "good-dye-young": {
+    "display_name": "Good Dye Young",
+    "ulta_slug": "good-dye-young",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "good-light": {
+    "display_name": "good light",
+    "ulta_slug": "good-light",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "good-molecules": {
+    "display_name": "Good Molecules",
+    "ulta_slug": "good-molecules",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "goop": {
+    "display_name": "goop",
+    "ulta_slug": "goop",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "grande-cosmetics": {
+    "display_name": "Grande Cosmetics",
+    "ulta_slug": "grande-cosmetics",
+    "aliases": [
+      "Grande"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Performance Beauty Group",
+    "data_version": "2026-06-08"
+  },
+  "hair": {
+    "display_name": "Hair+",
+    "ulta_slug": "hair",
+    "aliases": [
+      "hair"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "hairstory": {
+    "display_name": "Hairstory",
+    "ulta_slug": "hairstory",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "hairtamin": {
+    "display_name": "HAIRtamin",
+    "ulta_slug": "hairtamin",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "haleys-beauty": {
+    "display_name": "HALEYS Beauty",
+    "ulta_slug": "haleys-beauty",
+    "aliases": [
+      "HALEYS"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "hampton-sun": {
+    "display_name": "Hampton Sun",
+    "ulta_slug": "hampton-sun",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "hatch": {
+    "display_name": "Hatch",
+    "ulta_slug": "hatch",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Janie and Jack / Go Global Retail",
+    "data_version": "2026-06-08"
+  },
+  "hatch-mama": {
+    "display_name": "HATCH MAMA",
+    "ulta_slug": "hatch-mama",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Janie and Jack / Go Global Retail",
+    "data_version": "2026-06-08"
+  },
+  "hempz": {
+    "display_name": "Hempz",
+    "ulta_slug": "hempz",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "TSG Consumer Partners",
+    "data_version": "2026-06-08"
+  },
+  "hey-honey": {
+    "display_name": "Hey Honey",
+    "ulta_slug": "hey-honey",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "holo-taco": {
+    "display_name": "Holo Taco",
+    "ulta_slug": "holo-taco",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "homeworx": {
+    "display_name": "HomeWorx",
+    "ulta_slug": "homeworx",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "hot-tools": {
+    "display_name": "Hot Tools",
+    "ulta_slug": "hot-tools",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "Helen of Troy",
+    "data_version": "2026-06-08"
+  },
+  "house-of-lashes": {
+    "display_name": "House of Lashes",
+    "ulta_slug": "house-of-lashes",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "hypothesis": {
+    "display_name": "Hypothesis",
+    "ulta_slug": "hypothesis",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "i-dew-care": {
+    "display_name": "I Dew Care",
+    "ulta_slug": "i-dew-care",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Memebox (MBX)",
+    "data_version": "2026-06-08"
+  },
+  "im-from": {
+    "display_name": "I&#x27;m From",
+    "ulta_slug": "im-from",
+    "aliases": [
+      "im from"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "iconic-london": {
+    "display_name": "ICONIC LONDON",
+    "ulta_slug": "iconic-london",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "ilia": {
+    "display_name": "ILIA",
+    "ulta_slug": "ilia",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Famille C (Courtin-Clarins)",
+    "data_version": "2026-06-08"
+  },
+  "imarais-beauty": {
+    "display_name": "Imarais Beauty",
+    "ulta_slug": "imarais-beauty",
+    "aliases": [
+      "Imarais"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "in-common": {
+    "display_name": "In Common",
+    "ulta_slug": "in-common",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "inh-hair": {
+    "display_name": "inh HAIR",
+    "ulta_slug": "inh-hair",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "inked-by-dani": {
+    "display_name": "Inked by Dani",
+    "ulta_slug": "inked-by-dani",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "innersense-organic-beauty": {
+    "display_name": "Innersense Organic Beauty",
+    "ulta_slug": "innersense-organic-beauty",
+    "aliases": [
+      "Innersense Organic"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "iota": {
+    "display_name": "iota",
+    "ulta_slug": "iota",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "isima": {
+    "display_name": "isima",
+    "ulta_slug": "isima",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "it-cosmetics": {
+    "display_name": "IT Cosmetics",
+    "ulta_slug": "it-cosmetics",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "L'Oréal SA",
+    "data_version": "2026-06-08"
+  },
+  "jcat-beauty": {
+    "display_name": "J.Cat Beauty",
+    "ulta_slug": "jcat-beauty",
+    "aliases": [
+      "J.Cat",
+      "jcat beauty"
+    ],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "jack-black": {
+    "display_name": "Jack Black",
+    "ulta_slug": "jack-black",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Edgewell Personal Care",
+    "data_version": "2026-06-08"
+  },
+  "jack-henry": {
+    "display_name": "Jack Henry",
+    "ulta_slug": "jack-henry",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "jb-skrub": {
+    "display_name": "JB Skrub",
+    "ulta_slug": "jb-skrub",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "jill": {
+    "display_name": "Jill",
+    "ulta_slug": "jill",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "joico": {
+    "display_name": "Joico",
+    "ulta_slug": "joico",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Henkel",
+    "data_version": "2026-06-08"
+  },
+  "jolie": {
+    "display_name": "Jolie",
+    "ulta_slug": "jolie",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "jouer-cosmetics": {
+    "display_name": "Jouer Cosmetics",
+    "ulta_slug": "jouer-cosmetics",
+    "aliases": [
+      "Jouer"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "kahi": {
+    "display_name": "KAHI",
+    "ulta_slug": "kahi",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "kaja": {
+    "display_name": "Kaja",
+    "ulta_slug": "kaja",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Memebox (MBX)",
+    "data_version": "2026-06-08"
+  },
+  "kenra-professional": {
+    "display_name": "Kenra Professional",
+    "ulta_slug": "kenra-professional",
+    "aliases": [
+      "Kenra"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Henkel",
+    "data_version": "2026-06-08"
+  },
+  "kimchi-chic-beauty": {
+    "display_name": "KimChi Chic Beauty",
+    "ulta_slug": "kimchi-chic-beauty",
+    "aliases": [
+      "KimChi Chic"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "kiss": {
+    "display_name": "Kiss",
+    "ulta_slug": "kiss",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "American International Industries",
+    "data_version": "2026-06-08"
+  },
+  "kitsch": {
+    "display_name": "Kitsch",
+    "ulta_slug": "kitsch",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "knemo": {
+    "display_name": "Knemo",
+    "ulta_slug": "knemo",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "kopari-beauty": {
+    "display_name": "Kopari Beauty",
+    "ulta_slug": "kopari-beauty",
+    "aliases": [
+      "Kopari"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "korres": {
+    "display_name": "KORRES",
+    "ulta_slug": "korres",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "kristin-ess-hair": {
+    "display_name": "KRISTIN ESS HAIR",
+    "ulta_slug": "kristin-ess-hair",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Maesa",
+    "data_version": "2026-06-08"
+  },
+  "kvd-beauty": {
+    "display_name": "KVD Beauty",
+    "ulta_slug": "kvd-beauty",
+    "aliases": [
+      "KVD"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "LVMH",
+    "data_version": "2026-06-08"
+  },
+  "la-girl": {
+    "display_name": "L.A. Girl",
+    "ulta_slug": "la-girl",
+    "aliases": [
+      "la girl"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Beauty 21 Cosmetics",
+    "data_version": "2026-06-08"
+  },
+  "lake-skye": {
+    "display_name": "Lake &amp; Skye",
+    "ulta_slug": "lake-skye",
+    "aliases": [
+      "lake skye"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Tru Fragrance & Beauty",
+    "data_version": "2026-06-08"
+  },
+  "lalarecipe": {
+    "display_name": "LALARECIPE",
+    "ulta_slug": "lalarecipe",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "lamik-beauty": {
+    "display_name": "LAMIK Beauty",
+    "ulta_slug": "lamik-beauty",
+    "aliases": [
+      "LAMIK"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "laura-geller": {
+    "display_name": "LAURA GELLER",
+    "ulta_slug": "laura-geller",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "AS Beauty",
+    "data_version": "2026-06-08"
+  },
+  "leonor-greyl": {
+    "display_name": "Leonor Greyl",
+    "ulta_slug": "leonor-greyl",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "lime-crime": {
+    "display_name": "Lime Crime",
+    "ulta_slug": "lime-crime",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Tengram Capital Partners",
+    "data_version": "2026-06-08"
+  },
+  "live-tinted": {
+    "display_name": "Live Tinted",
+    "ulta_slug": "live-tinted",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "living-proof": {
+    "display_name": "Living Proof",
+    "ulta_slug": "living-proof",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Unilever",
+    "data_version": "2026-06-08"
+  },
+  "lola": {
+    "display_name": "LOLA",
+    "ulta_slug": "lola",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "lolavie": {
+    "display_name": "LolaVie",
+    "ulta_slug": "lolavie",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "londontown": {
+    "display_name": "Londontown",
+    "ulta_slug": "londontown",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "loops": {
+    "display_name": "LOOPS",
+    "ulta_slug": "loops",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Syllable",
+    "data_version": "2026-06-08"
+  },
+  "love-pebble": {
+    "display_name": "Love &amp; Pebble",
+    "ulta_slug": "love-pebble",
+    "aliases": [
+      "love pebble"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "love-indus": {
+    "display_name": "Love, Indus",
+    "ulta_slug": "love-indus",
+    "aliases": [
+      "love indus"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "lume": {
+    "display_name": "Lume",
+    "ulta_slug": "lume",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Harry's Inc.",
+    "data_version": "2026-06-08"
+  },
+  "luna-nectar": {
+    "display_name": "Luna Nectar",
+    "ulta_slug": "luna-nectar",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "lush": {
+    "display_name": "LUSH",
+    "ulta_slug": "lush",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "mad-hippie": {
+    "display_name": "Mad Hippie",
+    "ulta_slug": "mad-hippie",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "madison-reed": {
+    "display_name": "Madison Reed",
+    "ulta_slug": "madison-reed",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "manucurist": {
+    "display_name": "Manucurist",
+    "ulta_slug": "manucurist",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "maryruths": {
+    "display_name": "MaryRuth&#x27;s",
+    "ulta_slug": "maryruths",
+    "aliases": [
+      "maryruths"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "masami": {
+    "display_name": "Masami",
+    "ulta_slug": "masami",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "mdsolarsciences": {
+    "display_name": "MDSolarSciences",
+    "ulta_slug": "mdsolarsciences",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "mediheal": {
+    "display_name": "MEDIHEAL",
+    "ulta_slug": "mediheal",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "L&P Cosmetics",
+    "data_version": "2026-06-08"
+  },
+  "method": {
+    "display_name": "method",
+    "ulta_slug": "method",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "SC Johnson",
+    "data_version": "2026-06-08"
+  },
+  "miami-beach-bum": {
+    "display_name": "Miami Beach Bum",
+    "ulta_slug": "miami-beach-bum",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "michael-todd-beauty": {
+    "display_name": "Michael Todd Beauty",
+    "ulta_slug": "michael-todd-beauty",
+    "aliases": [
+      "Michael Todd"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "miko": {
+    "display_name": "Miko",
+    "ulta_slug": "miko",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "milani": {
+    "display_name": "Milani",
+    "ulta_slug": "milani",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Gryphon Investors",
+    "data_version": "2026-06-08"
+  },
+  "milk-makeup": {
+    "display_name": "MILK MAKEUP",
+    "ulta_slug": "milk-makeup",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Waldencast",
+    "data_version": "2026-06-08"
+  },
+  "mixed-chicks": {
+    "display_name": "Mixed Chicks",
+    "ulta_slug": "mixed-chicks",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "monday-haircare": {
+    "display_name": "MONDAY Haircare",
+    "ulta_slug": "monday-haircare",
+    "aliases": [
+      "MONDAY"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "moon": {
+    "display_name": "Moon",
+    "ulta_slug": "moon",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "moon-juice": {
+    "display_name": "Moon Juice",
+    "ulta_slug": "moon-juice",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "moroccanoil": {
+    "display_name": "Moroccanoil",
+    "ulta_slug": "moroccanoil",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "morphe": {
+    "display_name": "Morphe",
+    "ulta_slug": "morphe",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Forma Brands",
+    "data_version": "2026-06-08"
+  },
+  "mount-lai": {
+    "display_name": "Mount Lai",
+    "ulta_slug": "mount-lai",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "murad": {
+    "display_name": "Murad",
+    "ulta_slug": "murad",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Unilever",
+    "data_version": "2026-06-08"
+  },
+  "nabla": {
+    "display_name": "NABLA",
+    "ulta_slug": "nabla",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "nail-tek": {
+    "display_name": "Nail Tek",
+    "ulta_slug": "nail-tek",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "American International Industries (AII)",
+    "data_version": "2026-06-08"
+  },
+  "nails-inc": {
+    "display_name": "Nails Inc.",
+    "ulta_slug": "nails-inc",
+    "aliases": [
+      "Nails",
+      "nails inc"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Pacific World Corporation",
+    "data_version": "2026-06-08"
+  },
+  "nair": {
+    "display_name": "Nair",
+    "ulta_slug": "nair",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Church & Dwight",
+    "data_version": "2026-06-08"
+  },
+  "naked-sundays": {
+    "display_name": "Naked Sundays",
+    "ulta_slug": "naked-sundays",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "nakery-beauty": {
+    "display_name": "NAKERY BEAUTY",
+    "ulta_slug": "nakery-beauty",
+    "aliases": [
+      "NAKERY"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "nassifmd-skincare": {
+    "display_name": "NassifMD Skincare",
+    "ulta_slug": "nassifmd-skincare",
+    "aliases": [
+      "NassifMD"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "naturium": {
+    "display_name": "Naturium",
+    "ulta_slug": "naturium",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "e.l.f. Beauty",
+    "data_version": "2026-06-08"
+  },
+  "nest-new-york": {
+    "display_name": "NEST New York",
+    "ulta_slug": "nest-new-york",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "North Castle Partners",
+    "data_version": "2026-06-08"
+  },
+  "nick-stenson-beauty": {
+    "display_name": "Nick Stenson Beauty",
+    "ulta_slug": "nick-stenson-beauty",
+    "aliases": [
+      "Nick Stenson"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "nimbi": {
+    "display_name": "Nimbi",
+    "ulta_slug": "nimbi",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "nopalera": {
+    "display_name": "Nopalera",
+    "ulta_slug": "nopalera",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "noto-botanics": {
+    "display_name": "NOTO Botanics",
+    "ulta_slug": "noto-botanics",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "noyz": {
+    "display_name": "NOYZ",
+    "ulta_slug": "noyz",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "nudestix": {
+    "display_name": "NUDESTIX",
+    "ulta_slug": "nudestix",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "nutrafol": {
+    "display_name": "NUTRAFOL",
+    "ulta_slug": "nutrafol",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "Unilever",
+    "data_version": "2026-06-08"
+  },
+  "nyx-professional-makeup": {
+    "display_name": "NYX Professional Makeup",
+    "ulta_slug": "nyx-professional-makeup",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "L'Oréal SA",
+    "data_version": "2026-06-08"
+  },
+  "oak-essentials": {
+    "display_name": "Oak Essentials",
+    "ulta_slug": "oak-essentials",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "ocoa": {
+    "display_name": "OCOA",
+    "ulta_slug": "ocoa",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "octavia-morgan-los-angeles": {
+    "display_name": "OCTAVIA MORGAN LOS ANGELES",
+    "ulta_slug": "octavia-morgan-los-angeles",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "odele": {
+    "display_name": "Odele",
+    "ulta_slug": "odele",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "ofra-cosmetics": {
+    "display_name": "Ofra Cosmetics",
+    "ulta_slug": "ofra-cosmetics",
+    "aliases": [
+      "Ofra"
+    ],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "ogee": {
+    "display_name": "Ogee",
+    "ulta_slug": "ogee",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "oh-k": {
+    "display_name": "Oh K!",
+    "ulta_slug": "oh-k",
+    "aliases": [
+      "oh k"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "onekind": {
+    "display_name": "Onekind",
+    "ulta_slug": "onekind",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "opi": {
+    "display_name": "OPI",
+    "ulta_slug": "opi",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Coty",
+    "data_version": "2026-06-08"
+  },
+  "orebella": {
+    "display_name": "Orebella",
+    "ulta_slug": "orebella",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Celebrands",
+    "data_version": "2026-06-08"
+  },
+  "orly": {
+    "display_name": "Orly",
+    "ulta_slug": "orly",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "osea": {
+    "display_name": "OSEA",
+    "ulta_slug": "osea",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "General Atlantic",
+    "data_version": "2026-06-08"
+  },
+  "ouai": {
+    "display_name": "OUAI",
+    "ulta_slug": "ouai",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "Procter & Gamble",
+    "data_version": "2026-06-08"
+  },
+  "ouidad": {
+    "display_name": "Ouidad",
+    "ulta_slug": "ouidad",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Beauty By Imagination (BBI)",
+    "data_version": "2026-06-08"
+  },
+  "pacifica": {
+    "display_name": "Pacifica",
+    "ulta_slug": "pacifica",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "palladio-beauty": {
+    "display_name": "Palladio Beauty",
+    "ulta_slug": "palladio-beauty",
+    "aliases": [
+      "Palladio"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "party-of-you": {
+    "display_name": "Party of You",
+    "ulta_slug": "party-of-you",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "patchology": {
+    "display_name": "Patchology",
+    "ulta_slug": "patchology",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Rare Beauty Brands",
+    "data_version": "2026-06-08"
+  },
+  "pattern": {
+    "display_name": "PATTERN",
+    "ulta_slug": "pattern",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "paume": {
+    "display_name": "PAUME",
+    "ulta_slug": "paume",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "peace-out": {
+    "display_name": "Peace Out",
+    "ulta_slug": "peace-out",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "peach-lily": {
+    "display_name": "PEACH &amp; LILY",
+    "ulta_slug": "peach-lily",
+    "aliases": [
+      "peach lily"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "peach-slices": {
+    "display_name": "Peach Slices",
+    "ulta_slug": "peach-slices",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Peach & Lily",
+    "data_version": "2026-06-08"
+  },
+  "persona": {
+    "display_name": "Persona",
+    "ulta_slug": "persona",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "pinrose": {
+    "display_name": "Pinrose",
+    "ulta_slug": "pinrose",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "plantkos": {
+    "display_name": "Plantkos",
+    "ulta_slug": "plantkos",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "playground": {
+    "display_name": "Playground",
+    "ulta_slug": "playground",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "plu": {
+    "display_name": "PLU",
+    "ulta_slug": "plu",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "polite-society": {
+    "display_name": "Polite Society",
+    "ulta_slug": "polite-society",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "poopourri": {
+    "display_name": "Poo~Pourri",
+    "ulta_slug": "poopourri",
+    "aliases": [
+      "poopourri"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "poppy-pout": {
+    "display_name": "Poppy &amp; Pout",
+    "ulta_slug": "poppy-pout",
+    "aliases": [
+      "poppy pout"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "pound-cake": {
+    "display_name": "POUND CAKE",
+    "ulta_slug": "pound-cake",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "prai-beauty": {
+    "display_name": "PRAI Beauty",
+    "ulta_slug": "prai-beauty",
+    "aliases": [
+      "PRAI"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Luxury Brands LLC",
+    "data_version": "2026-06-08"
+  },
+  "pur-minerals": {
+    "display_name": "PÜR Minerals",
+    "ulta_slug": "pur-minerals",
+    "aliases": [
+      "PUR Minerals",
+      "pur minerals"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Astral Brands",
+    "data_version": "2026-06-08"
+  },
+  "pura": {
+    "display_name": "Pura",
+    "ulta_slug": "pura",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "queen-cosmetics": {
+    "display_name": "Queen Cosmetics",
+    "ulta_slug": "queen-cosmetics",
+    "aliases": [
+      "Queen"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "rem-beauty": {
+    "display_name": "r.e.m. beauty",
+    "ulta_slug": "rem-beauty",
+    "aliases": [
+      "r.e.m.",
+      "rem beauty"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "rael": {
+    "display_name": "Rael",
+    "ulta_slug": "rael",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "rare-beauty": {
+    "display_name": "Rare Beauty",
+    "ulta_slug": "rare-beauty",
+    "aliases": [
+      "Rare"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "real-techniques": {
+    "display_name": "Real Techniques",
+    "ulta_slug": "real-techniques",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "PPI Beauty (Paris Presents)",
+    "data_version": "2026-06-08"
+  },
+  "returnu": {
+    "display_name": "Returnu",
+    "ulta_slug": "returnu",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "reuzel": {
+    "display_name": "REUZEL",
+    "ulta_slug": "reuzel",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "rizos-curls": {
+    "display_name": "Rizos Curls",
+    "ulta_slug": "rizos-curls",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "rms-beauty": {
+    "display_name": "RMS Beauty",
+    "ulta_slug": "rms-beauty",
+    "aliases": [
+      "RMS"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Highlander Partners",
+    "data_version": "2026-06-08"
+  },
+  "rodan-fields": {
+    "display_name": "RODAN + FIELDS",
+    "ulta_slug": "rodan-fields",
+    "aliases": [
+      "rodan fields"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "rosen": {
+    "display_name": "ROSEN",
+    "ulta_slug": "rosen",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "rosy-earnest": {
+    "display_name": "Rosy &amp; Earnest",
+    "ulta_slug": "rosy-earnest",
+    "aliases": [
+      "rosy earnest"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "rovectin": {
+    "display_name": "Rovectin",
+    "ulta_slug": "rovectin",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "rude": {
+    "display_name": "Rude",
+    "ulta_slug": "rude",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "sabrina-carpenter": {
+    "display_name": "Sabrina Carpenter",
+    "ulta_slug": "sabrina-carpenter",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Scent Beauty",
+    "data_version": "2026-06-08"
+  },
+  "sacheu": {
+    "display_name": "SACHEU",
+    "ulta_slug": "sacheu",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "saje-natural-wellness": {
+    "display_name": "Saje Natural Wellness",
+    "ulta_slug": "saje-natural-wellness",
+    "aliases": [
+      "Saje Natural"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "sand-sky": {
+    "display_name": "Sand and Sky",
+    "ulta_slug": "sand-sky",
+    "aliases": [
+      "sand sky",
+      "Sand & Sky"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "sara-happ": {
+    "display_name": "Sara Happ",
+    "ulta_slug": "sara-happ",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "BGM Ventures",
+    "data_version": "2026-06-08"
+  },
+  "seche": {
+    "display_name": "Seche",
+    "ulta_slug": "seche",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "seen": {
+    "display_name": "SEEN",
+    "ulta_slug": "seen",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "seoul-ceuticals": {
+    "display_name": "Seoul Ceuticals",
+    "ulta_slug": "seoul-ceuticals",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "sexy-hair": {
+    "display_name": "Sexy Hair",
+    "ulta_slug": "sexy-hair",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Henkel",
+    "data_version": "2026-06-08"
+  },
+  "sickscience-labs": {
+    "display_name": "SickScience Labs",
+    "ulta_slug": "sickscience-labs",
+    "aliases": [
+      "SickScience"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "skyn-iceland": {
+    "display_name": "Skyn Iceland",
+    "ulta_slug": "skyn-iceland",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Amerikas",
+    "data_version": "2026-06-08"
+  },
+  "snif": {
+    "display_name": "Snif",
+    "ulta_slug": "snif",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "soapbox": {
+    "display_name": "Soapbox",
+    "ulta_slug": "soapbox",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Impact Driven Brands",
+    "data_version": "2026-06-08"
+  },
+  "sol-de-janeiro": {
+    "display_name": "Sol de Janeiro",
+    "ulta_slug": "sol-de-janeiro",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "L'Occitane Group",
+    "data_version": "2026-06-08"
+  },
+  "spectrum": {
+    "display_name": "Spectrum",
+    "ulta_slug": "spectrum",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "starface": {
+    "display_name": "STARFACE",
+    "ulta_slug": "starface",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "stila": {
+    "display_name": "Stila",
+    "ulta_slug": "stila",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Bardin Hill Capital",
+    "data_version": "2026-06-08"
+  },
+  "sun-bum": {
+    "display_name": "Sun Bum",
+    "ulta_slug": "sun-bum",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "SC Johnson",
+    "data_version": "2026-06-08"
+  },
+  "sunday-riley": {
+    "display_name": "SUNDAY RILEY",
+    "ulta_slug": "sunday-riley",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "supergoop": {
+    "display_name": "Supergoop!",
+    "ulta_slug": "supergoop",
+    "aliases": [
+      "supergoop"
+    ],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Blackstone",
+    "data_version": "2026-06-08"
+  },
+  "supersmile": {
+    "display_name": "Supersmile",
+    "ulta_slug": "supersmile",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "supply-co": {
+    "display_name": "Supply Co.",
+    "ulta_slug": "supply-co",
+    "aliases": [
+      "Supply",
+      "supply co"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "surface-deep": {
+    "display_name": "Surface Deep",
+    "ulta_slug": "surface-deep",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "tad": {
+    "display_name": "TAD",
+    "ulta_slug": "tad",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "tan-luxe": {
+    "display_name": "TAN-LUXE",
+    "ulta_slug": "tan-luxe",
+    "aliases": [
+      "tan luxe"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Future Beauty Labs",
+    "data_version": "2026-06-08"
+  },
+  "tangle-teezer": {
+    "display_name": "Tangle Teezer",
+    "ulta_slug": "tangle-teezer",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "BIC",
+    "data_version": "2026-06-08"
+  },
+  "tatcha": {
+    "display_name": "TATCHA",
+    "ulta_slug": "tatcha",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Unilever",
+    "data_version": "2026-06-08"
+  },
+  "teluris": {
+    "display_name": "Teluris",
+    "ulta_slug": "teluris",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "thayers": {
+    "display_name": "Thayers",
+    "ulta_slug": "thayers",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "L'Oréal SA",
+    "data_version": "2026-06-08"
+  },
+  "creme-shop": {
+    "display_name": "The Crème Shop",
+    "ulta_slug": "creme-shop",
+    "aliases": [
+      "The Creme Shop",
+      "creme shop"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "LG H&H (LG Household & Health Care)",
+    "data_version": "2026-06-08"
+  },
+  "good-patch": {
+    "display_name": "The Good Patch",
+    "ulta_slug": "good-patch",
+    "aliases": [
+      "good patch"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "La Mend, Inc.",
+    "data_version": "2026-06-08"
+  },
+  "organic-skin-co": {
+    "display_name": "The Organic Skin Co.",
+    "ulta_slug": "organic-skin-co",
+    "aliases": [
+      "The Organic Skin",
+      "organic skin co"
+    ],
+    "peta": true,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "route": {
+    "display_name": "THE ROUTE",
+    "ulta_slug": "route",
+    "aliases": [
+      "route"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "vintage-cosmetic-company": {
+    "display_name": "The Vintage Cosmetic Company",
+    "ulta_slug": "vintage-cosmetic-company",
+    "aliases": [
+      "vintage cosmetic company"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "tonymoly": {
+    "display_name": "TONYMOLY",
+    "ulta_slug": "tonymoly",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "touchland": {
+    "display_name": "Touchland",
+    "ulta_slug": "touchland",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "Church & Dwight",
+    "data_version": "2026-06-08"
+  },
+  "tree-hut": {
+    "display_name": "Tree Hut",
+    "ulta_slug": "tree-hut",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Naterra",
+    "data_version": "2026-06-08"
+  },
+  "trilastin": {
+    "display_name": "Trilastin",
+    "ulta_slug": "trilastin",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "truly": {
+    "display_name": "Truly",
+    "ulta_slug": "truly",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "tula": {
+    "display_name": "TULA",
+    "ulta_slug": "tula",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "Procter & Gamble",
+    "data_version": "2026-06-08"
+  },
+  "undefined-beauty": {
+    "display_name": "Undefined Beauty",
+    "ulta_slug": "undefined-beauty",
+    "aliases": [
+      "Undefined"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "unite-hair": {
+    "display_name": "UNITE Hair",
+    "ulta_slug": "unite-hair",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "urban-skin-rx": {
+    "display_name": "Urban Skin Rx",
+    "ulta_slug": "urban-skin-rx",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "American Exchange Group",
+    "data_version": "2026-06-08"
+  },
+  "urban-veda": {
+    "display_name": "Urban Veda",
+    "ulta_slug": "urban-veda",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "vacation": {
+    "display_name": "Vacation",
+    "ulta_slug": "vacation",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "vahy": {
+    "display_name": "Vahy",
+    "ulta_slug": "vahy",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "verb": {
+    "display_name": "Verb",
+    "ulta_slug": "verb",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Moroccanoil",
+    "data_version": "2026-06-08"
+  },
+  "veriphy-skincare": {
+    "display_name": "Veriphy Skincare",
+    "ulta_slug": "veriphy-skincare",
+    "aliases": [
+      "Veriphy"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "versed": {
+    "display_name": "Versed",
+    "ulta_slug": "versed",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Sonoma Brands",
+    "data_version": "2026-06-08"
+  },
+  "virtue": {
+    "display_name": "Virtue",
+    "ulta_slug": "virtue",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Combe Inc.",
+    "data_version": "2026-06-08"
+  },
+  "vivaiodays": {
+    "display_name": "VIVAIODAYS",
+    "ulta_slug": "vivaiodays",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "voesh": {
+    "display_name": "VOESH",
+    "ulta_slug": "voesh",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "volition": {
+    "display_name": "VOLITION",
+    "ulta_slug": "volition",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "vt-cosmetics": {
+    "display_name": "VT Cosmetics",
+    "ulta_slug": "vt-cosmetics",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "well-people": {
+    "display_name": "Well People",
+    "ulta_slug": "well-people",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "e.l.f. Beauty",
+    "data_version": "2026-06-08"
+  },
+  "wet-brush": {
+    "display_name": "Wet Brush",
+    "ulta_slug": "wet-brush",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Beauty By Imagination (BBI)",
+    "data_version": "2026-06-08"
+  },
+  "wet-n-wild": {
+    "display_name": "Wet n Wild",
+    "ulta_slug": "wet-n-wild",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Markwins Beauty Brands",
+    "data_version": "2026-06-08"
+  },
+  "wildfleur": {
+    "display_name": "Wildfleur",
+    "ulta_slug": "wildfleur",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  },
+  "winky-lux": {
+    "display_name": "Winky Lux",
+    "ulta_slug": "winky-lux",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "CORE Industrial Partners",
+    "data_version": "2026-06-08"
+  },
+  "womaness": {
+    "display_name": "Womaness",
+    "ulta_slug": "womaness",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-08"
+  }
+}

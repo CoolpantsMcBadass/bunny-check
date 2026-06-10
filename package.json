@@ -1,0 +1,16 @@
+{
+  "name": "bunny-check",
+  "version": "1.0.0",
+  "description": "A Chrome MV3 extension that detects cruelty-free beauty brand names near product images on any webpage and overlays **PETA Cruelty-Free** and **Leaping Bunny** certification badges on those images.",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.60.0"
+  }
+}

@@ -1,0 +1,163 @@
+// BunnyCheck — build-ulta-brands-json.mjs
+// Builds data/brands.json from Desktop/ulta-brands-researched.csv.
+// Only includes brands certified by PETA or Leaping Bunny (peta=TRUE or leaping_bunny=TRUE).
+//
+// Run with: node scripts/build-ulta-brands-json.mjs
+
+import { readFileSync, writeFileSync } from "fs";
+import { fileURLToPath } from "url";
+import path from "path";
+import os from "os";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const CSV_PATH  = path.join(os.homedir(), "Desktop", "ulta-brands-researched.csv");
+const OUT_PATH  = path.join(__dirname, "../data/brands.json");
+const VERSION   = new Date().toISOString().slice(0, 10);
+
+// ─── CSV parser ───────────────────────────────────────────────────────────────
+
+function splitCSVRow(line) {
+  const cells = [];
+  let cur = "", inQuote = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (inQuote) {
+      if (ch === '"' && line[i + 1] === '"') { cur += '"'; i++; }
+      else if (ch === '"') inQuote = false;
+      else cur += ch;
+    } else {
+      if (ch === '"') inQuote = true;
+      else if (ch === ',') { cells.push(cur); cur = ""; }
+      else cur += ch;
+    }
+  }
+  cells.push(cur);
+  return cells;
+}
+
+function parseCSV(text) {
+  const lines = text.split(/\r?\n/);
+  const header = splitCSVRow(lines[0]);
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    if (!lines[i].trim()) continue;
+    const cells = splitCSVRow(lines[i]);
+    const obj = {};
+    header.forEach((h, j) => { obj[h] = cells[j] ?? ""; });
+    rows.push(obj);
+  }
+  return rows;
+}
+
+// ─── Alias generation ─────────────────────────────────────────────────────────
+
+const STRIP_SUFFIXES = [
+  /\s+(cosmetics?|beauty|skincare|skin care|haircare|hair care|fragrances?|parfums?|laboratories?|labs?|organics?|naturals?|wellness|professional|pro)\s*$/i,
+];
+const LEGAL_SUFFIX = /,?\s+(inc\.?|llc\.?|ltd\.?|corp\.?|co\.?|gmbh|plc|ag|s\.a\.s\.?|s\.r\.l\.?|pty\.?)\s*$/i;
+
+function generateAliases(displayName, ulta_slug) {
+  const variants = new Set();
+
+  const clean = displayName.replace(/[®™©℗]/g, "").replace(/\s+/g, " ").trim();
+  if (clean !== displayName) variants.add(clean);
+
+  const noLegal = clean.replace(LEGAL_SUFFIX, "").trim();
+  if (noLegal !== clean) variants.add(noLegal);
+
+  for (const re of STRIP_SUFFIXES) {
+    const s1 = noLegal.replace(re, "").trim();
+    if (s1 && s1 !== noLegal && s1.length >= 3) variants.add(s1);
+    const s2 = clean.replace(re, "").trim();
+    if (s2 && s2 !== clean && s2.length >= 3) variants.add(s2);
+  }
+
+  const ascii = clean.normalize("NFD").replace(/[̀-ͯ]/g, "");
+  if (ascii !== clean) {
+    variants.add(ascii);
+    const asciiNoLegal = ascii.replace(LEGAL_SUFFIX, "").trim();
+    if (asciiNoLegal !== ascii) variants.add(asciiNoLegal);
+  }
+
+  if (clean.includes("'")) {
+    variants.add(clean.replace(/'/g, "").replace(/\s+/g, " ").trim());
+  }
+
+  // Slug as alias: "rare-beauty" → "rare beauty"
+  const slugAsName = ulta_slug.replace(/-/g, " ");
+  if (slugAsName !== clean.toLowerCase()) variants.add(slugAsName);
+
+  // Ampersand/and variants
+  if (clean.includes(" & ")) variants.add(clean.replace(/ & /g, " and "));
+  if (clean.toLowerCase().includes(" and ")) variants.add(clean.replace(/ and /gi, " & "));
+
+  variants.delete(displayName);
+  variants.delete(displayName.trim());
+
+  return [...variants].filter(v => v.length >= 2 && v !== displayName);
+}
+
+// ─── Denylist ─────────────────────────────────────────────────────────────────
+// Slugs that appear on PETA's site but are known to test on animals.
+// These override peta=TRUE from the CSV.
+const PETA_DENYLIST = new Set([
+  "estee-lauder",   // ELC tests for China market; on PETA's site erroneously
+]);
+
+// ─── Main ─────────────────────────────────────────────────────────────────────
+
+function main() {
+  const rows = parseCSV(readFileSync(CSV_PATH, "utf8"));
+  console.log(`Loaded ${rows.length} brands from ulta-brands-researched.csv`);
+
+  const brands = {};
+
+  for (const row of rows) {
+    const name = (row.brand_name || "").trim();
+    const slug = (row.ulta_slug  || "").trim();
+    if (!name || !slug) continue;
+
+    let peta = row.peta === "TRUE";
+    const lb = row.leaping_bunny === "TRUE";
+    if (PETA_DENYLIST.has(slug)) peta = false;
+    if (!peta && !lb) continue;
+
+    // Use ulta_slug as the key — it's already unique and URL-clean
+    if (brands[slug]) {
+      brands[slug].peta = brands[slug].peta || peta;
+      brands[slug].leaping_bunny = brands[slug].leaping_bunny || lb;
+      continue;
+    }
+
+    // parent_cf: "FALSE" = parent sells in China (known bad); anything else = not flagged
+    const parent_cf_bad = (row.parent_cf || "").trim() === "FALSE";
+    const parent_company = (row.parent_company || "").trim();
+
+    brands[slug] = {
+      display_name:    name,
+      ulta_slug:       slug,
+      aliases:         generateAliases(name, slug),
+      peta,
+      leaping_bunny:   lb,
+      parent_cf_bad,
+      parent_company:  parent_company || undefined,
+      data_version:    VERSION,
+    };
+  }
+
+  const all = Object.values(brands);
+  const petaOnly = all.filter(b =>  b.peta && !b.leaping_bunny).length;
+  const lbOnly   = all.filter(b => !b.peta &&  b.leaping_bunny).length;
+  const both     = all.filter(b =>  b.peta &&  b.leaping_bunny).length;
+
+  console.log(`\nBuilt ${all.length} Ulta-specific brand entries`);
+  console.log(`  PETA only: ${petaOnly}`);
+  console.log(`  LB only:   ${lbOnly}`);
+  console.log(`  Both:      ${both}`);
+
+  const json = JSON.stringify(brands, null, 2);
+  writeFileSync(OUT_PATH, json, "utf8");
+  console.log(`\nWritten: ${OUT_PATH} (${(json.length / 1024).toFixed(0)} KB)`);
+}
+
+main();
