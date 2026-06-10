@@ -35,24 +35,33 @@ class BrandMatcher {
   }
 
   /**
+   * Exact-only lookup — no fuzzy. Used for prefix matching in content.js
+   * to avoid shade names like "Cinnamon" fuzzy-matching "Lian Cinnamon".
+   *
+   * `allowGeneric`: entries flagged generic_name are brands whose name is a
+   * common word (essence, LUSH, Hair+). They exact-match ordinary page text —
+   * category tiles, nav links — so they are only returned when the caller
+   * vouches that `text` came from a dedicated brand-name element.
+   * @param {string} text
+   * @param {boolean} [allowGeneric=false]
+   * @returns {object|null}
+   */
+  matchExact(text, allowGeneric = false) {
+    if (!text || typeof text !== "string") return null;
+    const norm = normalize(text);
+    const entry = this._map.get(norm) ?? null;
+    if (entry && entry.generic_name && !allowGeneric) return null;
+    return entry;
+  }
+
+  /**
    * Attempts to find a brand mentioned in `text`.
    * Returns the matching brand entry object, or null if no match.
    * @param {string} text
+   * @param {boolean} [allowGeneric=false] — see matchExact.
    * @returns {object|null}
    */
-  /**
-   * Exact-only lookup — no fuzzy. Used for prefix matching in content.js
-   * to avoid shade names like "Cinnamon" fuzzy-matching "Lian Cinnamon".
-   * @param {string} text
-   * @returns {object|null}
-   */
-  matchExact(text) {
-    if (!text || typeof text !== "string") return null;
-    const norm = normalize(text);
-    return this._map.get(norm) ?? null;
-  }
-
-  match(text) {
+  match(text, allowGeneric = false) {
     if (!text || typeof text !== "string") return null;
 
     const norm = normalize(text);
@@ -60,13 +69,17 @@ class BrandMatcher {
 
     // 1. Exact match.
     if (this._map.has(norm)) {
-      return this._map.get(norm);
+      const entry = this._map.get(norm);
+      if (!entry.generic_name || allowGeneric) return entry;
     }
 
     // 2 & 3. Alias scan: check for exact match, then substring fuzzy.
     for (const [key, entry] of this._map) {
       // Skip short keys to avoid false positives (e.g. "new", "milk" alone).
       if (key.length < 5) continue;
+
+      // Generic-named brands never fuzzy-match arbitrary text.
+      if (entry.generic_name && !allowGeneric) continue;
 
       // Exact match already checked above via Map.has, but this loop
       // is keyed differently so we re-check just in case.

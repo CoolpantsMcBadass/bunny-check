@@ -7,7 +7,7 @@ A Chrome MV3 extension that detects cruelty-free beauty brands near product imag
 1. On install, the background service worker (`background.js`) loads the bundled `data/brands.json` into `chrome.storage.local`. The content script reads it directly from storage (no message round-trip — avoids an MV3 cold-start race).
 2. A `MutationObserver` (debounced 300 ms) + `IntersectionObserver` pair finds product images as they enter the viewport, including dynamically loaded grid cards.
 3. For each image, `content.js` gathers brand-name candidates in three tiers:
-   - **Tier 0** — Ulta's explicit brand-name DOM element (`Text-brandName`, `data-testid="brand"`, etc.), searched within the image's own product card only (the walk stops at the card boundary so neighboring cards can't cross-match).
+   - **Tier 0** — Ulta's explicit brand-name DOM element (`Text-brandName`, `data-testid="brand"`, etc.), searched within the image's own product card only (the walk stops at the card boundary so neighboring cards can't cross-match). Brands whose name is a common English word (essence, LUSH, Hair+ — flagged `generic_name` at build time) match **only** here, so category tiles like "Nails" or "Hair" never badge.
    - **Tier 1** — the image's own attributes (`alt`, `title`, `aria-label`, `data-brand`).
    - **Tier 2** — the first rendered text line of the product-card ancestor.
    - **PDP fallback** — on `/p/` product detail pages, where the brand element is structurally unrelated to the image gallery, the page-level brand element is used — but only for images that have no card brand of their own (so recommendation carousels aren't badged with the page's brand).

@@ -157,18 +157,18 @@ function getUltaBrandFromAncestors(imgEl) {
     for (const sel of ULTA_BRAND_SELECTORS) {
       const els = node.querySelectorAll(sel);
       if (els.length === 0) continue;
-      // Multiple DISTINCT matches means this ancestor spans more than one
-      // product card (or a nav brand-link list) — abort the whole walk.
-      // Nested matches (a brandName wrapper around a brandName span) count
-      // as one.
-      if (els.length > 1) {
-        let allNested = true;
-        for (let j = 1; j < els.length; j++) {
-          if (!els[0].contains(els[j])) { allNested = false; break; }
-        }
-        if (!allNested) return null;
-      }
       const text = (els[0].innerText || els[0].textContent || "").trim();
+      // Multiple matches with DIFFERENT text means this ancestor spans more
+      // than one product card (or a nav brand-link list) — abort the whole
+      // walk. Nested wrappers and repeated same-brand elements (logo link +
+      // name link) count as one.
+      if (els.length > 1) {
+        for (let j = 1; j < els.length; j++) {
+          if (els[0].contains(els[j])) continue;
+          const other = (els[j].innerText || els[j].textContent || "").trim();
+          if (other !== text) return null;
+        }
+      }
       if (text.length >= 2 && text.length <= 80) return text;
     }
     node = node.parentElement;
@@ -198,21 +198,18 @@ function getUltaDetailPageBrand() {
 /**
  * Gathers text candidates for brand matching around a product image.
  *
- * Tier 0 — Ulta-specific brand name element (explicit DOM element, most reliable).
+ * Tier 0 — Ulta-specific brand name element (explicit DOM element, most
+ *          reliable; kept separate because its text is vouched-for as a brand
+ *          name, so generic-named brands like essence/LUSH may match it).
  * Tier 1 — the image's own attributes (alt, title, data-brand, aria-label).
  * Tier 2 — the product card ancestor's first line of rendered text.
- *
- * `hasCardBrand` reports whether tier 0 found a brand element inside the
- * image's own card — used to keep the PDP fallback away from images that
- * belong to their own product card (e.g. recommendation carousels).
  */
 function gatherNearbyText(imgEl) {
   const tier1 = [];
   const tier2 = [];
 
   // Tier 0: Ulta-specific brand element in ancestor subtree.
-  const ultaBrand = getUltaBrandFromAncestors(imgEl);
-  if (ultaBrand) tier1.unshift(ultaBrand);
+  const tier0 = getUltaBrandFromAncestors(imgEl);
 
   // Tier 1: image's own attributes.
   for (const attr of ["alt", "title", "aria-label", "data-product-name", "data-brand"]) {
@@ -255,7 +252,7 @@ function gatherNearbyText(imgEl) {
     node = node.parentElement;
   }
 
-  return { tier1, tier2, hasCardBrand: !!ultaBrand };
+  return { tier0, tier1, tier2 };
 }
 
 function getBgImageUrl(el) {
@@ -275,15 +272,16 @@ function getBgImageUrl(el) {
 /**
  * Tries the full text first, then progressively shorter word-prefixes (up to 4).
  * Prefix matching uses exact-only — no fuzzy — so shade names don't match brands.
+ * `allowGeneric` is passed through: true only for tier-0 brand-element text.
  */
-function matchWithPrefixes(text) {
+function matchWithPrefixes(text, allowGeneric = false) {
   if (!text) return null;
-  const direct = window._bunnyMatcher.match(text);
+  const direct = window._bunnyMatcher.match(text, allowGeneric);
   if (direct) return direct;
   const words = text.trim().split(/\s+/);
   for (let i = Math.min(words.length - 1, 4); i >= 1; i--) {
     const prefix = words.slice(0, i).join(" ");
-    const brand = window._bunnyMatcher.matchExact(prefix);
+    const brand = window._bunnyMatcher.matchExact(prefix, allowGeneric);
     if (brand) return brand;
   }
   return null;
@@ -310,18 +308,28 @@ function tryBadgeElement(el) {
     }
   }
 
-  const { tier1, tier2, hasCardBrand } = gatherNearbyText(el);
+  const { tier0, tier1, tier2 } = gatherNearbyText(el);
 
   // If no text was found at all, the card body hasn't rendered yet.
   // Drop from observedElements so the next scanPage() (fired by MutationObserver
   // when the card text loads) will re-observe and retry this element.
-  if (tier1.length === 0 && tier2.length === 0) {
+  if (!tier0 && tier1.length === 0 && tier2.length === 0) {
     intersectionObserver.unobserve(el);
     observedElements.delete(el);
     return;
   }
 
   intersectionObserver.unobserve(el);
+
+  // Tier 0 is a dedicated brand-name element, so generic-named brands
+  // (essence, LUSH, Hair+) are allowed to match here — and only here.
+  if (tier0) {
+    const brand = matchWithPrefixes(tier0, true);
+    if (brand) {
+      console.log(`[BunnyCheck] T0: "${tier0.slice(0, 60)}" → ${brand.display_name}`);
+      injectBadge(el, brand); return;
+    }
+  }
 
   for (const text of tier1) {
     const brand = matchWithPrefixes(text);
@@ -342,11 +350,11 @@ function tryBadgeElement(el) {
   // Detail page fallback: brand element is outside the image's ancestor tree.
   // Only for images with NO brand element in their own card — a recommendation
   // carousel product has its own card brand, and badging it with the page's
-  // brand would be wrong.
-  if (!hasCardBrand) {
+  // brand would be wrong. The page brand element is also vouched-for text.
+  if (!tier0) {
     const pageBrand = getUltaDetailPageBrand();
     if (pageBrand) {
-      const brand = matchWithPrefixes(pageBrand);
+      const brand = matchWithPrefixes(pageBrand, true);
       if (brand) {
         console.log(`[BunnyCheck] PDP: "${pageBrand}" → ${brand.display_name}`);
         injectBadge(el, brand); return;
@@ -419,7 +427,16 @@ const mutationObserver = new MutationObserver(() => {
   clearTimeout(mutationTimer);
   mutationTimer = setTimeout(scanPage, 300);
 });
-mutationObserver.observe(document.body, { childList: true, subtree: true });
+// Attributes are watched too: Ulta reveals cards by flipping attributes
+// (data-visible / class) on text that is already in the DOM, so a
+// childList-only observer never fires for them and the empty-text retry
+// (v0.5.3/v0.5.5) would wait forever.
+mutationObserver.observe(document.body, {
+  childList: true,
+  subtree: true,
+  attributes: true,
+  attributeFilter: ["class", "style", "data-visible", "hidden"],
+});
 
 // ─── Console audit bridge ─────────────────────────────────────────────────────
 
@@ -438,12 +455,18 @@ document.addEventListener("bunnycheck-audit-request", () => {
   );
 
   for (const img of imgs) {
-    const { tier1, tier2 } = gatherNearbyText(img);
+    const { tier0, tier1, tier2 } = gatherNearbyText(img);
     let hit = null;
 
-    for (const text of [...tier1, ...tier2]) {
-      const b = matchWithPrefixes(text);
-      if (b) { hit = { brand: b, via: text }; break; }
+    if (tier0) {
+      const b = matchWithPrefixes(tier0, true);
+      if (b) hit = { brand: b, via: tier0 };
+    }
+    if (!hit) {
+      for (const text of [...tier1, ...tier2]) {
+        const b = matchWithPrefixes(text);
+        if (b) { hit = { brand: b, via: text }; break; }
+      }
     }
 
     if (hit) {

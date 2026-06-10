@@ -1,3 +1,38 @@
+2026-06-10 — v0.6.4: Fix category-tile false positives (generic-word brands); watch attribute
+  mutations for card reveals
+  - Root cause of badges on category icons: the DB contained matcher keys that are single
+    common English words. "Nails Inc." minus its legal suffix generated alias "Nails" →
+    exact match on Ulta's "Nails" category tile; "Hair+" normalizes to "hair"; "Rare Beauty"
+    minus the category suffix generated "Rare". 49 of 319 brands have common-word names
+    (essence, LUSH, KISS, Versed, Buxom, Verb, Vacation, ...).
+  - build-ulta-brands-json.mjs: generated aliases that normalize to a single common word
+    (checked against /usr/share/dict/words + an explicit category-term list) are dropped;
+    brands whose actual NAME is a common word are kept but flagged generic_name: true.
+  - matcher.js: match()/matchExact() take an allowGeneric flag; generic_name entries only
+    match when the text source is vouched-for as a brand name. Fuzzy loop skips them too.
+  - content.js: gatherNearbyText now returns tier0 separately (was merged into tier1).
+    Tier-0 brand-element text and the PDP page-brand element match with allowGeneric=true;
+    img attributes (T1) and card text (T2) never match generic-named brands.
+  - getUltaBrandFromAncestors: multi-match ambiguity abort relaxed — multiple brand
+    elements with IDENTICAL text (logo link + name link to same brand) count as one;
+    only differing texts abort the walk.
+  - MutationObserver now also watches attributes (class/style/data-visible/hidden):
+    Ulta reveals card text by flipping attributes on DOM that already exists, so the
+    childList-only observer never re-fired and the v0.5.3/v0.5.5 empty-text retry could
+    wait forever — the likely cause of permanently missed badges on revealed cards.
+  - Rebuilt brands.json: 319 entries unchanged (PETA 203 / LB 148 / both 32 / 42 parent
+    warnings), 49 flagged generic_name; bogus "nails"/"Rare"/"California" etc. aliases gone.
+  - smoke-test.mjs: 3 new scenarios (category tile "Nails" must not badge; generic brand
+    badges via tier-0 brand element; generic word in plain card text must not match).
+    Fixture is now a flex row — stacked cards sat below the viewport and passed vacuously.
+  - Live verification on ulta.com (Playwright + real Chrome, /tmp/bunnycheck-live.mjs):
+    nail-polish grid: 31 badges, 0 outside product cards, 0 match failures, 0 dedupe kills;
+    36/41 certified cards badged with slow scroll — the 5 "misses" were below-fold nodes
+    recreated by Ulta's virtualizer after scrolling away (would badge on next scroll-down).
+    Badges on brand-logo tiles (e.g. "Rare Beauty" linking to /brand/rare-beauty) are
+    accurate and left as-is. Remaining unbadged brands on page (Tarte, OLAPLEX, MAC,
+    Charlotte Tilbury, ...) are correctly absent from the DB — not PETA/LB certified.
+
 2026-06-10 — v0.6.3: Fix tier-0 cross-card brand contamination; stop reparenting images; gate PDP fallback
   - getUltaBrandFromAncestors: walk reduced 20 → 8 levels and now stops once an ancestor's
     textContent exceeds 1200 chars (same single-card bound as tier-2). Previously the walk

@@ -49,6 +49,50 @@ function parseCSV(text) {
   return rows;
 }
 
+// ─── Generic-word detection ──────────────────────────────────────────────────
+// A matcher key that is a single common English word ("nails", "hair", "rare")
+// will exact-match category tiles, nav links, and ordinary page text.
+// Generated aliases that come out generic are dropped; brands whose actual
+// NAME is a generic word (essence, Lush, Hair+) are kept but flagged
+// generic_name so the matcher only accepts them from a brand-name element.
+
+const CATEGORY_TERMS = new Set([
+  "nails", "nail", "hair", "makeup", "skincare", "skin", "fragrance",
+  "perfume", "cologne", "bath", "body", "tools", "brushes", "gifts", "gift",
+  "men", "mens", "women", "womens", "wellness", "sale", "new", "minis",
+  "mini", "travel", "clearance", "brands", "beauty",
+]);
+
+let DICT = null;
+function isCommonWord(word) {
+  if (CATEGORY_TERMS.has(word)) return true;
+  if (DICT === null) {
+    try {
+      DICT = new Set(
+        readFileSync("/usr/share/dict/words", "utf8").split("\n").map(w => w.toLowerCase())
+      );
+    } catch {
+      DICT = new Set(); // no system dictionary — category terms still apply
+    }
+  }
+  return DICT.has(word);
+}
+
+// Same normalization the matcher applies, so we test what actually gets indexed.
+function normalizeKey(str) {
+  return str
+    .toLowerCase()
+    .replace(/['']/g, "")
+    .replace(/[^\w\s-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function isGenericKey(str) {
+  const norm = normalizeKey(str);
+  return !norm.includes(" ") && !norm.includes("-") && isCommonWord(norm);
+}
+
 // ─── Alias generation ─────────────────────────────────────────────────────────
 
 const STRIP_SUFFIXES = [
@@ -94,7 +138,10 @@ function generateAliases(displayName, ulta_slug) {
   variants.delete(displayName);
   variants.delete(displayName.trim());
 
-  return [...variants].filter(v => v.length >= 2 && v !== displayName);
+  // Drop derived aliases that collapse to a single common word — "Nails Inc."
+  // minus the legal suffix is "Nails", which would badge the Nails category
+  // tile. The full display name (and the slug alias) still match the brand.
+  return [...variants].filter(v => v.length >= 2 && v !== displayName && !isGenericKey(v));
 }
 
 // ─── Denylist ─────────────────────────────────────────────────────────────────
@@ -133,6 +180,10 @@ function main() {
     const parent_cf_bad = (row.parent_cf || "").trim() === "FALSE";
     const parent_company = (row.parent_company || "").trim();
 
+    // Brand whose name IS a common word (essence, Lush, Hair+): keep it, but
+    // the matcher will only accept it from a dedicated brand-name element.
+    const generic_name = isGenericKey(name);
+
     brands[slug] = {
       display_name:    name,
       ulta_slug:       slug,
@@ -141,6 +192,7 @@ function main() {
       leaping_bunny:   lb,
       parent_cf_bad,
       parent_company:  parent_company || undefined,
+      generic_name:    generic_name || undefined,
       data_version:    VERSION,
     };
   }
