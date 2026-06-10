@@ -23,7 +23,7 @@ bunny-check/
   content.js               — Page scanner, brand extraction, badge injection
   matcher.js               — BrandMatcher class
   data/
-    brands.json            — 319 certified Ulta brands (PETA 203 / LB 148 / both 32; 42 parent warnings)
+    brands.json            — 374 certified Ulta brands (PETA 247 / LB 171 / both 44; 52 parent warnings)
     brands-master.csv      — Full merged PETA+LB dataset (8,859 brands)
     brands-researched.csv  — Manual parent-company research (in progress)
     peta-raw.txt           — Clean PETA brand list (6,822)
@@ -37,6 +37,8 @@ bunny-check/
     scrape-peta-names.mjs      — PETA WP REST API scraper
     scrape-lb-names.mjs        — Leaping Bunny shopping-guide scraper
     fix-peta-flags.mjs         — Corrects CF vs does-test flags from PETA API
+    verify-ulta-csv.mjs        — Live-verifies peta=FALSE rows against PETA page H1s (--apply to write)
+    smoke-test.mjs             — Playwright regression test of the matching pipeline (11 checks)
     console-audit.js           — Paste into DevTools console for a full-page match audit
     diagnose.mjs               — Playwright DOM diagnosis helper
   badges/                  — PETA / Leaping Bunny badge SVG artwork
@@ -46,7 +48,7 @@ bunny-check/
 
 ## Brand data
 
-`data/brands.json` contains **319 Ulta-stocked certified brands**, keyed by Ulta brand slug, verified against:
+`data/brands.json` contains **374 Ulta-stocked certified brands**, keyed by Ulta brand slug, verified against:
 
 - **PETA Beauty Without Bunnies** — https://www.peta.org/living/personal-care-fashion/beauty-without-bunnies/
 - **Leaping Bunny brand search** — https://www.leapingbunny.org/guide/brands

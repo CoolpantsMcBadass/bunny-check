@@ -1,3 +1,39 @@
+2026-06-10 — v0.6.5: Recover 67 certified brands lost to research-scraper slug misses (Tarte etc.)
+  - Root cause (same class as the v0.5.6 Sol de Janeiro bug): the original research pass
+    guessed PETA page slugs from Ulta brand names and recorded peta=FALSE/not_found when
+    PETA registers a different corporate name — Ulta "Tarte" vs PETA "Tarte Cosmetics
+    (Kose)" at slug tarte-cosmetics-kose.
+  - Discovered while investigating that data/brands-master.csv peta flags are NOT
+    trustworthy: fix-peta-flags.mjs used product-type-terms-present as the CF signal, but
+    e.g. Chanel has 8 product-type terms and is not CF; and its corrected output went to
+    bunny_DB/brands-master.csv (path no longer exists), so the repo copy is pre-fix.
+  - New script scripts/verify-ulta-csv.mjs: for every peta=FALSE row in
+    ulta-brands-researched.csv, searches PETA's WP API by brand name, picks the
+    best-matching company, fetches the company page, and parses the H1 — the actual
+    designation ("X is cruelty-free" / "X may not be cruelty-free" / "X is NOT
+    Cruelty-Free"). Auto-applies only exact or single-suffix name matches; ambiguous
+    short-stem matches are reported for manual review (prevents Alpha Skin Care ←
+    Alpha Organics-style identity errors). SELF_PARENT_DENYLIST guards the Estée Lauder
+    class of self-contradictory PETA entries.
+  - 42 brands verified CF and applied automatically: bareMinerals, Hourglass, Smashbox,
+    Too Faced, Bumble and Bumble, Rare Beauty(!), Sigma Beauty, Physicians Formula,
+    LORAC, Kate Somerville, DevaCurl, Pureology, The Ordinary, Lip Smacker, + 28 more.
+  - 2 more applied after manual review of loose matches: Tarte (PETA: "Tarte Cosmetics
+    (Kose)" — the user-reported miss) and RoC ("RoC Skincare"). Correctly rejected:
+    Essie/Fresh/Tocca (may not be), Gucci/NARS (NOT cruelty-free).
+  - 23 Leaping Bunny fixes from lb-raw.txt name cross-reference (manual identity review):
+    OLAPLEX, e.l.f., FARMACY, DIBS, DIME, Half Magic, IGK, Indie Lee, Ardell, Peace Out,
+    Ethique, + 12 more. Rejected: Alpha Skin Care (LB lists different company
+    "Alpha Organics").
+  - brands.json rebuilt: 319 → 374 entries (PETA 247, LB 171, both 44, parent warnings
+    42 → 52 — new entries include Estée Lauder/L'Oréal/Henkel/Kosé subsidiaries that are
+    brand-certified with bad parents, e.g. Tarte→Kosé, OLAPLEX→Henkel, Pureology→L'Oréal).
+  - Matcher verified: Tarte/OLAPLEX/bareMinerals/Smashbox/RoC all match; Nails/Hair/
+    Makeup/Fragrance category names still match nothing. Smoke test 11/11.
+  - NOTE: data/brands-master.csv peta flags still unreliable (pre-fix copy + flawed
+    heuristic) — only used for discovery, never as ground truth. The Ulta CSV +
+    verify-ulta-csv.mjs H1 check is now the canonical verification path.
+
 2026-06-10 — v0.6.4: Fix category-tile false positives (generic-word brands); watch attribute
   mutations for card reveals
   - Root cause of badges on category icons: the DB contained matcher keys that are single
