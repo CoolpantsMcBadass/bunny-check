@@ -1,3 +1,17 @@
+2026-06-10 — v0.6.7: Badges no longer bleed through Ulta's sticky header
+  - User screenshot: scrolling the grid under the sticky top banner left badges
+    painting on top of it. Cause: badge host used z-index:2147483647, which competes
+    at the root stacking level (product cards create no stacking context), beating
+    Ulta's header (z-index: 4).
+  - Fix: badge host z-index dropped to 1 — only needs to beat the static product img
+    inside the card; the sticky header (z=4) now correctly paints over badges.
+  - Live-verified with Playwright bundled Chromium (headed) + extension loaded:
+    parked badged cards under the visible sticky header — 4 badges in the header band,
+    zero bleed-through; badges still render correctly on cards (OLAPLEX LB+parent-warn,
+    Rare Beauty PETA). Smoke test 11/11 PASS.
+  - Note for future live tests: branded Chrome (channel:'chrome') silently ignores
+    --load-extension on current versions — use Playwright's bundled Chromium headed.
+
 2026-06-10 — v0.6.6: Recover 24 more certified brands (jane iredale class: name-format
   mismatches against PETA and Leaping Bunny registries); live-verify LB list
   - Trigger: user screenshots showed Charlotte Tilbury and jane iredale unbadged.

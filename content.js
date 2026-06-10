@@ -82,7 +82,10 @@ function injectBadge(imgEl, brandEntry) {
   host.setAttribute("aria-hidden", "false");
   const left = imgEl.offsetLeft + 4;
   const top = imgEl.offsetTop + imgEl.offsetHeight - 4;
-  host.style.cssText = `position:absolute;left:${left}px;top:${top}px;transform:translateY(-100%);z-index:2147483647;pointer-events:none;line-height:0;`;
+  // z-index only needs to beat the (static) product img inside the card.
+  // Anything high competes at the root stacking level and paints over
+  // Ulta's sticky header when cards scroll beneath it.
+  host.style.cssText = `position:absolute;left:${left}px;top:${top}px;transform:translateY(-100%);z-index:1;pointer-events:none;line-height:0;`;
   parent.appendChild(host);
   activeBadges.push({ host, img: imgEl });
 
