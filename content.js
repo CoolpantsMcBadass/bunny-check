@@ -493,10 +493,9 @@ function injectStatsWidget() {
 
   const panel = shadow.getElementById("panel");
   const toggleBtn = shadow.getElementById("toggle");
-  let suppressNextClick = false;
+  let dragState = null;
 
   toggleBtn.addEventListener("click", () => {
-    if (suppressNextClick) { suppressNextClick = false; return; }
     if (panel.classList.contains("open")) { panel.classList.remove("open"); return; }
     renderStatsPanel(panel);
     panel.classList.add("open");
@@ -505,28 +504,20 @@ function injectStatsWidget() {
     if (e.target && e.target.id === "close") panel.classList.remove("open");
   });
 
-  // Drag on long press (≥500 ms hold without moving ≥5 px).
-  let dragState = null;
+  // Drag on long press (≥500 ms hold without moving ≥8 px).
+  // setPointerCapture is intentionally deferred to drag-activation time, not
+  // called on every pointerdown — calling it immediately reroutes pointerup to
+  // the host element, which breaks the browser's click synthesis for the shadow
+  // DOM button and makes the panel stop opening.
+  // Document-level listeners catch moves/releases even when the pointer drifts
+  // off the 38 px button during the hold period.
 
-  host.addEventListener("pointerdown", (e) => {
-    if (e.pointerType === "mouse" && e.button !== 0) return;
-    const rect = host.getBoundingClientRect();
-    host.setPointerCapture(e.pointerId);
-    const timer = setTimeout(() => {
-      if (!dragState) return;
-      dragState.active = true;
-      panel.classList.remove("open");
-      toggleBtn.classList.add("grabbing");
-    }, 500);
-    dragState = { active: false, timer, startX: e.clientX, startY: e.clientY, startLeft: rect.left, startTop: rect.top };
-  });
-
-  host.addEventListener("pointermove", (e) => {
-    if (!dragState) return;
+  function onDocMove(e) {
+    if (!dragState || e.pointerId !== dragState.pointerId) return;
     const dx = e.clientX - dragState.startX;
     const dy = e.clientY - dragState.startY;
     if (!dragState.active) {
-      if (Math.abs(dx) > 5 || Math.abs(dy) > 5) { clearTimeout(dragState.timer); dragState = null; }
+      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) { clearTimeout(dragState.timer); dragState = null; }
       return;
     }
     const newLeft = Math.max(0, Math.min(window.innerWidth - 44, dragState.startLeft + dx));
@@ -534,26 +525,45 @@ function injectStatsWidget() {
     host.style.left = newLeft + "px";
     host.style.top = newTop + "px";
     host.style.right = "auto";
-  });
+  }
 
-  host.addEventListener("pointerup", () => {
-    if (!dragState) return;
+  function onDocUp(e) {
+    if (!dragState || e.pointerId !== dragState.pointerId) return;
     clearTimeout(dragState.timer);
     if (dragState.active) {
       toggleBtn.classList.remove("grabbing");
-      suppressNextClick = true;
       const rect = host.getBoundingClientRect();
-      savedWidgetPos = { left: rect.left, top: rect.top };
-      try { chrome.storage.local.set({ [WIDGET_POS_KEY]: savedWidgetPos }); } catch (_) {}
+      const moved = Math.abs(rect.left - dragState.startLeft) > 2 || Math.abs(rect.top - dragState.startTop) > 2;
+      if (moved) {
+        savedWidgetPos = { left: rect.left, top: rect.top };
+        try { chrome.storage.local.set({ [WIDGET_POS_KEY]: savedWidgetPos }); } catch (_) {}
+      }
     }
     dragState = null;
-  });
+  }
 
-  host.addEventListener("pointercancel", () => {
-    if (!dragState) return;
-    clearTimeout(dragState.timer);
-    toggleBtn.classList.remove("grabbing");
-    dragState = null;
+  document.addEventListener("pointermove", onDocMove);
+  document.addEventListener("pointerup", onDocUp);
+  document.addEventListener("pointercancel", onDocUp);
+
+  host.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    const rect = host.getBoundingClientRect();
+    dragState = {
+      active: false,
+      pointerId: e.pointerId,
+      startX: e.clientX,
+      startY: e.clientY,
+      startLeft: rect.left,
+      startTop: rect.top,
+      timer: setTimeout(() => {
+        if (!dragState) return;
+        dragState.active = true;
+        host.setPointerCapture(e.pointerId);
+        panel.classList.remove("open");
+        toggleBtn.classList.add("grabbing");
+      }, 500),
+    };
   });
 }
 
