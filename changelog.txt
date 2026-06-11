@@ -1,3 +1,27 @@
+2026-06-10 — Sephora DOM recon (tooling only, no version bump)
+  - New scripts/recon-sephora.mjs: headed-Chromium recon of sephora.com for the
+    upcoming adapters/sephora.js. Key findings:
+    * Bot wall: direct goto to /shop/ category grids = Akamai "Access Denied"
+      even after homepage warm-up. BUT homepage and /brands-list load on direct
+      goto, and CLICK-THROUGH navigation (SPA router) reaches brand grids and
+      PDPs fine. Recon/scrape scripts must navigate by clicking, not goto.
+    * Product tiles: [data-comp~="ProductTile"] (React; data-comp/data-at are
+      stable testids, css-* classes are hashed). Brand name is the first <span>
+      in .ProductTile-content. img alt = "BRAND - Product Name".
+    * List items elsewhere (comparison table, carousels) carry an explicit
+      [data-at="product_brand_label"] element.
+    * PDP: URL contains /product/; brand is in [data-comp~="DisplayName"] as a
+      link to /brand/<slug>; JSON-LD ProductGroup has brand.name (clean
+      machine-readable fallback). Recommendation carousels use ProductCard /
+      ProductTable components with their own brand labels (PDP-fallback-safe).
+    * Brand directory /brands-list: 377 /brand/ links (incl. flyout dupes) —
+      viable for the catalog scrape, no click-through needed.
+  - Adapter plan: brandSelectors = ['.ProductTile-content > span:first-child',
+    '[data-at="product_brand_label"]', '[data-comp~="DisplayName"] a[href^="/brand/"]'];
+    isProductDetailPage = /\/product\//. Do NOT include a bare a[href*="/brand/"]
+    selector — Sephora's header flyout keeps hidden house-brand links in every
+    page's DOM, which would poison the PDP whole-document fallback.
+
 2026-06-10 — v0.8.0: Adapter refactor — content.js is now a site-agnostic core
   - Everything Ulta-specific moved into new adapters/ulta.js, which sets
     window._bunnyAdapter: brand-name selectors (formerly ULTA_BRAND_SELECTORS),
