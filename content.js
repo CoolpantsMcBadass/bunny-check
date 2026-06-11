@@ -522,26 +522,26 @@ function injectStatsWidget() {
       if (Math.abs(dx) > 8 || Math.abs(dy) > 8) { clearTimeout(dragTimer); dragOrigin = null; }
       return;
     }
-    const newLeft = Math.max(0, Math.min(window.innerWidth - 44, dragOrigin.left + dx));
-    const newTop  = Math.max(0, Math.min(window.innerHeight - 44, dragOrigin.top  + dy));
-    host.style.left  = newLeft + "px";
-    host.style.top   = newTop  + "px";
-    host.style.right = "auto";
+    // Translate from the starting position — avoids fighting right vs left
+    // CSS anchoring. The transform is committed to left/top on mouseup.
+    host.style.transform = `translate(${dx}px,${dy}px)`;
   }
 
   function onDocMouseUp() {
     clearTimeout(dragTimer);
-    if (isDragging) {
+    if (isDragging && dragOrigin) {
       isDragging = false;
       host.style.cursor = "";
       suppressNextClick = true;
-      if (dragOrigin) {
-        const rect = host.getBoundingClientRect();
-        if (Math.abs(rect.left - dragOrigin.left) > 2 || Math.abs(rect.top - dragOrigin.top) > 2) {
-          savedWidgetPos = { left: rect.left, top: rect.top };
-          try { chrome.storage.local.set({ [WIDGET_POS_KEY]: savedWidgetPos }); } catch (_) {}
-        }
-      }
+      // Commit visual position (getBoundingClientRect includes the transform)
+      // to left/top, then clear the transform so SPA re-injection uses left/top.
+      const rect = host.getBoundingClientRect();
+      host.style.transform = "";
+      host.style.right = "auto";
+      host.style.left  = rect.left + "px";
+      host.style.top   = rect.top  + "px";
+      savedWidgetPos = { left: rect.left, top: rect.top };
+      try { chrome.storage.local.set({ [WIDGET_POS_KEY]: savedWidgetPos }); } catch (_) {}
     }
     dragOrigin = null;
   }
@@ -551,8 +551,7 @@ function injectStatsWidget() {
 
   host.addEventListener("mousedown", (e) => {
     if (e.button !== 0) return;
-    const rect = host.getBoundingClientRect();
-    dragOrigin = { x: e.clientX, y: e.clientY, left: rect.left, top: rect.top };
+    dragOrigin = { x: e.clientX, y: e.clientY };
     dragTimer = setTimeout(() => {
       if (!dragOrigin) return;
       isDragging = true;
