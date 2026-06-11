@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  BunnyCheck monthly data maintenance.
+  Runs on the 1st of each month at 10:00 (or at next wake if the Mac was
+  asleep — launchd StartCalendarInterval coalesces missed runs).
+  NOTE: the Ulta directory scrape opens a visible Chromium window briefly.
+
+  Install:
+    cp scripts/com.bunnycheck.maintenance.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.bunnycheck.maintenance.plist
+  Remove:
+    launchctl unload ~/Library/LaunchAgents/com.bunnycheck.maintenance.plist
+    rm ~/Library/LaunchAgents/com.bunnycheck.maintenance.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.bunnycheck.maintenance</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/node</string>
+    <string>/Users/williamparker/Desktop/Macbook main folder/projectsFF/bunny-check/scripts/monthly-maintenance.mjs</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/williamparker/Desktop/Macbook main folder/projectsFF/bunny-check</string>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Day</key>
+    <integer>1</integer>
+    <key>Hour</key>
+    <integer>10</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/tmp/bunnycheck-maintenance.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/bunnycheck-maintenance.err</string>
+</dict>
+</plist>

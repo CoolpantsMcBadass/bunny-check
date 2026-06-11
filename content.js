@@ -270,6 +270,58 @@ function getBgImageUrl(el) {
   return null;
 }
 
+// ─── Unknown-brand collector ──────────────────────────────────────────────────
+// Brand names extracted from Ulta's own brand elements (tier 0 / PDP — text
+// that is vouched-for as a brand name) that match neither the certified DB nor
+// the known-brands list (every researched brand, certified or not) are new to
+// us — Ulta started stocking something we've never researched. They're
+// buffered locally and shown in the popup for export into the data pipeline.
+// Nothing leaves the machine.
+
+const UNKNOWN_KEY = "bunnycheck_unknown";
+const UNKNOWN_CAP = 300;
+let knownNames = null; // Set of normalized names, loaded in init()
+const reportedUnknowns = new Set(); // once per page load
+const unknownBuffer = new Map(); // normalized → display text, pending flush
+let unknownFlushTimer = null;
+
+function recordUnknownBrand(rawText) {
+  try {
+    if (!knownNames || !window._bunnyNormalize) return;
+    const display = rawText.trim().replace(/\s+/g, " ");
+    if (display.length < 2 || display.length > 60) return;
+    const norm = window._bunnyNormalize(display);
+    if (!norm || norm.length < 2 || /^\d+$/.test(norm)) return;
+    if (knownNames.has(norm) || reportedUnknowns.has(norm)) return;
+    reportedUnknowns.add(norm);
+    unknownBuffer.set(norm, display);
+    clearTimeout(unknownFlushTimer);
+    unknownFlushTimer = setTimeout(flushUnknownBrands, 2000);
+  } catch (_) {}
+}
+
+function flushUnknownBrands() {
+  const pending = new Map(unknownBuffer);
+  unknownBuffer.clear();
+  if (pending.size === 0) return;
+  try {
+    chrome.storage.local.get(UNKNOWN_KEY, (result) => {
+      if (chrome.runtime.lastError) return;
+      const stored = result[UNKNOWN_KEY] || {};
+      const now = Date.now();
+      for (const [norm, display] of pending) {
+        if (stored[norm]) {
+          stored[norm].count++;
+          stored[norm].last = now;
+        } else if (Object.keys(stored).length < UNKNOWN_CAP) {
+          stored[norm] = { name: display, count: 1, first: now, last: now };
+        }
+      }
+      chrome.storage.local.set({ [UNKNOWN_KEY]: stored });
+    });
+  } catch (_) {}
+}
+
 // ─── Matching ─────────────────────────────────────────────────────────────────
 
 /**
@@ -326,8 +378,11 @@ function tryBadgeElement(el) {
 
   // Tier 0 is a dedicated brand-name element, so generic-named brands
   // (essence, LUSH, Hair+) are allowed to match here — and only here.
+  // Full-string match ONLY: the element text is the complete brand name, so
+  // word-prefix trimming would mismatch brands that extend another brand's
+  // name ("Being Frenshe" is not "being").
   if (tier0) {
-    const brand = matchWithPrefixes(tier0, true);
+    const brand = window._bunnyMatcher.match(tier0, true);
     if (brand) {
       console.log(`[BunnyCheck] T0: "${tier0.slice(0, 60)}" → ${brand.display_name}`);
       injectBadge(el, brand); return;
@@ -357,13 +412,19 @@ function tryBadgeElement(el) {
   if (!tier0) {
     const pageBrand = getUltaDetailPageBrand();
     if (pageBrand) {
-      const brand = matchWithPrefixes(pageBrand, true);
+      // Full-string match only — same reasoning as tier 0.
+      const brand = window._bunnyMatcher.match(pageBrand, true);
       if (brand) {
         console.log(`[BunnyCheck] PDP: "${pageBrand}" → ${brand.display_name}`);
         injectBadge(el, brand); return;
       }
+      recordUnknownBrand(pageBrand);
     }
   }
+
+  // Nothing matched. If Ulta's own brand element named this product's brand,
+  // that name is a real brand we've never researched — collect it.
+  if (tier0) recordUnknownBrand(tier0);
 
   el.setAttribute(PROCESSED_ATTR, "0");
 }
@@ -462,7 +523,7 @@ document.addEventListener("bunnycheck-audit-request", () => {
     let hit = null;
 
     if (tier0) {
-      const b = matchWithPrefixes(tier0, true);
+      const b = window._bunnyMatcher.match(tier0, true);
       if (b) hit = { brand: b, via: tier0 };
     }
     if (!hit) {
@@ -495,7 +556,7 @@ document.addEventListener("bunnycheck-audit-request", () => {
 // ─── Initialisation ───────────────────────────────────────────────────────────
 
 function init(attempt = 1) {
-  chrome.storage.local.get("bunnycheck_brands", (result) => {
+  chrome.storage.local.get(["bunnycheck_brands", "bunnycheck_known"], (result) => {
     const brands = result["bunnycheck_brands"];
     if (!brands || Object.keys(brands).length === 0) {
       if (attempt < 4) {
@@ -504,6 +565,10 @@ function init(attempt = 1) {
         console.warn("[BunnyCheck] Brand data not found in storage after retries.");
       }
       return;
+    }
+    const known = result["bunnycheck_known"];
+    if (known && Array.isArray(known.names)) {
+      knownNames = new Set(known.names);
     }
     window._bunnyMatcher = new BrandMatcher(brands);
     console.log("[BunnyCheck] Loaded", Object.keys(brands).length, "brands. Scanning page...");

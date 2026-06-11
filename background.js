@@ -5,9 +5,11 @@
 "use strict";
 
 const STORAGE_KEY = "bunnycheck_brands";
-// Placeholder: replace with the raw GitHub URL once the repo is live.
+const KNOWN_KEY = "bunnycheck_known";
 const REMOTE_DATA_URL =
   "https://raw.githubusercontent.com/CoolpantsMcBadass/bunny-check/main/data/brands.json";
+const REMOTE_KNOWN_URL =
+  "https://raw.githubusercontent.com/CoolpantsMcBadass/bunny-check/main/data/known-brands.json";
 
 // Maximum age of cached data before we attempt a remote refresh (7 days).
 const MAX_CACHE_AGE_MS = 7 * 24 * 60 * 60 * 1000;
@@ -81,10 +83,27 @@ async function loadBundledData() {
       bunnycheck_cached_at: Date.now(),
     });
     console.log("[BunnyCheck] Bundled brand data loaded:", Object.keys(brands).length, "brands");
+    await loadBundledKnownNames();
     return brands;
   } catch (err) {
     console.error("[BunnyCheck] Failed to load bundled data:", err);
     return {};
+  }
+}
+
+/**
+ * Loads the bundled known-brands list (every researched brand, certified or
+ * not) used by the content script's unknown-brand collector. Non-fatal: the
+ * collector simply stays quiet if the list is missing.
+ */
+async function loadBundledKnownNames() {
+  try {
+    const response = await fetch(chrome.runtime.getURL("data/known-brands.json"));
+    const known = await response.json();
+    await chrome.storage.local.set({ [KNOWN_KEY]: known });
+    console.log("[BunnyCheck] Known-brands list loaded:", known.names?.length ?? 0, "names");
+  } catch (err) {
+    console.warn("[BunnyCheck] Failed to load known-brands list:", err.message);
   }
 }
 
@@ -120,6 +139,13 @@ async function maybeRefreshData() {
         bunnycheck_cached_at: Date.now(),
       });
       console.log("[BunnyCheck] Brand data refreshed from remote. Version:", freshVersion);
+      // Refresh the known-brands list alongside (non-fatal if it fails).
+      try {
+        const knownResp = await fetch(REMOTE_KNOWN_URL, { cache: "no-store" });
+        if (knownResp.ok) {
+          await chrome.storage.local.set({ [KNOWN_KEY]: await knownResp.json() });
+        }
+      } catch (_) {}
     } else {
       // Remote is same version; just update the cache timestamp.
       await chrome.storage.local.set({ bunnycheck_cached_at: Date.now() });

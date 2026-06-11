@@ -24,6 +24,10 @@ const CSV_PATH = path.join(__dirname, "../data/ulta-brands-researched.csv");
 const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "ulta-brands-researched.csv");
 const LB_PATH = path.join(__dirname, "../data/lb-raw.txt");
 const APPLY = process.argv.includes("--apply");
+// --recheck flips the sweep: rows already lb=TRUE that no longer have ANY
+// direct or token match in the (freshly scraped) LB list are reported as
+// possible delistings. Report-only.
+const RECHECK = process.argv.includes("--recheck");
 
 // ─── CSV helpers (same dialect as verify-ulta-csv.mjs) ───────────────────────
 
@@ -111,8 +115,9 @@ const MAX_TOKEN_FREQ = 2;
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 const { header, rows } = parseCSV(readFileSync(CSV_PATH, "utf8"));
-const candidates = rows.filter(r => r.leaping_bunny !== "TRUE" && r.brand_name && r.ulta_slug);
-console.log(`Matching ${candidates.length} leaping_bunny=FALSE rows against ${lbNames.length} live LB names...\n`);
+const candidates = rows.filter(r =>
+  (RECHECK ? r.leaping_bunny === "TRUE" : r.leaping_bunny !== "TRUE") && r.brand_name && r.ulta_slug);
+console.log(`Matching ${candidates.length} leaping_bunny=${RECHECK ? "TRUE (recheck)" : "FALSE"} rows against ${lbNames.length} live LB names...\n`);
 console.log("ulta_slug\tlb_name\tmatch\tverdict");
 
 const corrections = [];
@@ -125,21 +130,32 @@ for (const row of candidates) {
     if (q === "loose") continue;
     if (!best || rank[q] < rank[best.q]) best = { lb, q };
   }
+  // Pass 2: distinctive-token overlap (corporate-name candidates).
+  const tokenHits = [];
+  for (const t of new Set(tokens(row.brand_name))) {
+    const holders = tokenIndex.get(t) ?? [];
+    if (holders.length === 0 || holders.length > MAX_TOKEN_FREQ) continue;
+    for (const lb of holders) {
+      if (!tokenHits.some(h => h.lb === lb)) tokenHits.push({ lb, t });
+    }
+  }
+
+  if (RECHECK) {
+    // A TRUE row with neither a direct match nor any token candidate in the
+    // fresh list has likely been delisted (or renamed beyond recognition).
+    if (!best && tokenHits.length === 0) {
+      console.log(`${row.ulta_slug}\t-\t-\tREVIEW (lb=TRUE but no match in live LB list)`);
+    }
+    continue;
+  }
+
   if (best) {
     console.log(`${row.ulta_slug}\t${best.lb}\t${best.q}\tSET lb=TRUE`);
     corrections.push(row);
     continue;
   }
-  // Pass 2: distinctive-token overlap (corporate-name candidates, review-only).
-  const seen = new Set();
-  for (const t of new Set(tokens(row.brand_name))) {
-    const holders = tokenIndex.get(t) ?? [];
-    if (holders.length === 0 || holders.length > MAX_TOKEN_FREQ) continue;
-    for (const lb of holders) {
-      if (seen.has(lb)) continue;
-      seen.add(lb);
-      console.log(`${row.ulta_slug}\t${lb}\ttoken:${t}\tREVIEW (corporate name?)`);
-    }
+  for (const { lb, t } of tokenHits) {
+    console.log(`${row.ulta_slug}\t${lb}\ttoken:${t}\tREVIEW (corporate name?)`);
   }
 }
 

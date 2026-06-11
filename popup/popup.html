@@ -121,6 +121,42 @@
       text-align: center;
       padding: 6px 0;
     }
+
+    /* Unknown brands */
+    #unknown-card { display: none; }
+
+    .unknown-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #b45309;
+      margin-bottom: 4px;
+    }
+
+    .unknown-list {
+      max-height: 110px;
+      overflow-y: auto;
+      font-size: 11px;
+      color: #4a4a4a;
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    .unknown-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .unknown-actions button {
+      font-size: 11px;
+      padding: 3px 10px;
+      border: 1px solid #c8e6c9;
+      border-radius: 5px;
+      background: #f1f8e9;
+      color: #2e7d32;
+      cursor: pointer;
+    }
+
+    .unknown-actions button:hover { background: #e8f5e9; }
   </style>
 </head>
 <body>
@@ -164,6 +200,15 @@
         <span class="stat-label">Data version</span>
         <span class="stat-value" id="data-version">—</span>
       </div>
+    </div>
+  </div>
+
+  <div class="card" id="unknown-card">
+    <div class="unknown-title">New brands spotted: <span id="unknown-count">0</span></div>
+    <div class="unknown-list" id="unknown-list"></div>
+    <div class="unknown-actions">
+      <button id="unknown-copy">Copy list</button>
+      <button id="unknown-clear">Clear</button>
     </div>
   </div>
 

@@ -132,4 +132,5 @@ function normalize(str) {
 // so we attach to window rather than using export.
 if (typeof window !== "undefined") {
   window.BrandMatcher = BrandMatcher;
+  window._bunnyNormalize = normalize;
 }

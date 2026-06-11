@@ -47,6 +47,10 @@ const html = `<!DOCTYPE html><html><body>
     <div><div><img id="img6" src="${IMG}" width="150" height="150"></div></div>
     <div><span>Essence of Beauty gift set</span></div>
   </div>
+  <div class="pal-c-ProductCard" id="card7" style="width:160px">
+    <div><div><img id="img7" src="${IMG}" width="150" height="150"></div></div>
+    <div><span class="Text-brandName">Being Frenshe</span> <span>Hair Body Mist</span></div>
+  </div>
   <div id="pad" style="font-size:4px">${pad}</div>
 </div>
 </body></html>`;
@@ -55,6 +59,9 @@ const brands = {
   pacifica: { display_name: "Pacifica", ulta_slug: "pacifica", aliases: [], peta: true, leaping_bunny: true, parent_cf_bad: false, data_version: "2026-06-10" },
   "nails-inc": { display_name: "Nails Inc.", ulta_slug: "nails-inc", aliases: ["nails inc"], peta: true, leaping_bunny: false, parent_cf_bad: false, data_version: "2026-06-10" },
   essence: { display_name: "essence", ulta_slug: "essence", aliases: [], peta: true, leaping_bunny: false, parent_cf_bad: false, generic_name: true, data_version: "2026-06-10" },
+  // generic_name brand that is a word-prefix of another real brand ("Being
+  // Frenshe") — card7 guards against prefix-trim mismatching on tier-0 text.
+  being: { display_name: "being", ulta_slug: "being", aliases: [], peta: true, leaping_bunny: false, parent_cf_bad: false, generic_name: true, data_version: "2026-06-10" },
 };
 
 const browser = await chromium.launch();
@@ -63,7 +70,25 @@ page.on("console", (msg) => console.log("[page]", msg.type(), msg.text()));
 page.on("pageerror", (err) => console.log("[pageerror]", err.message));
 await page.setContent(html);
 await page.evaluate((db) => {
-  window.chrome = { storage: { local: { get: (_key, cb) => cb({ bunnycheck_brands: db }) } } };
+  // Store-backed chrome.storage stub so the unknown-brand collector's
+  // get/set round-trip works. "sometester" is in the known list (researched
+  // but not certified) so card3 must NOT be collected as unknown.
+  const store = {
+    bunnycheck_brands: db,
+    bunnycheck_known: { data_version: "2026-06-10", names: ["sometester"] },
+  };
+  window.chrome = {
+    runtime: { lastError: undefined },
+    storage: { local: {
+      get: (keys, cb) => {
+        const ks = Array.isArray(keys) ? keys : [keys];
+        cb(Object.fromEntries(ks.map((k) => [k, store[k]])));
+      },
+      set: (obj, cb) => { Object.assign(store, obj); if (cb) cb(); },
+      remove: (k, cb) => { delete store[k]; if (cb) cb(); },
+    } },
+    _store: store,
+  };
 }, brands);
 await page.addScriptTag({ path: PROJ + "/matcher.js" });
 await page.addScriptTag({ path: PROJ + "/content.js" });
@@ -94,8 +119,13 @@ const r1 = await page.evaluate(() => {
 // Simulate a framework re-render detaching the badged image.
 await page.evaluate(() => document.getElementById("img1").remove());
 await page.waitForTimeout(700);
+// Wait out the unknown-collector's 2 s flush debounce before reading the store.
+await page.waitForTimeout(1800);
 const r2 = await page.evaluate(() => ({
   card1BadgeAfterImgRemoved: !!document.querySelector("#card1 [data-bunnycheck-badge]"),
+  card7Badge: !!document.querySelector("#card7 [data-bunnycheck-badge]"),
+  img7Done: document.getElementById("img7").getAttribute("data-bunnycheck-done"),
+  collectedUnknowns: Object.values(window.chrome._store.bunnycheck_unknown ?? {}).map((e) => e.name),
 }));
 
 await browser.close();
@@ -115,6 +145,10 @@ const checks = {
   "generic word in plain text not matched": results.card6Badge === false && results.img6Done === "0",
   "no wrapper spans": results.wrapperSpansAroundImgs === 0,
   "badge pruned after re-render": results.card1BadgeAfterImgRemoved === false,
+  "extended name not prefix-matched (Being Frenshe ≠ being)":
+    results.card7Badge === false && results.img7Done === "0",
+  "unknown brand collected": results.collectedUnknowns.includes("Being Frenshe"),
+  "known non-certified brand not collected": !results.collectedUnknowns.includes("SomeTester"),
 };
 
 let pass = true;

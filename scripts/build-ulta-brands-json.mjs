@@ -1,17 +1,20 @@
 // BunnyCheck — build-ulta-brands-json.mjs
-// Builds data/brands.json from Desktop/ulta-brands-researched.csv.
+// Builds data/brands.json from data/ulta-brands-researched.csv.
 // Only includes brands certified by PETA or Leaping Bunny (peta=TRUE or leaping_bunny=TRUE).
+// Also emits data/known-brands.json: normalized names + aliases of EVERY
+// researched row (certified or not), so the content script's unknown-brand
+// collector only reports brands we have never researched.
 //
 // Run with: node scripts/build-ulta-brands-json.mjs
 
 import { readFileSync, writeFileSync } from "fs";
 import { fileURLToPath } from "url";
 import path from "path";
-import os from "os";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CSV_PATH  = path.join(os.homedir(), "Desktop", "ulta-brands-researched.csv");
+const CSV_PATH  = path.join(__dirname, "../data/ulta-brands-researched.csv");
 const OUT_PATH  = path.join(__dirname, "../data/brands.json");
+const KNOWN_PATH = path.join(__dirname, "../data/known-brands.json");
 const VERSION   = new Date().toISOString().slice(0, 10);
 
 // ─── CSV parser ───────────────────────────────────────────────────────────────
@@ -210,6 +213,24 @@ function main() {
   const json = JSON.stringify(brands, null, 2);
   writeFileSync(OUT_PATH, json, "utf8");
   console.log(`\nWritten: ${OUT_PATH} (${(json.length / 1024).toFixed(0)} KB)`);
+
+  // Known-brands list: every researched row, certified or not. The unknown-
+  // brand collector treats anything NOT in this list as new-to-us. Aliases
+  // are included so e.g. "Chanel Beauté" doesn't report when the CSV row says
+  // "CHANEL".
+  const known = new Set();
+  for (const row of rows) {
+    const name = (row.brand_name || "").trim();
+    const slug = (row.ulta_slug  || "").trim();
+    if (!name || !slug) continue;
+    known.add(normalizeKey(name));
+    known.add(slug.replace(/-/g, " "));
+    for (const alias of generateAliases(name, slug)) known.add(normalizeKey(alias));
+  }
+  known.delete("");
+  const knownJson = JSON.stringify({ data_version: VERSION, names: [...known].sort() });
+  writeFileSync(KNOWN_PATH, knownJson, "utf8");
+  console.log(`Written: ${KNOWN_PATH} (${(knownJson.length / 1024).toFixed(0)} KB, ${known.size} known names)`);
 }
 
 main();

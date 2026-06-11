@@ -6,7 +6,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "abature": {
     "display_name": "Abature",
@@ -16,7 +16,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "about-face": {
     "display_name": "about-face",
@@ -28,7 +28,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Celebrands",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "admire-my-skin": {
     "display_name": "Admire My Skin",
@@ -37,7 +37,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "af94": {
     "display_name": "af94",
@@ -47,7 +47,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Celebrands",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ag-care": {
     "display_name": "AG Care",
@@ -56,7 +56,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ulta-beauty-collection": {
     "display_name": "All Ulta Beauty Collection",
@@ -68,7 +68,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Ulta Beauty",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "alleyoop": {
     "display_name": "Alleyoop",
@@ -77,7 +77,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "amika": {
     "display_name": "amika",
@@ -87,7 +87,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Bansk Group",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "anastasia-beverly-hills": {
     "display_name": "Anastasia Beverly Hills",
@@ -96,7 +96,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "andrew-fitzsimons": {
     "display_name": "Andrew Fitzsimons",
@@ -105,7 +105,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "anthony": {
     "display_name": "Anthony",
@@ -116,7 +116,7 @@
     "parent_cf_bad": false,
     "parent_company": "Skyline Beauty Group",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "apothekary": {
     "display_name": "Apothékary",
@@ -128,7 +128,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "apotheke": {
     "display_name": "APOTHEKE",
@@ -137,7 +137,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "aramore": {
     "display_name": "Aramore",
@@ -147,7 +147,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "New Frontier Bio Inc.",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "arctic-fox": {
     "display_name": "Arctic Fox",
@@ -157,7 +157,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "LG Household & Health Care",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ardell": {
     "display_name": "Ardell",
@@ -167,7 +167,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "American International Industries",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ariana-grande": {
     "display_name": "Ariana Grande",
@@ -177,7 +177,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Luxe Brands",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ascention-parfums": {
     "display_name": "ASCENTION Parfums",
@@ -188,7 +188,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "asna": {
     "display_name": "ASNA",
@@ -197,7 +197,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "atwater": {
     "display_name": "ATWATER",
@@ -206,7 +206,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "axis-y": {
     "display_name": "AXIS-Y",
@@ -217,7 +217,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "babe-original": {
     "display_name": "Babe Original",
@@ -226,7 +226,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "bali-body": {
     "display_name": "Bali Body",
@@ -235,7 +235,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "bareminerals": {
     "display_name": "bareMinerals",
@@ -245,7 +245,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Orveon Global",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "beautybio": {
     "display_name": "BeautyBio",
@@ -254,7 +254,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "beautyblender": {
     "display_name": "beautyblender",
@@ -263,7 +263,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "beautystat-cosmetics": {
     "display_name": "BeautyStat Cosmetics",
@@ -274,7 +274,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "beekman-1802": {
     "display_name": "Beekman 1802",
@@ -284,7 +284,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Eurazeo Brands",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "being": {
     "display_name": "being",
@@ -294,7 +294,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "bejou": {
     "display_name": "Bejou",
@@ -303,7 +303,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "billie": {
     "display_name": "billie",
@@ -314,7 +314,7 @@
     "parent_cf_bad": true,
     "parent_company": "Edgewell Personal Care",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "billie-eilish": {
     "display_name": "Billie Eilish",
@@ -324,7 +324,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Parlux Ltd.",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "bio-ionic": {
     "display_name": "Bio Ionic",
@@ -334,7 +334,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Beauty By Imagination (BBI)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "biore": {
     "display_name": "Bioré",
@@ -347,7 +347,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Kao Corporation",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "biosilk": {
     "display_name": "Biosilk",
@@ -357,7 +357,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Farouk Systems",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "black-girl-sunscreen": {
     "display_name": "Black Girl Sunscreen",
@@ -366,7 +366,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "blackwood-men": {
     "display_name": "BLACKWOOD FOR MEN",
@@ -377,7 +377,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "blinc": {
     "display_name": "Blinc",
@@ -386,7 +386,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "blind-barber": {
     "display_name": "Blind Barber",
@@ -395,7 +395,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "blondme": {
     "display_name": "BLONDME",
@@ -405,7 +405,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Henkel",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "bloom": {
     "display_name": "Bloom",
@@ -415,7 +415,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "bloomeffects": {
     "display_name": "Bloomeffects",
@@ -424,7 +424,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "blossom": {
     "display_name": "BLOSSOM",
@@ -434,7 +434,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "blossom-essentials": {
     "display_name": "Blossom Essentials",
@@ -443,7 +443,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "blume": {
     "display_name": "BLUME",
@@ -452,7 +452,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "bondi-boost": {
     "display_name": "Bondi Boost",
@@ -461,7 +461,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "bondi-sands": {
     "display_name": "Bondi Sands",
@@ -471,7 +471,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Kao Corporation",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "briogeo": {
     "display_name": "Briogeo",
@@ -481,7 +481,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Henkel",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "bubble": {
     "display_name": "Bubble",
@@ -491,7 +491,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "bumble-bumble": {
     "display_name": "Bumble and bumble",
@@ -504,7 +504,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Estée Lauder Companies",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "bushbalm": {
     "display_name": "Bushbalm",
@@ -513,7 +513,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "buxom": {
     "display_name": "Buxom",
@@ -524,7 +524,7 @@
     "parent_cf_bad": false,
     "parent_company": "Orveon",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "byoma": {
     "display_name": "BYOMA",
@@ -534,7 +534,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Bansk Group",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "byroe": {
     "display_name": "BYROE",
@@ -543,7 +543,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "caldera-lab": {
     "display_name": "Caldera + Lab",
@@ -555,7 +555,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "california-naturals": {
     "display_name": "California Naturals",
@@ -564,19 +564,20 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "carols-daughter": {
-    "display_name": "Carol&#x27;s Daughter",
+    "display_name": "Carol's Daughter",
     "ulta_slug": "carols-daughter",
     "aliases": [
+      "Carols Daughter",
       "carols daughter"
     ],
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "L'Oréal SA",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "caswell-massey": {
     "display_name": "Caswell-Massey",
@@ -587,7 +588,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "cayla-gray": {
     "display_name": "Cayla Gray",
@@ -596,7 +597,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "chi": {
     "display_name": "CHI",
@@ -607,7 +608,7 @@
     "parent_cf_bad": false,
     "parent_company": "Farouk Systems",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "china-glaze": {
     "display_name": "China Glaze",
@@ -617,7 +618,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "American International Industries",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "cinema-secrets": {
     "display_name": "Cinema Secrets",
@@ -626,7 +627,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "clarins": {
     "display_name": "Clarins",
@@ -636,7 +637,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Clarins Group",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "cle-cosmetics": {
     "display_name": "CLE Cosmetics",
@@ -647,7 +648,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "clean": {
     "display_name": "Clean",
@@ -657,7 +658,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "clean-skin-club": {
     "display_name": "Clean Skin Club",
@@ -666,7 +667,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "cleverman": {
     "display_name": "Cleverman",
@@ -675,7 +676,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "cocokind": {
     "display_name": "cocokind",
@@ -684,7 +685,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "codex-labs": {
     "display_name": "Codex Labs",
@@ -694,7 +695,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Independent (Codex Labs Corporation)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "colourpop": {
     "display_name": "ColourPop",
@@ -704,7 +705,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Seed Beauty",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "conair": {
     "display_name": "Conair",
@@ -714,7 +715,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Conair Corporation",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "coola": {
     "display_name": "COOLA",
@@ -724,7 +725,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "SC Johnson",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "corpus": {
     "display_name": "CORPUS",
@@ -734,7 +735,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "covergirl": {
     "display_name": "CoverGirl",
@@ -744,7 +745,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Coty",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "curlsmith": {
     "display_name": "Curlsmith",
@@ -754,7 +755,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Helen of Troy",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dashing-diva": {
     "display_name": "Dashing Diva",
@@ -764,7 +765,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "KMC Exim",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dehiya-beauty": {
     "display_name": "Dehiya Beauty",
@@ -775,7 +776,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "derma-e": {
     "display_name": "DERMA E",
@@ -785,7 +786,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Topix Pharmaceuticals",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dermablend": {
     "display_name": "Dermablend",
@@ -795,7 +796,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "L'Oréal SA",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dermalogica": {
     "display_name": "Dermalogica",
@@ -805,7 +806,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Unilever",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dermelect": {
     "display_name": "Dermelect",
@@ -815,7 +816,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Independent",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "design-essentials": {
     "display_name": "Design Essentials",
@@ -825,7 +826,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "McBride Research Laboratories",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "devacurl": {
     "display_name": "DevaCurl",
@@ -835,7 +836,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Henkel",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "diamond-drunk": {
     "display_name": "Diamond Drunk",
@@ -844,7 +845,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dibs-beauty": {
     "display_name": "DIBS Beauty",
@@ -853,7 +854,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dime": {
     "display_name": "DIME",
@@ -863,7 +864,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dionis": {
     "display_name": "Dionis",
@@ -873,7 +874,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Independent (Dionis Inc.)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "divi": {
     "display_name": "Divi",
@@ -882,7 +883,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "doll-10": {
     "display_name": "Doll 10",
@@ -891,7 +892,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dore": {
     "display_name": "Doré",
@@ -904,7 +905,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dphue": {
     "display_name": "dpHUE",
@@ -913,7 +914,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dr-brandt": {
     "display_name": "Dr. Brandt",
@@ -924,7 +925,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dr-pawpaw": {
     "display_name": "Dr. PAWPAW",
@@ -935,7 +936,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "dr-squatch": {
     "display_name": "Dr. Squatch",
@@ -947,7 +948,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Unilever",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "drmtlgy": {
     "display_name": "DRMTLGY",
@@ -956,7 +957,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "drunk-elephant": {
     "display_name": "Drunk Elephant",
@@ -966,7 +967,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Shiseido",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "drybar": {
     "display_name": "Drybar",
@@ -976,7 +977,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Helen of Troy",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "elf-cosmetics": {
     "display_name": "e.l.f. Cosmetics",
@@ -988,18 +989,19 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "each-every": {
-    "display_name": "Each &amp; Every",
+    "display_name": "Each & Every",
     "ulta_slug": "each-every",
     "aliases": [
-      "each every"
+      "each every",
+      "Each and Every"
     ],
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "earth-harbor": {
     "display_name": "Earth Harbor",
@@ -1008,7 +1010,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ecotools": {
     "display_name": "EcoTools",
@@ -1018,7 +1020,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Paris Presents (Yellow Wood Partners)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ellis-brooklyn": {
     "display_name": "Ellis Brooklyn",
@@ -1027,7 +1029,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "eos": {
     "display_name": "Eos",
@@ -1036,7 +1038,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ere-perez": {
     "display_name": "Ere Perez",
@@ -1045,7 +1047,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "erly": {
     "display_name": "ERLY",
@@ -1054,7 +1056,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "esha": {
     "display_name": "Esha",
@@ -1063,7 +1065,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "essence": {
     "display_name": "Essence",
@@ -1074,7 +1076,7 @@
     "parent_cf_bad": false,
     "parent_company": "Cosnova GmbH",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ethique-beauty": {
     "display_name": "Ethique Beauty",
@@ -1086,7 +1088,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Bansk Group",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "etude": {
     "display_name": "ETUDE",
@@ -1097,7 +1099,7 @@
     "parent_cf_bad": true,
     "parent_company": "AmorePacific",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "eva-nyc": {
     "display_name": "Eva Nyc",
@@ -1107,7 +1109,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Bansk Group",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "eve-lom": {
     "display_name": "Eve Lom",
@@ -1117,7 +1119,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Yatsen",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "evil-goods": {
     "display_name": "Evil Goods",
@@ -1126,7 +1128,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "evre-skincare": {
     "display_name": "Evre Skincare",
@@ -1137,7 +1139,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "eyeko": {
     "display_name": "Eyeko",
@@ -1147,7 +1149,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "The Hut Group (THG)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "fairy-tales": {
     "display_name": "Fairy Tales",
@@ -1156,7 +1158,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "farmacy": {
     "display_name": "FARMACY",
@@ -1166,7 +1168,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Procter & Gamble",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "first-aid-beauty": {
     "display_name": "First Aid Beauty",
@@ -1178,7 +1180,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Procter & Gamble",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "florence-by-mills": {
     "display_name": "florence by mills",
@@ -1187,7 +1189,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "flowery": {
     "display_name": "Flowery",
@@ -1198,7 +1200,7 @@
     "parent_cf_bad": false,
     "parent_company": "Columbia Manicure Manufacturing",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "frank-body": {
     "display_name": "frank body",
@@ -1207,7 +1209,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "fur": {
     "display_name": "Fur",
@@ -1217,7 +1219,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "garden-of-life": {
     "display_name": "Garden of Life",
@@ -1227,7 +1229,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Nestlé Health Science",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "gigi": {
     "display_name": "Gigi",
@@ -1238,7 +1240,7 @@
     "parent_cf_bad": false,
     "parent_company": "American International Industries (AII)",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ginger-milk": {
     "display_name": "Ginger Milk",
@@ -1248,7 +1250,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Independent",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "glamnetic": {
     "display_name": "Glamnetic",
@@ -1257,7 +1259,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "glamnetic-x-fanatics-nail": {
     "display_name": "Glamnetic x Fanatics Nail",
@@ -1266,7 +1268,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "glimmer-wish": {
     "display_name": "Glimmer Wish",
@@ -1275,7 +1277,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "goli-nutrition": {
     "display_name": "Goli Nutrition",
@@ -1285,7 +1287,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Group KPS / Bastion Capital",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "good-dye-young": {
     "display_name": "Good Dye Young",
@@ -1294,7 +1296,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "good-light": {
     "display_name": "good light",
@@ -1303,7 +1305,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "good-molecules": {
     "display_name": "Good Molecules",
@@ -1312,7 +1314,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "goop": {
     "display_name": "goop",
@@ -1322,7 +1324,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "grande-cosmetics": {
     "display_name": "Grande Cosmetics",
@@ -1334,7 +1336,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Performance Beauty Group",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "gurunanda": {
     "display_name": "GuruNanda",
@@ -1343,7 +1345,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "hair": {
     "display_name": "Hair+",
@@ -1353,7 +1355,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "hairstory": {
     "display_name": "Hairstory",
@@ -1362,7 +1364,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "hairtamin": {
     "display_name": "HAIRtamin",
@@ -1371,7 +1373,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "haleys-beauty": {
     "display_name": "HALEYS Beauty",
@@ -1382,7 +1384,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "half-magic": {
     "display_name": "HALF MAGIC",
@@ -1392,7 +1394,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "A24",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "hally": {
     "display_name": "HALLY",
@@ -1402,7 +1404,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Independent",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "hampton-sun": {
     "display_name": "Hampton Sun",
@@ -1411,7 +1413,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "hatch": {
     "display_name": "Hatch",
@@ -1422,7 +1424,7 @@
     "parent_cf_bad": false,
     "parent_company": "Janie and Jack / Go Global Retail",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "hatch-mama": {
     "display_name": "HATCH MAMA",
@@ -1432,7 +1434,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Janie and Jack / Go Global Retail",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "hempz": {
     "display_name": "Hempz",
@@ -1442,7 +1444,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "TSG Consumer Partners",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "herbivore": {
     "display_name": "HERBIVORE",
@@ -1452,7 +1454,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "hey-honey": {
     "display_name": "Hey Honey",
@@ -1461,7 +1463,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "holo-taco": {
     "display_name": "Holo Taco",
@@ -1470,7 +1472,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "homeworx": {
     "display_name": "HomeWorx",
@@ -1479,7 +1481,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "hot-tools": {
     "display_name": "Hot Tools",
@@ -1489,7 +1491,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Helen of Troy",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "hourglass": {
     "display_name": "HOURGLASS",
@@ -1500,7 +1502,7 @@
     "parent_cf_bad": true,
     "parent_company": "Unilever",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "house-of-lashes": {
     "display_name": "House of Lashes",
@@ -1509,7 +1511,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "hypothesis": {
     "display_name": "Hypothesis",
@@ -1519,7 +1521,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "i-dew-care": {
     "display_name": "I Dew Care",
@@ -1529,18 +1531,19 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Memebox (MBX)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "im-from": {
-    "display_name": "I&#x27;m From",
+    "display_name": "I'm From",
     "ulta_slug": "im-from",
     "aliases": [
+      "Im From",
       "im from"
     ],
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "iconic-london": {
     "display_name": "ICONIC LONDON",
@@ -1549,7 +1552,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "igk": {
     "display_name": "IGK",
@@ -1559,7 +1562,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Luxury Brand Partners",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ilia": {
     "display_name": "ILIA",
@@ -1570,7 +1573,7 @@
     "parent_cf_bad": false,
     "parent_company": "Famille C (Courtin-Clarins)",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "imarais-beauty": {
     "display_name": "Imarais Beauty",
@@ -1581,7 +1584,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "in-common": {
     "display_name": "In Common",
@@ -1590,7 +1593,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "indie-lee": {
     "display_name": "INDIE LEE",
@@ -1600,7 +1603,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "American Exchange Group",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "inh-hair": {
     "display_name": "inh HAIR",
@@ -1609,7 +1612,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "inked-by-dani": {
     "display_name": "Inked by Dani",
@@ -1618,7 +1621,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "innersense-organic-beauty": {
     "display_name": "Innersense Organic Beauty",
@@ -1629,7 +1632,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "iota": {
     "display_name": "iota",
@@ -1639,7 +1642,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "isima": {
     "display_name": "isima",
@@ -1648,7 +1651,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "it-cosmetics": {
     "display_name": "IT Cosmetics",
@@ -1658,7 +1661,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "L'Oréal SA",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "jcat-beauty": {
     "display_name": "J.Cat Beauty",
@@ -1670,7 +1673,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "jack-black": {
     "display_name": "Jack Black",
@@ -1680,7 +1683,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Edgewell Personal Care",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "jack-henry": {
     "display_name": "Jack Henry",
@@ -1689,7 +1692,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "jane-iredale": {
     "display_name": "jane iredale",
@@ -1699,7 +1702,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "San Francisco Equity Partners",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "jb-skrub": {
     "display_name": "JB Skrub",
@@ -1708,7 +1711,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "jill": {
     "display_name": "Jill",
@@ -1718,7 +1721,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "joico": {
     "display_name": "Joico",
@@ -1728,7 +1731,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Henkel",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "jolie": {
     "display_name": "Jolie",
@@ -1737,7 +1740,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "jouer-cosmetics": {
     "display_name": "Jouer Cosmetics",
@@ -1748,7 +1751,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "kahi": {
     "display_name": "KAHI",
@@ -1757,7 +1760,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "kaja": {
     "display_name": "Kaja",
@@ -1767,7 +1770,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Memebox (MBX)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "kate-somerville": {
     "display_name": "Kate Somerville",
@@ -1777,7 +1780,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Unilever",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "kenra-professional": {
     "display_name": "Kenra Professional",
@@ -1789,7 +1792,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Henkel",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "khloe-kardashian": {
     "display_name": "KHLOÉ KARDASHIAN",
@@ -1801,7 +1804,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "kimchi-chic-beauty": {
     "display_name": "KimChi Chic Beauty",
@@ -1812,7 +1815,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "kiss": {
     "display_name": "Kiss",
@@ -1823,7 +1826,7 @@
     "parent_cf_bad": false,
     "parent_company": "American International Industries",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "kitsch": {
     "display_name": "Kitsch",
@@ -1832,7 +1835,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "klairs": {
     "display_name": "Klairs",
@@ -1841,7 +1844,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "knemo": {
     "display_name": "Knemo",
@@ -1850,7 +1853,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "kopari-beauty": {
     "display_name": "Kopari Beauty",
@@ -1861,7 +1864,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "korres": {
     "display_name": "KORRES",
@@ -1870,7 +1873,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "kristin-ess-hair": {
     "display_name": "KRISTIN ESS HAIR",
@@ -1880,7 +1883,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Maesa",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "kvd-beauty": {
     "display_name": "KVD Beauty",
@@ -1892,7 +1895,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "LVMH",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "la-girl": {
     "display_name": "L.A. Girl",
@@ -1904,19 +1907,20 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Beauty 21 Cosmetics",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "lake-skye": {
-    "display_name": "Lake &amp; Skye",
+    "display_name": "Lake & Skye",
     "ulta_slug": "lake-skye",
     "aliases": [
-      "lake skye"
+      "lake skye",
+      "Lake and Skye"
     ],
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Tru Fragrance & Beauty",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "lalarecipe": {
     "display_name": "LALARECIPE",
@@ -1925,7 +1929,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "lamik-beauty": {
     "display_name": "LAMIK Beauty",
@@ -1936,7 +1940,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "laura-geller": {
     "display_name": "LAURA GELLER",
@@ -1946,7 +1950,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "AS Beauty",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "leonor-greyl": {
     "display_name": "Leonor Greyl",
@@ -1955,7 +1959,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "lime-crime": {
     "display_name": "Lime Crime",
@@ -1965,7 +1969,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Tengram Capital Partners",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "lip-smacker": {
     "display_name": "Lip Smacker",
@@ -1975,7 +1979,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Markwins Beauty Brands",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "live-tinted": {
     "display_name": "Live Tinted",
@@ -1984,7 +1988,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "living-proof": {
     "display_name": "Living Proof",
@@ -1994,7 +1998,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Unilever",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "lola": {
     "display_name": "LOLA",
@@ -2004,7 +2008,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "lolavie": {
     "display_name": "LolaVie",
@@ -2013,7 +2017,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "londontown": {
     "display_name": "Londontown",
@@ -2022,7 +2026,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "loops": {
     "display_name": "LOOPS",
@@ -2032,7 +2036,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Syllable",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "lorac": {
     "display_name": "LORAC",
@@ -2042,7 +2046,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Markwins Beauty Brands",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "lottie-london": {
     "display_name": "Lottie London",
@@ -2052,18 +2056,19 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Brand Agency London (in administration)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "love-pebble": {
-    "display_name": "Love &amp; Pebble",
+    "display_name": "Love & Pebble",
     "ulta_slug": "love-pebble",
     "aliases": [
-      "love pebble"
+      "love pebble",
+      "Love and Pebble"
     ],
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "love-wellness": {
     "display_name": "Love Wellness",
@@ -2073,7 +2078,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Encore Consumer Capital (Ogilvie Brands)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "love-indus": {
     "display_name": "Love, Indus",
@@ -2084,7 +2089,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "lume": {
     "display_name": "Lume",
@@ -2094,7 +2099,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Harry's Inc.",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "luna-nectar": {
     "display_name": "Luna Nectar",
@@ -2103,7 +2108,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "lush": {
     "display_name": "LUSH",
@@ -2113,7 +2118,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "mad-hippie": {
     "display_name": "Mad Hippie",
@@ -2122,7 +2127,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "madison-reed": {
     "display_name": "Madison Reed",
@@ -2131,7 +2136,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "maelys": {
     "display_name": "MAËLYS",
@@ -2144,7 +2149,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Barinboim Group",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "manucurist": {
     "display_name": "Manucurist",
@@ -2153,7 +2158,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "marie-hunter": {
     "display_name": "Marie Hunter",
@@ -2162,18 +2167,19 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "maryruths": {
-    "display_name": "MaryRuth&#x27;s",
+    "display_name": "MaryRuth's",
     "ulta_slug": "maryruths",
     "aliases": [
+      "MaryRuths",
       "maryruths"
     ],
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "masami": {
     "display_name": "Masami",
@@ -2182,7 +2188,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "mdsolarsciences": {
     "display_name": "MDSolarSciences",
@@ -2191,7 +2197,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "mediheal": {
     "display_name": "MEDIHEAL",
@@ -2201,7 +2207,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "L&P Cosmetics",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "method": {
     "display_name": "method",
@@ -2212,7 +2218,7 @@
     "parent_cf_bad": true,
     "parent_company": "SC Johnson",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "miami-beach-bum": {
     "display_name": "Miami Beach Bum",
@@ -2221,7 +2227,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "michael-todd-beauty": {
     "display_name": "Michael Todd Beauty",
@@ -2232,7 +2238,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "miko": {
     "display_name": "Miko",
@@ -2241,7 +2247,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "milani": {
     "display_name": "Milani",
@@ -2251,7 +2257,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Gryphon Investors",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "milk-honey": {
     "display_name": "Milk + Honey",
@@ -2262,7 +2268,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "milk-makeup": {
     "display_name": "MILK MAKEUP",
@@ -2272,7 +2278,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Waldencast",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "mixed-chicks": {
     "display_name": "Mixed Chicks",
@@ -2281,7 +2287,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "monday-haircare": {
     "display_name": "MONDAY Haircare",
@@ -2290,7 +2296,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "monika-blunder-beauty": {
     "display_name": "Monika Blunder Beauty",
@@ -2301,7 +2307,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "moon": {
     "display_name": "Moon",
@@ -2311,7 +2317,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "moon-juice": {
     "display_name": "Moon Juice",
@@ -2320,7 +2326,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "moroccanoil": {
     "display_name": "Moroccanoil",
@@ -2329,7 +2335,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "morphe": {
     "display_name": "Morphe",
@@ -2339,7 +2345,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Forma Brands",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "mount-lai": {
     "display_name": "Mount Lai",
@@ -2348,7 +2354,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "murad": {
     "display_name": "Murad",
@@ -2358,7 +2364,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Unilever",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nabla": {
     "display_name": "NABLA",
@@ -2368,7 +2374,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nail-tek": {
     "display_name": "Nail Tek",
@@ -2378,7 +2384,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "American International Industries (AII)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nails-inc": {
     "display_name": "Nails Inc.",
@@ -2390,7 +2396,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Pacific World Corporation",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nair": {
     "display_name": "Nair",
@@ -2401,7 +2407,7 @@
     "parent_cf_bad": true,
     "parent_company": "Church & Dwight",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "naked-sundays": {
     "display_name": "Naked Sundays",
@@ -2410,7 +2416,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nakery-beauty": {
     "display_name": "NAKERY BEAUTY",
@@ -2421,7 +2427,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nassifmd-skincare": {
     "display_name": "NassifMD Skincare",
@@ -2432,7 +2438,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "naturium": {
     "display_name": "Naturium",
@@ -2442,7 +2448,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "e.l.f. Beauty",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nemat": {
     "display_name": "Nemat",
@@ -2452,7 +2458,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Independent (Nemat International)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nest-new-york": {
     "display_name": "NEST New York",
@@ -2462,7 +2468,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "North Castle Partners",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nick-stenson-beauty": {
     "display_name": "Nick Stenson Beauty",
@@ -2473,7 +2479,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nimbi": {
     "display_name": "Nimbi",
@@ -2483,7 +2489,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nopalera": {
     "display_name": "Nopalera",
@@ -2492,7 +2498,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "noto-botanics": {
     "display_name": "NOTO Botanics",
@@ -2501,7 +2507,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "noyz": {
     "display_name": "NOYZ",
@@ -2510,7 +2516,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nudestix": {
     "display_name": "NUDESTIX",
@@ -2519,7 +2525,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nulastin": {
     "display_name": "NULASTIN",
@@ -2528,7 +2534,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nutrafol": {
     "display_name": "NUTRAFOL",
@@ -2538,7 +2544,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Unilever",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "nyx-professional-makeup": {
     "display_name": "NYX Professional Makeup",
@@ -2548,7 +2554,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "L'Oréal SA",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "oak-essentials": {
     "display_name": "Oak Essentials",
@@ -2557,7 +2563,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ocoa": {
     "display_name": "OCOA",
@@ -2566,7 +2572,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "octavia-morgan-los-angeles": {
     "display_name": "OCTAVIA MORGAN LOS ANGELES",
@@ -2575,7 +2581,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "odele": {
     "display_name": "Odele",
@@ -2584,7 +2590,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ofra-cosmetics": {
     "display_name": "Ofra Cosmetics",
@@ -2595,7 +2601,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ogee": {
     "display_name": "Ogee",
@@ -2605,7 +2611,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "oh-k": {
     "display_name": "Oh K!",
@@ -2616,7 +2622,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "olaplex": {
     "display_name": "OLAPLEX",
@@ -2626,7 +2632,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Henkel",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "onekind": {
     "display_name": "Onekind",
@@ -2635,7 +2641,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "opi": {
     "display_name": "OPI",
@@ -2645,7 +2651,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Coty",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "orebella": {
     "display_name": "Orebella",
@@ -2655,7 +2661,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Celebrands",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "orly": {
     "display_name": "Orly",
@@ -2664,7 +2670,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ortega-beauty": {
     "display_name": "Ortega Beauty",
@@ -2675,7 +2681,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "osea": {
     "display_name": "OSEA",
@@ -2685,7 +2691,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "General Atlantic",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ouai": {
     "display_name": "OUAI",
@@ -2695,7 +2701,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Procter & Gamble",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ouidad": {
     "display_name": "Ouidad",
@@ -2705,7 +2711,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Beauty By Imagination (BBI)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "overtone": {
     "display_name": "Overtone",
@@ -2715,7 +2721,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "pacifica": {
     "display_name": "Pacifica",
@@ -2724,7 +2730,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "palladio-beauty": {
     "display_name": "Palladio Beauty",
@@ -2735,7 +2741,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "party-of-you": {
     "display_name": "Party of You",
@@ -2744,7 +2750,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "patchology": {
     "display_name": "Patchology",
@@ -2754,7 +2760,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Rare Beauty Brands",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "pattern": {
     "display_name": "PATTERN",
@@ -2764,7 +2770,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "paul-mitchell": {
     "display_name": "Paul Mitchell",
@@ -2774,7 +2780,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "John Paul Mitchell Systems (self)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "paume": {
     "display_name": "PAUME",
@@ -2783,7 +2789,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "peace-out": {
     "display_name": "Peace Out",
@@ -2792,18 +2798,19 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "peach-lily": {
-    "display_name": "PEACH &amp; LILY",
+    "display_name": "PEACH & LILY",
     "ulta_slug": "peach-lily",
     "aliases": [
-      "peach lily"
+      "peach lily",
+      "PEACH and LILY"
     ],
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "peach-slices": {
     "display_name": "Peach Slices",
@@ -2813,7 +2820,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Peach & Lily",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "persona": {
     "display_name": "Persona",
@@ -2823,7 +2830,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "physicians-formula": {
     "display_name": "Physicians Formula",
@@ -2833,7 +2840,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Markwins Beauty Brands",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "pinrose": {
     "display_name": "Pinrose",
@@ -2842,7 +2849,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "plantkos": {
     "display_name": "Plantkos",
@@ -2851,7 +2858,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "playground": {
     "display_name": "Playground",
@@ -2861,7 +2868,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "plu": {
     "display_name": "PLU",
@@ -2870,7 +2877,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "polite-society": {
     "display_name": "Polite Society",
@@ -2879,7 +2886,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "poopourri": {
     "display_name": "Poo~Pourri",
@@ -2890,18 +2897,19 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "poppy-pout": {
-    "display_name": "Poppy &amp; Pout",
+    "display_name": "Poppy & Pout",
     "ulta_slug": "poppy-pout",
     "aliases": [
-      "poppy pout"
+      "poppy pout",
+      "Poppy and Pout"
     ],
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "pound-cake": {
     "display_name": "POUND CAKE",
@@ -2910,7 +2918,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "prai-beauty": {
     "display_name": "PRAI Beauty",
@@ -2922,7 +2930,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Luxury Brands LLC",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "pur-minerals": {
     "display_name": "PÜR Minerals",
@@ -2935,7 +2943,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Astral Brands",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "pura": {
     "display_name": "Pura",
@@ -2944,7 +2952,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "pureology": {
     "display_name": "Pureology",
@@ -2954,7 +2962,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "L'Oréal SA",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "queen-cosmetics": {
     "display_name": "Queen Cosmetics",
@@ -2963,7 +2971,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "rem-beauty": {
     "display_name": "r.e.m. beauty",
@@ -2975,7 +2983,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "rael": {
     "display_name": "Rael",
@@ -2984,7 +2992,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "rare-beauty": {
     "display_name": "Rare Beauty",
@@ -2993,7 +3001,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "real-techniques": {
     "display_name": "Real Techniques",
@@ -3003,7 +3011,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "PPI Beauty (Paris Presents)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "returnu": {
     "display_name": "Returnu",
@@ -3012,7 +3020,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "reuzel": {
     "display_name": "REUZEL",
@@ -3021,7 +3029,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "revolution-beauty": {
     "display_name": "Revolution Beauty",
@@ -3031,7 +3039,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Manzanita Capital",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "rizos-curls": {
     "display_name": "Rizos Curls",
@@ -3040,7 +3048,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "rms-beauty": {
     "display_name": "RMS Beauty",
@@ -3052,7 +3060,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Highlander Partners",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "roc": {
     "display_name": "RoC",
@@ -3063,7 +3071,7 @@
     "parent_cf_bad": false,
     "parent_company": "Bridgepoint Capital",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "rodan-fields": {
     "display_name": "RODAN + FIELDS",
@@ -3074,7 +3082,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "rosen": {
     "display_name": "ROSEN",
@@ -3083,18 +3091,19 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "rosy-earnest": {
-    "display_name": "Rosy &amp; Earnest",
+    "display_name": "Rosy & Earnest",
     "ulta_slug": "rosy-earnest",
     "aliases": [
-      "rosy earnest"
+      "rosy earnest",
+      "Rosy and Earnest"
     ],
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "rovectin": {
     "display_name": "Rovectin",
@@ -3103,7 +3112,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "rude": {
     "display_name": "Rude",
@@ -3113,7 +3122,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "sabrina-carpenter": {
     "display_name": "Sabrina Carpenter",
@@ -3123,7 +3132,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Scent Beauty",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "sacheu": {
     "display_name": "SACHEU",
@@ -3132,7 +3141,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "saje-natural-wellness": {
     "display_name": "Saje Natural Wellness",
@@ -3143,7 +3152,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "sand-sky": {
     "display_name": "Sand and Sky",
@@ -3155,7 +3164,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "sara-happ": {
     "display_name": "Sara Happ",
@@ -3165,7 +3174,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "BGM Ventures",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "sauce-beauty": {
     "display_name": "Sauce Beauty",
@@ -3174,7 +3183,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "seche": {
     "display_name": "Seche",
@@ -3183,7 +3192,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "seen": {
     "display_name": "SEEN",
@@ -3193,7 +3202,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "seoul-ceuticals": {
     "display_name": "Seoul Ceuticals",
@@ -3202,7 +3211,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "serovital": {
     "display_name": "SeroVital",
@@ -3212,7 +3221,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "SanMedica International",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "sexy-hair": {
     "display_name": "Sexy Hair",
@@ -3222,7 +3231,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Henkel",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "shampoohotel": {
     "display_name": "SHAMPOOHOTEL",
@@ -3231,7 +3240,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "sickscience-labs": {
     "display_name": "SickScience Labs",
@@ -3242,7 +3251,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "sigma-beauty": {
     "display_name": "Sigma Beauty",
@@ -3251,7 +3260,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "skin1004": {
     "display_name": "SKIN1004",
@@ -3260,7 +3269,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "skyn-iceland": {
     "display_name": "Skyn Iceland",
@@ -3270,7 +3279,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Amerikas",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "smashbox": {
     "display_name": "Smashbox",
@@ -3280,7 +3289,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Estée Lauder Companies",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "snif": {
     "display_name": "Snif",
@@ -3289,7 +3298,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "soapbox": {
     "display_name": "Soapbox",
@@ -3300,7 +3309,7 @@
     "parent_cf_bad": false,
     "parent_company": "Impact Driven Brands",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "socozy": {
     "display_name": "SoCozy",
@@ -3309,7 +3318,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "sol-de-janeiro": {
     "display_name": "Sol de Janeiro",
@@ -3319,7 +3328,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "L'Occitane Group",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "spectrum": {
     "display_name": "Spectrum",
@@ -3329,7 +3338,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "starface": {
     "display_name": "STARFACE",
@@ -3338,7 +3347,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "stila": {
     "display_name": "Stila",
@@ -3348,7 +3357,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Bardin Hill Capital",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "stripes-beauty-by-naomi-watts": {
     "display_name": "STRIPES BEAUTY by Naomi Watts",
@@ -3358,7 +3367,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "L Catterton",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "sun-bum": {
     "display_name": "Sun Bum",
@@ -3368,7 +3377,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "SC Johnson",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "sunday-riley": {
     "display_name": "SUNDAY RILEY",
@@ -3377,7 +3386,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "supergoop": {
     "display_name": "Supergoop!",
@@ -3389,7 +3398,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Blackstone",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "supersmile": {
     "display_name": "Supersmile",
@@ -3398,7 +3407,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "supply-co": {
     "display_name": "Supply Co.",
@@ -3409,7 +3418,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "surface-deep": {
     "display_name": "Surface Deep",
@@ -3418,7 +3427,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "tabbeau": {
     "display_name": "TABBEAU",
@@ -3428,7 +3437,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "TABBEAU PLACE LLC (self)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "tad": {
     "display_name": "TAD",
@@ -3438,7 +3447,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "tan-luxe": {
     "display_name": "TAN-LUXE",
@@ -3450,7 +3459,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Future Beauty Labs",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "tangle-teezer": {
     "display_name": "Tangle Teezer",
@@ -3460,7 +3469,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "BIC",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "tanologist": {
     "display_name": "Tanologist",
@@ -3470,7 +3479,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Future Beauty Labs",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "tarte": {
     "display_name": "Tarte",
@@ -3480,7 +3489,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Kosé Corporation",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "tatcha": {
     "display_name": "TATCHA",
@@ -3490,7 +3499,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Unilever",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "teluris": {
     "display_name": "Teluris",
@@ -3499,7 +3508,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "thayers": {
     "display_name": "Thayers",
@@ -3509,7 +3518,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "L'Oréal SA",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "creme-shop": {
     "display_name": "The Crème Shop",
@@ -3522,7 +3531,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "LG H&H (LG Household & Health Care)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "good-patch": {
     "display_name": "The Good Patch",
@@ -3534,7 +3543,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "La Mend, Inc.",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "ordinary": {
     "display_name": "The Ordinary",
@@ -3544,7 +3553,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Estée Lauder Companies",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "organic-skin-co": {
     "display_name": "The Organic Skin Co.",
@@ -3556,7 +3565,7 @@
     "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "route": {
     "display_name": "THE ROUTE",
@@ -3565,7 +3574,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "vintage-cosmetic-company": {
     "display_name": "The Vintage Cosmetic Company",
@@ -3576,7 +3585,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "timebeam": {
     "display_name": "Timebeam",
@@ -3585,7 +3594,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "tonymoly": {
     "display_name": "TONYMOLY",
@@ -3594,7 +3603,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "too-faced": {
     "display_name": "Too Faced",
@@ -3604,7 +3613,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": true,
     "parent_company": "Estée Lauder Companies",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "touchland": {
     "display_name": "Touchland",
@@ -3614,7 +3623,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Church & Dwight",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "tree-hut": {
     "display_name": "Tree Hut",
@@ -3624,7 +3633,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Naterra",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "tricoci": {
     "display_name": "Tricoci",
@@ -3633,7 +3642,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "trilastin": {
     "display_name": "Trilastin",
@@ -3642,7 +3651,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "truly": {
     "display_name": "Truly",
@@ -3652,7 +3661,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "truskin": {
     "display_name": "TruSkin",
@@ -3662,7 +3671,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "Wellbeam Consumer Health",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "tula": {
     "display_name": "TULA",
@@ -3673,7 +3682,7 @@
     "parent_cf_bad": true,
     "parent_company": "Procter & Gamble",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "undefined-beauty": {
     "display_name": "Undefined Beauty",
@@ -3682,7 +3691,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "unite-hair": {
     "display_name": "UNITE Hair",
@@ -3691,7 +3700,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "unleashia": {
     "display_name": "Unleashia",
@@ -3700,7 +3709,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "urban-skin-rx": {
     "display_name": "Urban Skin Rx",
@@ -3710,7 +3719,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "American Exchange Group",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "urban-veda": {
     "display_name": "Urban Veda",
@@ -3719,7 +3728,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "vacation": {
     "display_name": "Vacation",
@@ -3729,7 +3738,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "vahy": {
     "display_name": "Vahy",
@@ -3738,7 +3747,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "vanity-planet": {
     "display_name": "Vanity Planet",
@@ -3748,7 +3757,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Birch Strategic Capital",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "verb": {
     "display_name": "Verb",
@@ -3759,7 +3768,7 @@
     "parent_cf_bad": false,
     "parent_company": "Moroccanoil",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "veriphy-skincare": {
     "display_name": "Veriphy Skincare",
@@ -3770,7 +3779,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "versed": {
     "display_name": "Versed",
@@ -3781,7 +3790,7 @@
     "parent_cf_bad": false,
     "parent_company": "Sonoma Brands",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "virtue": {
     "display_name": "Virtue",
@@ -3792,7 +3801,7 @@
     "parent_cf_bad": false,
     "parent_company": "Combe Inc.",
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "vivaiodays": {
     "display_name": "VIVAIODAYS",
@@ -3801,7 +3810,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "voesh": {
     "display_name": "VOESH",
@@ -3810,7 +3819,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "volition": {
     "display_name": "VOLITION",
@@ -3820,7 +3829,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "generic_name": true,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "vt-cosmetics": {
     "display_name": "VT Cosmetics",
@@ -3829,7 +3838,7 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "well-people": {
     "display_name": "Well People",
@@ -3839,7 +3848,7 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "e.l.f. Beauty",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "wet-brush": {
     "display_name": "Wet Brush",
@@ -3849,7 +3858,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Beauty By Imagination (BBI)",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "wet-n-wild": {
     "display_name": "Wet n Wild",
@@ -3859,7 +3868,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Markwins Beauty Brands",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "wildfleur": {
     "display_name": "Wildfleur",
@@ -3868,7 +3877,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "winky-lux": {
     "display_name": "Winky Lux",
@@ -3878,7 +3887,7 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "CORE Industrial Partners",
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "womaness": {
     "display_name": "Womaness",
@@ -3887,7 +3896,7 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   },
   "xmondo": {
     "display_name": "XMONDO",
@@ -3896,6 +3905,6 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
-    "data_version": "2026-06-10"
+    "data_version": "2026-06-11"
   }
 }

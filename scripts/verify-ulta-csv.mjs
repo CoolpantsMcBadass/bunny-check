@@ -28,6 +28,10 @@ const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "ulta-brands-researched.c
 const API = "https://crueltyfree.peta.org/wp-json/wp/v2/company";
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 const APPLY = process.argv.includes("--apply");
+// --recheck flips the sweep: re-verify rows already marked peta=TRUE and
+// report any whose PETA page no longer says "is cruelty-free" (delistings,
+// acquisitions). Always report-only — removals are applied by hand.
+const RECHECK = process.argv.includes("--recheck");
 
 // Brands that are themselves a company known to test (or to own testing
 // operations) — never auto-apply even if PETA's H1 claims cruelty-free
@@ -131,15 +135,19 @@ async function pageH1Status(link) {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 const { header, rows } = parseCSV(readFileSync(CSV_PATH, "utf8"));
-const candidates = rows.filter(r => r.peta !== "TRUE" && r.brand_name && r.ulta_slug);
-console.log(`Checking ${candidates.length} peta=FALSE rows against PETA live...\n`);
+const candidates = rows.filter(r =>
+  (RECHECK ? r.peta === "TRUE" : r.peta !== "TRUE") && r.brand_name && r.ulta_slug);
+console.log(`Checking ${candidates.length} peta=${RECHECK ? "TRUE (recheck)" : "FALSE"} rows against PETA live...\n`);
 console.log("ulta_slug\tpeta_title\tpeta_slug\tmatch\th1_status\tverdict");
 
 const corrections = [];
 for (const row of candidates) {
   const hits = await petaSearch(row.brand_name);
   await new Promise(r => setTimeout(r, 200));
-  if (!hits.length) continue;
+  if (!hits.length) {
+    if (RECHECK) console.log(`${row.ulta_slug}\t-\t-\t-\tno_api_hits\tREVIEW (vanished from PETA search?)`);
+    continue;
+  }
 
   // Best hit: highest match quality against the Ulta name.
   const rank = { exact: 0, suffix: 1, prefix: 2, loose: 3 };
@@ -158,7 +166,11 @@ for (const row of candidates) {
   await new Promise(r => setTimeout(r, 200));
 
   let verdict = "no_change";
-  if (status === "cf") {
+  if (RECHECK) {
+    // Report-only: surface TRUE rows whose live status is no longer "cf".
+    if (status !== "cf") verdict = "REVIEW (was TRUE, live says " + status + ")";
+    else continue; // still certified — don't clutter the report
+  } else if (status === "cf") {
     verdict = SELF_PARENT_DENYLIST.has(row.ulta_slug) ? "DENYLISTED (review manually)" : "SET peta=TRUE";
     if (!SELF_PARENT_DENYLIST.has(row.ulta_slug)) corrections.push({ row, petaTitle: best.title });
   }

@@ -51,9 +51,49 @@ function renderError(msg) {
   el.style.color = "#c62828";
 }
 
+// ─── Unknown brands ───────────────────────────────────────────────────────────
+
+const UNKNOWN_KEY = "bunnycheck_unknown";
+
+/**
+ * Shows brand names the content script saw in Ulta's brand elements but found
+ * in neither the certified DB nor the known (researched) list — candidates for
+ * the next research pass. Sorted by how often they were seen.
+ * @param {object} unknown  normalized name → { name, count, first, last }
+ */
+function renderUnknowns(unknown) {
+  const entries = Object.values(unknown || {});
+  if (entries.length === 0) return;
+  entries.sort((a, b) => b.count - a.count);
+
+  document.getElementById("unknown-count").textContent = entries.length;
+  document.getElementById("unknown-list").textContent =
+    entries.map((e) => e.name).join("\n");
+  document.getElementById("unknown-list").style.whiteSpace = "pre-line";
+  document.getElementById("unknown-card").style.display = "block";
+
+  document.getElementById("unknown-copy").addEventListener("click", () => {
+    navigator.clipboard.writeText(entries.map((e) => e.name).join("\n")).then(() => {
+      document.getElementById("unknown-copy").textContent = "Copied!";
+      setTimeout(() => {
+        document.getElementById("unknown-copy").textContent = "Copy list";
+      }, 1500);
+    });
+  });
+
+  document.getElementById("unknown-clear").addEventListener("click", () => {
+    chrome.storage.local.remove(UNKNOWN_KEY, () => {
+      document.getElementById("unknown-card").style.display = "none";
+    });
+  });
+}
+
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 document.addEventListener("DOMContentLoaded", () => {
+  chrome.storage.local.get(UNKNOWN_KEY, (result) => {
+    renderUnknowns(result[UNKNOWN_KEY]);
+  });
   // First try reading directly from storage (faster than a round-trip message).
   chrome.storage.local.get(STORAGE_KEY, (result) => {
     const brands = result[STORAGE_KEY];

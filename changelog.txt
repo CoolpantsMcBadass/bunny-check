@@ -1,3 +1,47 @@
+2026-06-10 — v0.7.0: Self-updating brand pipeline (unknown-brand collector, recheck
+  sweeps, Ulta directory diff, monthly orchestrator) + Being Frenshe false-badge fix
+  - FIXED REAL FALSE-BADGE BUG found while testing: tier-0/PDP matching applied
+    word-prefix trimming to Ulta's own brand-element text, so "Being Frenshe"
+    trimmed to "Being" and matched the (generic_name, PETA-certified) brand
+    "being" — every Being Frenshe product was badged with the wrong brand's
+    certification. Tier-0/PDP text is the complete brand name; it now matches
+    full-string only (exact + fuzzy, no prefix trimming). Prefix trimming still
+    applies to tier-1/2 product-title text, where it belongs.
+  - Unknown-brand collector (content.js): tier-0/PDP brand names that match
+    neither brands.json nor the new data/known-brands.json (normalized names +
+    aliases of all 971 researched rows, emitted by the build script, loaded/
+    refreshed by background.js) are buffered to chrome.storage.local
+    (bunnycheck_unknown, 300-entry cap, once per page load, nothing leaves the
+    machine). Popup shows "New brands spotted" with Copy list / Clear.
+  - scripts/ingest-new-brands.mjs: pastes the popup list (file or stdin) into
+    ulta-brands-researched.csv as pending rows; skips already-known names.
+  - --recheck flag on verify-ulta-csv.mjs and verify-lb-names.mjs: re-verifies
+    TRUE rows and reports possible delistings (PETA H1 no longer "is
+    cruelty-free"; LB name vanished from the live list). Always report-only.
+  - scripts/scrape-ulta-brand-directory.mjs: scrapes Ulta's A–Z directory
+    (https://www.ulta.com/brand/all — must warm up via the homepage first or
+    Akamai serves "Our Apologies"; headed bundled Chromium required) and diffs
+    against the research CSV. First run: 992 brands, 22 NEW (Being Frenshe,
+    Almost Famous, GLISTER, Humanist Beauty, Mia Secret, Monpure, TFIT, ...),
+    2 informational drops (Ulta Beauty Collection meta-entry; Blue Lagoon
+    Skincare renamed "Blue Lagoon Skin Science").
+  - scripts/monthly-maintenance.mjs: one-shot orchestrator (LB re-scrape, PETA/
+    LB new-cert sweeps, both rechecks, Ulta directory diff) → report in
+    reports/maintenance-YYYY-MM-DD.md + macOS notification. Report-only by
+    design; apply with the individual scripts' --apply flags after review.
+    scripts/com.bunnycheck.maintenance.plist runs it monthly via launchd
+    (1st @ 10:00); install instructions in the plist comment. NOT auto-loaded.
+  - Data cleanup: 41 CSV rows had raw HTML entities in brand names
+    (Carol&#x27;s Daughter, Coco &amp; Eve, ...) from the original research
+    scrape — decoded in place; matching had survived via slug aliases but
+    display names and the directory diff were affected.
+  - build-ulta-brands-json.mjs now reads the repo CSV (data/), not Desktop.
+  - smoke-test.mjs: storage stub is now store-backed (get/set/remove); 3 new
+    checks (no prefix-match on extended names, unknown collected, known
+    non-certified brand NOT collected) — 14/14 PASS.
+  - Live-verified on ulta.com: 23 badge events, 0 Being Frenshe mismatches,
+    popup shows "New brands spotted: 1 — Being Frenshe".
+
 2026-06-10 — v0.6.7: Badges no longer bleed through Ulta's sticky header
   - User screenshot: scrolling the grid under the sticky top banner left badges
     painting on top of it. Cause: badge host used z-index:2147483647, which competes
