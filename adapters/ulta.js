@@ -14,6 +14,10 @@
 //   maxCardText             — text length above which an ancestor spans more
 //                             than one product card (boundary for both the
 //                             tier-0 and tier-2 walks)
+//   pdpBrandSelectors       — OPTIONAL: selectors for the PDP page-level brand
+//                             element; defaults to brandSelectors. Needed when
+//                             PDPs embed recommendation tiles whose tile-level
+//                             brand element would win the whole-document query
 //   isProductDetailPage()   — true when the current URL is a product detail
 //                             page, enabling the page-level brand fallback
 //   observerAttributeFilter — attributes the MutationObserver watches in

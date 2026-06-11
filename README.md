@@ -1,6 +1,6 @@
 # BunnyCheck
 
-A Chrome MV3 extension that detects cruelty-free beauty brands near product images on **Ulta.com** and overlays **PETA Cruelty-Free** and **Leaping Bunny** certification badges on those images. When a certified brand is owned by a parent company that is *not* cruelty-free (sells in mainland China / tests on animals), an amber **"⚠ But... parent tests"** warning badge is shown alongside.
+A Chrome MV3 extension that detects cruelty-free beauty brands near product images on **Ulta.com** and **Sephora.com** and overlays **PETA Cruelty-Free** and **Leaping Bunny** certification badges on those images. When a certified brand is owned by a parent company that is *not* cruelty-free (sells in mainland China / tests on animals), an amber **"⚠ But... parent tests"** warning badge is shown alongside.
 
 ## How it works
 
@@ -18,13 +18,15 @@ A Chrome MV3 extension that detects cruelty-free beauty brands near product imag
 
 ```
 bunny-check/
-  manifest.json            — MV3 manifest (Ulta-only host permissions)
+  manifest.json            — MV3 manifest (Ulta + Sephora host permissions)
   background.js            — Service worker: data loading, caching, remote refresh
   content.js               — Site-agnostic core: page scanner, brand extraction, badge injection
   matcher.js               — BrandMatcher class
   adapters/
     ulta.js                — Ulta site adapter: brand selectors, card bounds, PDP detection,
                              observer attribute filter (one adapter loads per host, before content.js)
+    sephora.js             — Sephora site adapter (ProductTile spans, data-at testids,
+                             DisplayName-only PDP brand selector)
   data/
     brands.json            — 374 certified Ulta brands (PETA 247 / LB 171 / both 44; 52 parent warnings)
     brands-master.csv      — Full merged PETA+LB dataset (8,859 brands)
@@ -41,7 +43,9 @@ bunny-check/
     scrape-lb-names.mjs        — Leaping Bunny shopping-guide scraper
     fix-peta-flags.mjs         — Corrects CF vs does-test flags from PETA API
     verify-ulta-csv.mjs        — Live-verifies peta=FALSE rows against PETA page H1s (--apply to write)
-    smoke-test.mjs             — Playwright regression test of the matching pipeline (16 checks)
+    smoke-test.mjs             — Playwright regression test of the matching pipeline (21 checks)
+    recon-sephora.mjs          — Sephora DOM recon (click-through navigation beats the bot wall)
+    live-test-sephora.mjs      — Live Sephora check with the extension loaded (headed Chromium)
     console-audit.js           — Paste into DevTools console for a full-page match audit
     diagnose.mjs               — Playwright DOM diagnosis helper
   badges/                  — PETA / Leaping Bunny badge SVG artwork
@@ -67,7 +71,9 @@ See `data/SOURCES.md` for full provenance notes.
 1. Open `chrome://extensions`
 2. Enable **Developer mode** (top-right toggle)
 3. Click **Load unpacked** and select the `bunny-check/` folder
-4. Visit https://www.ulta.com and browse any product grid or product page
+4. Visit https://www.ulta.com or https://www.sephora.com and browse any product grid or product page
+
+Note: the brand database is currently built from Ulta's catalog, so Sephora coverage is the overlap (Tarte, Rare Beauty, ILIA, MILK MAKEUP, …). Sephora-only brands badge after the Sephora catalog research lands.
 
 Note: `node_modules/` (Playwright, used only by `scripts/`) must be excluded if you ever pack or zip the extension for the Chrome Web Store.
 

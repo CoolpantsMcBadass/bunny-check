@@ -183,7 +183,10 @@ function getBrandFromAncestors(imgEl) {
  */
 function getDetailPageBrand() {
   if (!ADAPTER.isProductDetailPage()) return null;
-  for (const sel of ADAPTER.brandSelectors) {
+  // pdpBrandSelectors overrides brandSelectors here: on sites whose PDPs embed
+  // recommendation tiles, a tile-level selector would win the whole-document
+  // query and return a carousel product's brand as the page brand.
+  for (const sel of ADAPTER.pdpBrandSelectors || ADAPTER.brandSelectors) {
     const el = document.querySelector(sel);
     if (el) {
       const text = (el.innerText || el.textContent || "").trim();

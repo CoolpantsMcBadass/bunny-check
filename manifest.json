@@ -1,14 +1,15 @@
 {
   "manifest_version": 3,
   "name": "BunnyCheck",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Detects cruelty-free beauty brands near product images and overlays PETA and Leaping Bunny certification badges.",
   "permissions": [
     "storage",
     "alarms"
   ],
   "host_permissions": [
-    "https://www.ulta.com/*"
+    "https://www.ulta.com/*",
+    "https://www.sephora.com/*"
   ],
   "background": {
     "service_worker": "background.js"
@@ -17,6 +18,11 @@
     {
       "matches": ["https://www.ulta.com/*"],
       "js": ["matcher.js", "adapters/ulta.js", "content.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.sephora.com/*"],
+      "js": ["matcher.js", "adapters/sephora.js", "content.js"],
       "run_at": "document_idle"
     }
   ],
@@ -39,7 +45,7 @@
   "web_accessible_resources": [
     {
       "resources": ["icons/bunny-64.png"],
-      "matches": ["https://www.ulta.com/*"]
+      "matches": ["https://www.ulta.com/*", "https://www.sephora.com/*"]
     }
   ]
 }

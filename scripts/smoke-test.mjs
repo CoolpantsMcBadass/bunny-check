@@ -152,9 +152,81 @@ const r2 = await page.evaluate(() => ({
   collectedUnknowns: Object.values(window.chrome._store.bunnycheck_unknown ?? {}).map((e) => e.name),
 }));
 
+// ─── Sephora adapter scenarios ───────────────────────────────────────────────
+// Served via route interception at a /product/ URL so isProductDetailPage()
+// is true. Scenarios:
+//   hero   — gallery img with non-brand alt, no tile → PDP fallback must badge
+//            it with the DisplayName brand (Pacifica), NOT the hidden header
+//            flyout link (Sephora Collection — the selector-poisoning trap)
+//   stile1 — carousel ProductTile with brand span "essence" (generic_name) →
+//            badges essence via tier-0, not the page brand
+//   stile2 — carousel ProductTile with unknown brand "SomeNewBrand" → no badge
+//            (PDP fallback must NOT fire: the tile has its own tier-0 text),
+//            and the name is collected as unknown
+const sephoraHtml = `<!DOCTYPE html><html><body>
+<header><div style="display:none"><a href="/brand/sephora-collection">Sephora Collection</a></div></header>
+<div data-comp="DisplayName DisplayName BaseComponent "><h1><a href="/brand/pacifica">Pacifica</a> <span>Glow Serum Deluxe</span></h1></div>
+<div id="hero" style="width:160px"><img id="heroimg" src="${IMG}" width="150" height="150" alt="Glow Serum hero view"></div>
+<div style="display:flex;flex-wrap:wrap;gap:4px">
+  <div data-comp="ProductTile ProductTile BaseComponent " id="stile1" style="width:160px">
+    <a href="/product/x-P1"><div><img id="simg1" src="${IMG}" width="150" height="150"></div>
+    <div class="ProductTile-content"><span>essence</span><span>Pure Nude Highlighter</span><b>$9.99</b></div></a>
+  </div>
+  <div data-comp="ProductTile ProductTile BaseComponent " id="stile2" style="width:160px">
+    <a href="/product/y-P2"><div><img id="simg2" src="${IMG}" width="150" height="150"></div>
+    <div class="ProductTile-content"><span>SomeNewBrand</span><span>Mystery Serum</span><b>$19.99</b></div></a>
+  </div>
+</div>
+<div style="font-size:4px">${pad}</div>
+</body></html>`;
+
+const page2 = await browser.newPage();
+page2.on("pageerror", (err) => console.log("[sephora pageerror]", err.message));
+await page2.route("https://sephora.test/**", (route) =>
+  route.fulfill({ contentType: "text/html", body: sephoraHtml })
+);
+await page2.goto("https://sephora.test/product/test-P1");
+await page2.evaluate((db) => {
+  const store = {
+    bunnycheck_brands: db,
+    bunnycheck_known: { data_version: "2026-06-10", names: ["sometester"] },
+  };
+  window.chrome = {
+    runtime: { lastError: undefined },
+    storage: { local: {
+      get: (keys, cb) => {
+        const ks = Array.isArray(keys) ? keys : [keys];
+        cb(Object.fromEntries(ks.map((k) => [k, store[k]])));
+      },
+      set: (obj, cb) => { Object.assign(store, obj); if (cb) cb(); },
+      remove: (k, cb) => { delete store[k]; if (cb) cb(); },
+    } },
+    _store: store,
+  };
+}, brands);
+await page2.addScriptTag({ path: PROJ + "/matcher.js" });
+await page2.addScriptTag({ path: PROJ + "/adapters/sephora.js" });
+await page2.addScriptTag({ path: PROJ + "/content.js" });
+// 800 ms badge settle + the unknown collector's 2 s flush debounce.
+await page2.waitForTimeout(3000);
+
+const rs = await page2.evaluate(() => {
+  const label = (sel) =>
+    document.querySelector(sel)?.shadowRoot?.querySelector(".sr-only")?.textContent.trim() ?? null;
+  return {
+    sephoraAdapterId: window._bunnyAdapter?.id ?? null,
+    heroBadge: !!document.querySelector("#hero [data-bunnycheck-badge]"),
+    heroLabel: label("#hero [data-bunnycheck-badge]"),
+    stile1Badge: !!document.querySelector("#stile1 [data-bunnycheck-badge]"),
+    stile1Label: label("#stile1 [data-bunnycheck-badge]"),
+    stile2Badge: !!document.querySelector("#stile2 [data-bunnycheck-badge]"),
+    sephoraUnknowns: Object.values(window.chrome._store.bunnycheck_unknown ?? {}).map((e) => e.name),
+  };
+});
+
 await browser.close();
 
-const results = { ...r1, ...rw, ...r2 };
+const results = { ...r1, ...rw, ...r2, ...rs };
 console.log(JSON.stringify(results, null, 2));
 
 const checks = {
@@ -177,6 +249,13 @@ const checks = {
     results.peta === 2 && results.lb === 1 && results.dbTotal === 4,
   "unknown brand collected": results.collectedUnknowns.includes("Being Frenshe"),
   "known non-certified brand not collected": !results.collectedUnknowns.includes("SomeTester"),
+  "sephora adapter loaded": results.sephoraAdapterId === "sephora",
+  "sephora: PDP hero badged via DisplayName brand, not flyout":
+    results.heroBadge === true && (results.heroLabel ?? "").includes("Pacifica"),
+  "sephora: carousel tile badges its own brand":
+    results.stile1Badge === true && (results.stile1Label ?? "").includes("essence"),
+  "sephora: unknown-brand tile NOT badged with page brand": results.stile2Badge === false,
+  "sephora: unknown brand collected": results.sephoraUnknowns.includes("SomeNewBrand"),
 };
 
 let pass = true;

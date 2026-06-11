@@ -1,3 +1,27 @@
+2026-06-10 — v0.9.0: Sephora support — second site adapter
+  - New adapters/sephora.js: brandSelectors = ProductTile-content first span +
+    [data-at="product_brand_label"]; NO bare /brand/ anchor selector (hidden
+    header-flyout house-brand links would poison whole-document queries).
+    isProductDetailPage = /\/product\//; observer attrs class/style/hidden.
+  - New OPTIONAL adapter field pdpBrandSelectors (core falls back to
+    brandSelectors — Ulta unchanged): on Sephora PDPs the recommendation
+    carousels contain ProductTile brand spans, so the whole-document PDP query
+    needed a dedicated selector — [data-comp~="DisplayName"] a[href^="/brand/"]
+    only. Without this the page brand could be a carousel product's brand.
+  - manifest 0.9.0: sephora.com content_scripts block (matcher.js +
+    adapters/sephora.js + content.js), host_permissions, bunny-64 web
+    accessible on sephora.
+  - Smoke test: synthetic Sephora PDP served via route interception at a
+    /product/ URL — 5 new checks (adapter loads; hero badged via DisplayName,
+    not the hidden flyout link; carousel tile badges its own brand; unknown
+    carousel tile NOT badged with page brand; unknown collected). 21/21 PASS.
+  - New scripts/live-test-sephora.mjs (extension loaded in headed bundled
+    Chromium, click-through navigation): Tarte brand grid 15/15 products
+    badged, all tier-0 hits; PDP 13 badges (PDP fallback + T1 + T2, all
+    Tarte); stats widget present on both. PASS.
+  - Sephora coverage is currently the Ulta-DB overlap; Sephora catalog
+    research (scrape /brands-list → ingest → verify) is the next milestone.
+
 2026-06-10 — Sephora DOM recon (tooling only, no version bump)
   - New scripts/recon-sephora.mjs: headed-Chromium recon of sephora.com for the
     upcoming adapters/sephora.js. Key findings:
