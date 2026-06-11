@@ -1,3 +1,20 @@
+2026-06-11 — v0.9.3: REFY badged — second Leaping Bunny licensor discovered
+  - User report: REFY is Leaping Bunny approved but had no badge. Root cause
+    is a data-source gap, not matching: TWO organizations license the
+    Leaping Bunny mark. CCIC runs leapingbunny.org (North America) — the
+    only list data/lb-raw.txt scrapes — while Cruelty Free International
+    licenses the same logo internationally. REFY (UK) is approved under the
+    CFI programme (crueltyfreeinternational.org/listing/refy) and returns
+    404 on leapingbunny.org, so the LB sweep never saw it.
+  - REFY row set leaping_bunny=TRUE with the CFI listing URL in notes;
+    independent UK brand (Jess Hunt, Jenna Meek); PETA still not_found
+    (genuinely absent from PETA's database).
+  - brands.json 466 → 467 (PETA 293 / LB 237 / both 63; 60 parent
+    warnings). README documents the two-licensor situation.
+  - FOLLOW-UP CANDIDATE: scrape CFI's paginated /approved-brands/ directory
+    as a second LB source and re-sweep all 1,187 CSV rows — other CFI-only
+    approvals (UK/EU brands at Sephora especially) are likely missing too.
+
 2026-06-11 — v0.9.2: 6 certified brands recovered (squash-match fix)
   - User report: REFY and OLEHENRIKSEN showing no badges on Sephora. REFY is
     correct (claims cruelty-free but holds neither PETA nor LB certification;

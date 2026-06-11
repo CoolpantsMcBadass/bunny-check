@@ -28,8 +28,8 @@ bunny-check/
     sephora.js             — Sephora site adapter (ProductTile spans, data-at testids,
                              DisplayName-only PDP brand selector)
   data/
-    brands.json            — 466 certified brands across Ulta + Sephora catalogs
-                             (PETA 293 / LB 236 / both 63; 60 parent warnings)
+    brands.json            — 467 certified brands across Ulta + Sephora catalogs
+                             (PETA 293 / LB 237 / both 63; 60 parent warnings)
     retailer-brands-researched.csv — Canonical research CSV: every brand seen at a
                              supported retailer (Ulta + Sephora; 1,187 rows), with
                              PETA/LB flags, parent research, and cross-retailer aliases
@@ -60,10 +60,12 @@ bunny-check/
 
 ## Brand data
 
-`data/brands.json` contains **466 certified brands** from the Ulta and Sephora catalogs, keyed by brand slug, verified against:
+`data/brands.json` contains **467 certified brands** from the Ulta and Sephora catalogs, keyed by brand slug, verified against:
 
 - **PETA Beauty Without Bunnies** — https://www.peta.org/living/personal-care-fashion/beauty-without-bunnies/
 - **Leaping Bunny brand search** — https://www.leapingbunny.org/guide/brands
+
+Note: two organizations license the Leaping Bunny mark — CCIC (leapingbunny.org, North America) and Cruelty Free International (crueltyfreeinternational.org, international). `data/lb-raw.txt` covers only the CCIC list; CFI-only approvals (e.g. REFY) are recorded manually in the CSV with the CFI listing URL in `notes`. A CFI `/approved-brands/` directory scrape is a candidate second LB source.
 
 Parent-company status (the "⚠ parent tests" warning) comes from manual research recorded in the `parent_company` / `parent_cf` / `notes` columns of `data/retailer-brands-researched.csv`. Known data corrections (PETA typos, stale entries like Estée Lauder) are documented in `changelog.txt`; a denylist in the build script prevents known-bad entries from re-entering on rebuild.
 

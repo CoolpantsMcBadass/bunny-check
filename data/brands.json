@@ -4465,6 +4465,15 @@
     "parent_cf_bad": false,
     "data_version": "2026-06-11"
   },
+  "refy": {
+    "display_name": "REFY",
+    "ulta_slug": "refy",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-11"
+  },
   "rhode": {
     "display_name": "rhode",
     "ulta_slug": "rhode",
