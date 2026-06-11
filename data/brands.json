@@ -601,6 +601,18 @@
     "parent_cf_bad": false,
     "data_version": "2026-06-11"
   },
+  "chasin-rabbits": {
+    "display_name": "Chasin' Rabbits",
+    "ulta_slug": "chasin-rabbits",
+    "aliases": [
+      "Chasin Rabbits",
+      "chasin rabbits"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-11"
+  },
   "chi": {
     "display_name": "CHI",
     "ulta_slug": "chi",
@@ -1870,6 +1882,17 @@
     "parent_cf_bad": false,
     "data_version": "2026-06-11"
   },
+  "knours": {
+    "display_name": "Knours.",
+    "ulta_slug": "knours",
+    "aliases": [
+      "knours"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-11"
+  },
   "kopari-beauty": {
     "display_name": "Kopari Beauty",
     "ulta_slug": "kopari-beauty",
@@ -2439,7 +2462,7 @@
     "aliases": [
       "NAKERY"
     ],
-    "peta": false,
+    "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "data_version": "2026-06-11"
@@ -2647,6 +2670,16 @@
     "leaping_bunny": true,
     "parent_cf_bad": true,
     "parent_company": "Henkel",
+    "data_version": "2026-06-11"
+  },
+  "olehenriksen": {
+    "display_name": "OLEHENRIKSEN",
+    "ulta_slug": "olehenriksen",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": true,
+    "parent_company": "LVMH",
     "data_version": "2026-06-11"
   },
   "onekind": {
@@ -2923,7 +2956,7 @@
       "poppy pout",
       "Poppy and Pout"
     ],
-    "peta": false,
+    "peta": true,
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "data_version": "2026-06-11"
@@ -3564,6 +3597,18 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "La Mend, Inc.",
+    "data_version": "2026-06-11"
+  },
+  "nue-co": {
+    "display_name": "The Nue Co.",
+    "ulta_slug": "nue-co",
+    "aliases": [
+      "The Nue",
+      "nue co"
+    ],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
     "data_version": "2026-06-11"
   },
   "ordinary": {

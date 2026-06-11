@@ -1,3 +1,39 @@
+2026-06-11 — v0.9.2: 6 certified brands recovered (squash-match fix)
+  - User report: REFY and OLEHENRIKSEN showing no badges on Sephora. REFY is
+    correct (claims cruelty-free but holds neither PETA nor LB certification;
+    note added to CSV). OLEHENRIKSEN was a real miss: PETA lists it as
+    "Ole Henriksen" and the WP search API returns nothing for the no-space
+    form, so the verify pipeline had marked it not_found.
+  - Swept the whole CSV against peta-raw.txt/lb-raw.txt under squash
+    normalization (letters+digits only) and live-verified all 59 candidates
+    via PETA page H1 + body class. 6 genuine misses, all punctuation/spacing:
+      * OLEHENRIKSEN  → "Ole Henriksen" (no space) — PETA cf; parent LVMH/
+        Kendo already on row → amber parent warning
+      * Knours.       → "Knours" (trailing period broke WP search) — PETA cf;
+        independent (Know Your Skin Inc., founder Julie Chon)
+      * Chasin' Rabbits → PETA's curly-apostrophe "Chasin’ Rabbits" — cf;
+        independent vegan K-beauty
+      * Poppy & Pout  → was LB-only, now both — independent (Idaho)
+      * NAKERY BEAUTY → was LB-only, now both; page exists but never surfaces
+        in WP search, and its H1 is just the brand name (no status phrase) —
+        body class single-company--does-not-test confirms cf; independent
+        (founded 2022 by Liz Folce — web-checked, no parent)
+      * The Nue Co.   → "The Nue Co" (period) — PETA cf; independent (already
+        noted: founder Jules Miller)
+    Remaining 53 candidates correctly stay FALSE ("may not be"/"is NOT" —
+    Revlon, Chanel, L'Oréal, Benefit, Charlotte Tilbury, Milk Makeup, etc.).
+    No LB misses found (LB matching was already squash-tolerant enough).
+  - verify-ulta-csv.mjs hardened so this class of miss can't recur:
+      1. new "squash" match tier (norm + strip non-alphanumerics, min 5
+         chars) ranked just below exact, auto-applies;
+      2. when the WP search returns nothing, retry with the squash-matching
+         name from data/peta-raw.txt; if still nothing, derive the company
+         page URL from that name directly (wrong guess just 404s);
+      3. pageH1Status now reads the body class (single-company--does-not-
+         test / does-test / unknown) before falling back to H1 parsing.
+  - brands.json rebuilt: 462 → 466 entries (PETA 293 / LB 236 / both 63;
+    60 parent warnings). README counts updated. Desktop CSV synced.
+
 2026-06-11 — Sephora coverage re-verified: 340/340 brands researched
   - Re-ran scrape-sephora-brand-directory.mjs against the live brands-list to
     confirm nothing was missed in the v0.9.1 research: every brand on the

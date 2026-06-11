@@ -28,8 +28,8 @@ bunny-check/
     sephora.js             — Sephora site adapter (ProductTile spans, data-at testids,
                              DisplayName-only PDP brand selector)
   data/
-    brands.json            — 462 certified brands across Ulta + Sephora catalogs
-                             (PETA 287 / LB 236 / both 61; 59 parent warnings)
+    brands.json            — 466 certified brands across Ulta + Sephora catalogs
+                             (PETA 293 / LB 236 / both 63; 60 parent warnings)
     retailer-brands-researched.csv — Canonical research CSV: every brand seen at a
                              supported retailer (Ulta + Sephora; 1,187 rows), with
                              PETA/LB flags, parent research, and cross-retailer aliases
@@ -60,7 +60,7 @@ bunny-check/
 
 ## Brand data
 
-`data/brands.json` contains **462 certified brands** from the Ulta and Sephora catalogs, keyed by brand slug, verified against:
+`data/brands.json` contains **466 certified brands** from the Ulta and Sephora catalogs, keyed by brand slug, verified against:
 
 - **PETA Beauty Without Bunnies** — https://www.peta.org/living/personal-care-fashion/beauty-without-bunnies/
 - **Leaping Bunny brand search** — https://www.leapingbunny.org/guide/brands

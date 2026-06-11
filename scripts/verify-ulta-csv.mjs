@@ -81,6 +81,12 @@ function norm(s) {
     .toLowerCase().replace(/\s*\([^)]*\)/g, "").replace(/[®™©℗]/g, "")
     .replace(/['’]/g, "").replace(/[^\w\s-]/g, " ").replace(/\s+/g, " ").trim();
 }
+// Squash: letters+digits only. Catches retailer styling that defeats word-level
+// matching — Sephora's "OLEHENRIKSEN" vs PETA's "Ole Henriksen", "Knours." vs
+// "Knours", "The Nue Co." vs "The Nue Co".
+function squash(s) {
+  return norm(s).replace(/[^a-z0-9]/g, "");
+}
 function stems(name) {
   const n = norm(name); const out = [n];
   const s = n.replace(SUFFIX, "").trim();
@@ -102,6 +108,7 @@ const GENERIC_TAIL = new Set([
 function matchQuality(ultaName, petaTitle) {
   const u = norm(ultaName), p = norm(petaTitle);
   if (u === p) return "exact";
+  if (squash(ultaName).length >= 5 && squash(ultaName) === squash(petaTitle)) return "squash";
   const us = stems(ultaName), ps = stems(petaTitle);
   if (us.some(a => ps.includes(a))) {
     const stem = us.find(a => ps.includes(a));
@@ -127,6 +134,10 @@ async function pageH1Status(link) {
   const res = await fetch(link, { headers: { "User-Agent": UA } });
   if (!res.ok) return `http_${res.status}`;
   const html = await res.text();
+  // Body class is the most reliable signal — some pages (e.g. Nakery Beauty)
+  // render the H1 as just the brand name with no status phrase.
+  const cls = html.match(/single-company--(does-not-test|does-test|unknown)/);
+  if (cls) return { "does-not-test": "cf", "does-test": "not_cf", "unknown": "may_not_be" }[cls[1]];
   const m = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
   if (!m) return "no_h1";
   const h1 = m[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim().toLowerCase();
@@ -145,17 +156,38 @@ const candidates = rows.filter(r =>
 console.log(`Checking ${candidates.length} peta=${RECHECK ? "TRUE (recheck)" : "FALSE"} rows against PETA live...\n`);
 console.log("ulta_slug\tpeta_title\tpeta_slug\tmatch\th1_status\tverdict");
 
+// PETA's WP search can't bridge spacing differences ("OLEHENRIKSEN" returns
+// nothing for "Ole Henriksen"), so when a search whiffs, retry with the
+// squash-matching name from the local PETA list.
+const rawBySquash = new Map();
+for (const n of readFileSync(path.join(__dirname, "../data/peta-raw.txt"), "utf8").split("\n")) {
+  if (n.trim()) rawBySquash.set(squash(n), n.trim());
+}
+
 const corrections = [];
 for (const row of candidates) {
-  const hits = await petaSearch(row.brand_name);
+  let hits = await petaSearch(row.brand_name);
   await new Promise(r => setTimeout(r, 200));
+  const alt = rawBySquash.get(squash(row.brand_name));
+  if (!hits.length && alt && alt !== row.brand_name) {
+    hits = await petaSearch(alt);
+    await new Promise(r => setTimeout(r, 200));
+  }
+  if (!hits.length && alt) {
+    // Some companies never surface in WP search ("Nakery Beauty") even though
+    // their page exists. Derive the page URL from the PETA-list name directly;
+    // a wrong guess just 404s in pageH1Status.
+    const slug = alt.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
+      .replace(/['’]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    hits = [{ slug, title: { rendered: alt }, link: `https://crueltyfree.peta.org/company/${slug}/` }];
+  }
   if (!hits.length) {
     if (RECHECK) console.log(`${row.ulta_slug}\t-\t-\t-\tno_api_hits\tREVIEW (vanished from PETA search?)`);
     continue;
   }
 
   // Best hit: highest match quality against the Ulta name.
-  const rank = { exact: 0, suffix: 1, prefix: 2, loose: 3 };
+  const rank = { exact: 0, squash: 1, suffix: 2, prefix: 3, loose: 4 };
   const scored = hits
     .map(h => ({ ...h, title: decodeEntities(h.title?.rendered ?? "") }))
     .map(h => ({ ...h, q: matchQuality(row.brand_name, h.title) }))
