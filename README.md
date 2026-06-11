@@ -28,7 +28,8 @@ bunny-check/
     sephora.js             — Sephora site adapter (ProductTile spans, data-at testids,
                              DisplayName-only PDP brand selector)
   data/
-    brands.json            — 374 certified Ulta brands (PETA 247 / LB 171 / both 44; 52 parent warnings)
+    brands.json            — 462 certified brands across Ulta + Sephora catalogs
+                             (PETA 287 / LB 236 / both 61; 59 parent warnings)
     brands-master.csv      — Full merged PETA+LB dataset (8,859 brands)
     brands-researched.csv  — Manual parent-company research (in progress)
     peta-raw.txt           — Clean PETA brand list (6,822)
@@ -45,6 +46,7 @@ bunny-check/
     verify-ulta-csv.mjs        — Live-verifies peta=FALSE rows against PETA page H1s (--apply to write)
     smoke-test.mjs             — Playwright regression test of the matching pipeline (21 checks)
     recon-sephora.mjs          — Sephora DOM recon (click-through navigation beats the bot wall)
+    scrape-sephora-brand-directory.mjs — Sephora /brands-list scraper + diff vs researched dataset
     live-test-sephora.mjs      — Live Sephora check with the extension loaded (headed Chromium)
     console-audit.js           — Paste into DevTools console for a full-page match audit
     diagnose.mjs               — Playwright DOM diagnosis helper
@@ -55,7 +57,7 @@ bunny-check/
 
 ## Brand data
 
-`data/brands.json` contains **374 Ulta-stocked certified brands**, keyed by Ulta brand slug, verified against:
+`data/brands.json` contains **462 certified brands** from the Ulta and Sephora catalogs, keyed by brand slug, verified against:
 
 - **PETA Beauty Without Bunnies** — https://www.peta.org/living/personal-care-fashion/beauty-without-bunnies/
 - **Leaping Bunny brand search** — https://www.leapingbunny.org/guide/brands
@@ -73,7 +75,7 @@ See `data/SOURCES.md` for full provenance notes.
 3. Click **Load unpacked** and select the `bunny-check/` folder
 4. Visit https://www.ulta.com or https://www.sephora.com and browse any product grid or product page
 
-Note: the brand database is currently built from Ulta's catalog, so Sephora coverage is the overlap (Tarte, Rare Beauty, ILIA, MILK MAKEUP, …). Sephora-only brands badge after the Sephora catalog research lands.
+The database covers both catalogs: Sephora's full brand directory was researched 2026-06-10 (Glossier, MERIT, Glow Recipe, Summer Fridays, rhode, …). Where the two retailers display different names for one brand ("BondiBoost" vs "Bondi Boost"), the CSV's `aliases` column maps the variants to a single entry.
 
 Note: `node_modules/` (Playwright, used only by `scripts/`) must be excluded if you ever pack or zip the extension for the Chrome Web Store.
 

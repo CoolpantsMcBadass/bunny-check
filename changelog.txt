@@ -1,3 +1,45 @@
+2026-06-10 — v0.9.1: Sephora catalog research — 65 new certified brands (397 → 462)
+  - New scripts/scrape-sephora-brand-directory.mjs: scrapes /brands-list (loads
+    on direct goto after homepage warm-up; headed bundled Chromium), visible
+    links only (hidden header-flyout house-brand links polluted bare /brand/
+    queries). Scraped 342 brands → data/sephora-brand-directory.txt.
+  - Diff vs researched dataset: 135 overlap, 207 raw new. Cleaned: stripped
+    Sephora's trailing "NEW" merch badge (revealed COACH / UNITE Hair /
+    Vacation as already-known), dropped non-brand entries (Sephora Favorites,
+    The Merch Shop) → 202 ingested as pending rows.
+  - PETA sweep (verify-ulta-csv --slugs): 25 auto-applied exact/suffix matches
+    (Biossance, innisfree, Paula's Choice, Makeup By Mario, Youth To The
+    People, Dr. Dennis Gross, Tata Harper...). 5 more H1-verified manually
+    from loose name variants: Oribe ("ORIBE Hair Care"), rhode ("Rhode Skin"),
+    Tower 28 ("Tower28 Beauty"), Skylar ("Skylar Body"), CLEAN RESERVE (owner
+    "Clean Beauty Collective"). Make Up For Ever loose-matched "Makeup
+    Forever" but its H1 is "is NOT Cruelty-Free" — correctly left FALSE.
+  - LB sweep (verify-lb-names --apply): 46 certified (Glossier, Glow Recipe,
+    MERIT, Summer Fridays, K18, Haus Labs, dae, Henry Rose, caliray...).
+    Token candidates all reviewed-and-rejected (different companies).
+  - Parent research recorded for all 66 newly certified rows. New amber
+    parent warnings: Oribe (Kao), Dr. Dennis Gross (Shiseido), innisfree +
+    Tata Harper (Amorepacific), Paula's Choice + K18 (Unilever), Youth To The
+    People (L'Oréal). rhode's parent e.l.f. Beauty is itself CF — no warning.
+    Summer Fridays: LB yes but PETA says "may not be CF" — LB badge only.
+  - NEW CSV column `aliases` (pipe-separated) + build-script support: manual
+    cross-retailer name variants merge into entry aliases and known-brands;
+    generic manual aliases force generic_name (tier-0 only). Used to dedupe 8
+    rows where Sephora's display name differs from the researched Ulta name:
+    BondiBoost→Bondi Boost, Stripes→STRIPES BEAUTY by Naomi Watts, Rare
+    Beauty by Selena Gomez→Rare Beauty, PATTERN by Tracee Ellis Ross→PATTERN,
+    ALTERNA Haircare→Alterna, Armani Beauty→ARMANI, L'Oréal Professionnel
+    Steampod→L'Oréal Professionnel, Marc Jacobs Beauty→Marc Jacobs. (The
+    ingest dedupe is normalized-exact only, so these slipped through — the
+    PETA sweep then certified the BondiBoost dup, which is how it was caught.)
+  - ingest-new-brands.mjs: new --note="..." flag for provenance (Sephora rows
+    say "Found on Sephora brands-list 2026-06-10" instead of crediting the
+    extension's unknown-brand collector).
+  - 165 checked-but-uncertified Sephora rows set peta_status=not_found
+    (v0.7.1 convention). CSV now 1,187 researched rows; known-brands.json
+    1,379 names. brands.json: 462 entries (PETA 287 / LB 236 / both 61; 59
+    parent warnings). Smoke test 21/21. README updated.
+
 2026-06-10 — v0.9.0: Sephora support — second site adapter
   - New adapters/sephora.js: brandSelectors = ProductTile-content first span +
     [data-at="product_brand_label"]; NO bare /brand/ anchor selector (hidden

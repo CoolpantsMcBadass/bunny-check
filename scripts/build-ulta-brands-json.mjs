@@ -172,6 +172,12 @@ function main() {
     if (PETA_DENYLIST.has(slug)) peta = false;
     if (!peta && !lb) continue;
 
+    // Manual aliases (pipe-separated CSV column): other retailers' display
+    // names for the same brand ("BondiBoost" for "Bondi Boost"). Unlike
+    // generated aliases these are deliberate, so generic ones are kept — but
+    // they force generic_name so they only match from a brand-name element.
+    const manual = (row.aliases || "").split("|").map(s => s.trim()).filter(s => s.length >= 2);
+
     // Use ulta_slug as the key — it's already unique and URL-clean
     if (brands[slug]) {
       brands[slug].peta = brands[slug].peta || peta;
@@ -185,12 +191,12 @@ function main() {
 
     // Brand whose name IS a common word (essence, Lush, Hair+): keep it, but
     // the matcher will only accept it from a dedicated brand-name element.
-    const generic_name = isGenericKey(name);
+    const generic_name = isGenericKey(name) || manual.some(a => isGenericKey(a));
 
     brands[slug] = {
       display_name:    name,
       ulta_slug:       slug,
-      aliases:         generateAliases(name, slug),
+      aliases:         [...new Set([...generateAliases(name, slug), ...manual])],
       peta,
       leaping_bunny:   lb,
       parent_cf_bad,
@@ -226,6 +232,9 @@ function main() {
     known.add(normalizeKey(name));
     known.add(slug.replace(/-/g, " "));
     for (const alias of generateAliases(name, slug)) known.add(normalizeKey(alias));
+    for (const alias of (row.aliases || "").split("|")) {
+      if (alias.trim().length >= 2) known.add(normalizeKey(alias.trim()));
+    }
   }
   known.delete("");
   const knownJson = JSON.stringify({ data_version: VERSION, names: [...known].sort() });

@@ -8,6 +8,9 @@
 //   node scripts/ingest-new-brands.mjs new-brands.txt
 //   pbpaste | node scripts/ingest-new-brands.mjs
 //
+// --note="..." overrides the provenance note written to new rows (default
+// credits the extension's unknown-brand collector).
+//
 // Names already present in the CSV (by normalized brand name or slug) are
 // skipped. After ingesting, run:
 //   node scripts/verify-ulta-csv.mjs --apply
@@ -33,9 +36,9 @@ function slugify(s) {
 }
 function quoteCell(v) { return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
 
-const input = process.argv[2]
-  ? readFileSync(process.argv[2], "utf8")
-  : readFileSync(0, "utf8");
+const noteArg = process.argv.find(a => a.startsWith("--note="));
+const fileArg = process.argv.slice(2).find(a => !a.startsWith("--"));
+const input = fileArg ? readFileSync(fileArg, "utf8") : readFileSync(0, "utf8");
 
 const names = [...new Set(
   input.split(/\r?\n/).map(l => l.trim()).filter(l => l.length >= 2 && l.length <= 60)
@@ -60,6 +63,9 @@ for (const line of lines.slice(1)) {
 }
 
 const today = new Date().toISOString().slice(0, 10);
+const note = noteArg
+  ? noteArg.slice(7)
+  : `Auto-added from extension unknown-brand collector ${today}; needs parent research`;
 const added = [];
 const skipped = [];
 for (const name of names) {
@@ -71,7 +77,7 @@ for (const name of names) {
   existingNames.add(norm(name));
   existingSlugs.add(slug);
   added.push([quoteCell(name), slug, "FALSE", "FALSE", "pending", "", "", "", "",
-    quoteCell(`Auto-added from extension unknown-brand collector ${today}; needs parent research`)].join(","));
+    quoteCell(note)].join(","));
 }
 
 if (added.length) {
