@@ -522,9 +522,8 @@ function injectStatsWidget() {
       if (Math.abs(dx) > 8 || Math.abs(dy) > 8) { clearTimeout(dragTimer); dragOrigin = null; }
       return;
     }
-    // Translate from the starting position — avoids fighting right vs left
-    // CSS anchoring. The transform is committed to left/top on mouseup.
-    host.style.transform = `translate(${dx}px,${dy}px)`;
+    host.style.left = (dragOrigin.left + dx) + "px";
+    host.style.top  = (dragOrigin.top  + dy) + "px";
   }
 
   function onDocMouseUp() {
@@ -533,13 +532,7 @@ function injectStatsWidget() {
       isDragging = false;
       host.style.cursor = "";
       suppressNextClick = true;
-      // Commit visual position (getBoundingClientRect includes the transform)
-      // to left/top, then clear the transform so SPA re-injection uses left/top.
       const rect = host.getBoundingClientRect();
-      host.style.transform = "";
-      host.style.right = "auto";
-      host.style.left  = rect.left + "px";
-      host.style.top   = rect.top  + "px";
       savedWidgetPos = { left: rect.left, top: rect.top };
       try { chrome.storage.local.set({ [WIDGET_POS_KEY]: savedWidgetPos }); } catch (_) {}
     }
@@ -551,7 +544,15 @@ function injectStatsWidget() {
 
   host.addEventListener("mousedown", (e) => {
     if (e.button !== 0) return;
-    dragOrigin = { x: e.clientX, y: e.clientY };
+    // Convert right/top anchoring → left/top NOW, before drag activates.
+    // Updating left while right:10px is still set causes a constraint conflict
+    // that locks the element in place. right:auto here means only left drives
+    // horizontal position from this point on.
+    const rect = host.getBoundingClientRect();
+    host.style.right = "auto";
+    host.style.left  = rect.left + "px";
+    host.style.top   = rect.top  + "px";
+    dragOrigin = { x: e.clientX, y: e.clientY, left: rect.left, top: rect.top };
     dragTimer = setTimeout(() => {
       if (!dragOrigin) return;
       isDragging = true;
