@@ -1,3 +1,15 @@
+2026-06-10 — v0.7.3: Stats widget repositioned to top-right; draggable on long press
+  - Default position changed from top:150px to top:5px (top-right corner of viewport).
+  - Drag on long press: hold button ≥500 ms without moving to enter drag mode; cursor
+    changes to grabbing and the widget follows the pointer. Dragging closes the panel.
+  - Position persists to chrome.storage.local (key bunnycheck_widget_pos); loaded in
+    init() so the widget re-appears in the same spot after SPA re-renders.
+  - Movement ≥5 px cancels the long-press timer so accidental micro-moves don't
+    activate drag. Pointer capture (setPointerCapture) ensures drag stays smooth even
+    if pointer leaves the button.
+  - Click is suppressed on drag-end (suppressNextClick flag) so releasing after a drag
+    never toggles the panel.
+
 2026-06-11 — v0.7.2: On-page stats widget with the new bunny icon
   - Floating bunny button fixed top-right (below the sticky header at top:150px,
     z-index above page UI — it's deliberate chrome, unlike badges) on all Ulta

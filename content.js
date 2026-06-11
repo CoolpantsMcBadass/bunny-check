@@ -286,7 +286,9 @@ function getBgImageUrl(el) {
 
 const UNKNOWN_KEY = "bunnycheck_unknown";
 const UNKNOWN_CAP = 300;
+const WIDGET_POS_KEY = "bunnycheck_widget_pos";
 let knownNames = null; // Set of normalized names, loaded in init()
+let savedWidgetPos = null; // { top, left } in px, loaded in init()
 const reportedUnknowns = new Set(); // once per page load
 const unknownBuffer = new Map(); // normalized → display text, pending flush
 let unknownFlushTimer = null;
@@ -445,8 +447,13 @@ function injectStatsWidget() {
   if (!document.body || document.getElementById(WIDGET_ID)) return;
   const host = document.createElement("div");
   host.id = WIDGET_ID;
-  // Below Ulta's sticky header (~150px) so the button never hides under it.
-  host.style.cssText = "position:fixed;top:150px;right:10px;z-index:2147483000;line-height:0;";
+
+  if (savedWidgetPos) {
+    host.style.cssText = `position:fixed;top:${savedWidgetPos.top}px;left:${savedWidgetPos.left}px;z-index:2147483000;line-height:0;user-select:none;touch-action:none;`;
+  } else {
+    host.style.cssText = "position:fixed;top:5px;right:10px;z-index:2147483000;line-height:0;user-select:none;touch-action:none;";
+  }
+
   document.body.appendChild(host);
   const shadow = host.attachShadow({ mode: "open" });
 
@@ -463,6 +470,7 @@ function injectStatsWidget() {
              box-shadow:0 2px 8px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;
              justify-content:center;padding:0;font-size:17px; }
       .btn:hover { background:#f1f8e9; }
+      .btn.grabbing { cursor:grabbing; }
       .panel { display:none;position:absolute;top:44px;right:0;width:252px;background:#fff;
                border:1px solid #c8e6c9;border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,.2);
                font:12px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1b2b1b;
@@ -479,18 +487,73 @@ function injectStatsWidget() {
       .muted { color:#888; }
       .x { cursor:pointer;border:none;background:none;font-size:14px;color:#888;padding:0 2px; }
     </style>
-    <button class="btn" id="toggle" title="BunnyCheck stats" aria-label="Open BunnyCheck statistics">${icon}</button>
+    <button class="btn" id="toggle" title="BunnyCheck stats — long-press to drag" aria-label="Open BunnyCheck statistics">${icon}</button>
     <div class="panel" id="panel" role="dialog" aria-label="BunnyCheck statistics"></div>
   `;
 
   const panel = shadow.getElementById("panel");
-  shadow.getElementById("toggle").addEventListener("click", () => {
+  const toggleBtn = shadow.getElementById("toggle");
+  let suppressNextClick = false;
+
+  toggleBtn.addEventListener("click", () => {
+    if (suppressNextClick) { suppressNextClick = false; return; }
     if (panel.classList.contains("open")) { panel.classList.remove("open"); return; }
     renderStatsPanel(panel);
     panel.classList.add("open");
   });
   panel.addEventListener("click", (e) => {
     if (e.target && e.target.id === "close") panel.classList.remove("open");
+  });
+
+  // Drag on long press (≥500 ms hold without moving ≥5 px).
+  let dragState = null;
+
+  host.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    const rect = host.getBoundingClientRect();
+    host.setPointerCapture(e.pointerId);
+    const timer = setTimeout(() => {
+      if (!dragState) return;
+      dragState.active = true;
+      panel.classList.remove("open");
+      toggleBtn.classList.add("grabbing");
+    }, 500);
+    dragState = { active: false, timer, startX: e.clientX, startY: e.clientY, startLeft: rect.left, startTop: rect.top };
+  });
+
+  host.addEventListener("pointermove", (e) => {
+    if (!dragState) return;
+    const dx = e.clientX - dragState.startX;
+    const dy = e.clientY - dragState.startY;
+    if (!dragState.active) {
+      if (Math.abs(dx) > 5 || Math.abs(dy) > 5) { clearTimeout(dragState.timer); dragState = null; }
+      return;
+    }
+    const newLeft = Math.max(0, Math.min(window.innerWidth - 44, dragState.startLeft + dx));
+    const newTop = Math.max(0, Math.min(window.innerHeight - 44, dragState.startTop + dy));
+    host.style.left = newLeft + "px";
+    host.style.top = newTop + "px";
+    host.style.right = "auto";
+  });
+
+  host.addEventListener("pointerup", () => {
+    if (!dragState) return;
+    clearTimeout(dragState.timer);
+    if (dragState.active) {
+      toggleBtn.classList.remove("grabbing");
+      suppressNextClick = true;
+      const rect = host.getBoundingClientRect();
+      savedWidgetPos = { left: rect.left, top: rect.top };
+      try { chrome.storage.local.set({ [WIDGET_POS_KEY]: savedWidgetPos }); } catch (_) {}
+    }
+    dragState = null;
+  });
+
+  host.addEventListener("pointercancel", () => {
+    if (!dragState) return;
+    clearTimeout(dragState.timer);
+    toggleBtn.classList.remove("grabbing");
+    dragState = null;
   });
 }
 
@@ -671,7 +734,7 @@ document.addEventListener("bunnycheck-audit-request", () => {
 // ─── Initialisation ───────────────────────────────────────────────────────────
 
 function init(attempt = 1) {
-  chrome.storage.local.get(["bunnycheck_brands", "bunnycheck_known"], (result) => {
+  chrome.storage.local.get(["bunnycheck_brands", "bunnycheck_known", WIDGET_POS_KEY], (result) => {
     const brands = result["bunnycheck_brands"];
     if (!brands || Object.keys(brands).length === 0) {
       if (attempt < 4) {
@@ -684,6 +747,10 @@ function init(attempt = 1) {
     const known = result["bunnycheck_known"];
     if (known && Array.isArray(known.names)) {
       knownNames = new Set(known.names);
+    }
+    const pos = result[WIDGET_POS_KEY];
+    if (pos && typeof pos.top === "number" && typeof pos.left === "number") {
+      savedWidgetPos = pos;
     }
     window._bunnyMatcher = new BrandMatcher(brands);
     window._bunnyBrands = brands; // for the stats panel's database section
