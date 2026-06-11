@@ -120,7 +120,9 @@ const r1 = await page.evaluate(() => {
 const rw = await page.evaluate(() => {
   const w = document.getElementById("bunnycheck-stats-widget");
   if (!w) return { widget: false };
-  w.shadowRoot.getElementById("toggle").click();
+  // Open panel via mousedown+mouseup (toggle is handled in onDragEnd, not click).
+  w.dispatchEvent(new MouseEvent("mousedown", { bubbles: true, cancelable: true, button: 0, clientX: 100, clientY: 100 }));
+  document.dispatchEvent(new MouseEvent("mouseup",   { bubbles: true, button: 0, clientX: 100, clientY: 100 }));
   const text = w.shadowRoot.getElementById("panel").textContent;
   const grab = (label) => {
     const m = text.match(new RegExp(label + "(\\d+)"));

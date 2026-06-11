@@ -494,75 +494,56 @@ function injectStatsWidget() {
 
   const panel = shadow.getElementById("panel");
   const toggleBtn = shadow.getElementById("toggle");
-  let isDragging = false;
-  let dragTimer = null;
-  let dragOrigin = null;
-  let suppressNextClick = false;
+  let dragging = false, didDrag = false;
+  let dragOffsetX = 0, dragOffsetY = 0, dragStartX = 0, dragStartY = 0;
+  const DRAG_THRESHOLD = 4;
 
-  toggleBtn.addEventListener("click", () => {
-    if (suppressNextClick) { suppressNextClick = false; return; }
-    if (panel.classList.contains("open")) { panel.classList.remove("open"); return; }
-    renderStatsPanel(panel);
-    panel.classList.add("open");
-  });
   panel.addEventListener("click", (e) => {
     if (e.target && e.target.id === "close") panel.classList.remove("open");
   });
 
-  // Drag on long press — mouse events + capture phase on document.
-  // Pointer events were unreliable: setPointerCapture called from setTimeout
-  // (outside a pointer event handler) is silently ignored, and bubble-phase
-  // pointermove can be stopped by Ulta's own handlers before reaching document.
-  // Capture phase fires top-down before any page element can call stopPropagation.
-
-  function onDocMouseMove(e) {
-    if (!dragOrigin) return;
-    const dx = e.clientX - dragOrigin.x;
-    const dy = e.clientY - dragOrigin.y;
-    if (!isDragging) {
-      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) { clearTimeout(dragTimer); dragOrigin = null; }
-      return;
+  function onDragMove(e) {
+    if (!dragging) return;
+    if (!didDrag) {
+      if (Math.abs(e.clientX - dragStartX) > DRAG_THRESHOLD || Math.abs(e.clientY - dragStartY) > DRAG_THRESHOLD) didDrag = true;
     }
-    host.style.left = (dragOrigin.left + dx) + "px";
-    host.style.top  = (dragOrigin.top  + dy) + "px";
+    if (!didDrag) return;
+    const x = Math.max(0, Math.min(e.clientX - dragOffsetX, window.innerWidth  - host.offsetWidth));
+    const y = Math.max(0, Math.min(e.clientY - dragOffsetY, window.innerHeight - host.offsetHeight));
+    host.style.left = x + "px";
+    host.style.top  = y + "px";
   }
 
-  function onDocMouseUp() {
-    clearTimeout(dragTimer);
-    if (isDragging && dragOrigin) {
-      isDragging = false;
-      host.style.cursor = "";
-      suppressNextClick = true;
+  function onDragEnd() {
+    if (!dragging) return;
+    dragging = false;
+    toggleBtn.classList.remove("grabbing");
+    document.removeEventListener("mousemove", onDragMove);
+    document.removeEventListener("mouseup",   onDragEnd);
+    const wasDrag = didDrag;
+    didDrag = false;
+    if (wasDrag) {
       const rect = host.getBoundingClientRect();
       savedWidgetPos = { left: rect.left, top: rect.top };
       try { chrome.storage.local.set({ [WIDGET_POS_KEY]: savedWidgetPos }); } catch (_) {}
+    } else {
+      if (panel.classList.contains("open")) { panel.classList.remove("open"); }
+      else { renderStatsPanel(panel); panel.classList.add("open"); }
     }
-    dragOrigin = null;
   }
 
-  document.addEventListener("mousemove", onDocMouseMove, true);
-  document.addEventListener("mouseup",   onDocMouseUp,   true);
-
   host.addEventListener("dragstart", (e) => e.preventDefault());
-
   host.addEventListener("mousedown", (e) => {
     if (e.button !== 0) return;
-    e.preventDefault(); // prevent native image drag (suppresses mousemove during drag)
-    // Convert right/top anchoring → left/top NOW, before drag activates.
-    // Updating left while right:10px is still set causes a constraint conflict
-    // that locks the element in place. right:auto here means only left drives
-    // horizontal position from this point on.
+    e.preventDefault();
     const rect = host.getBoundingClientRect();
-    host.style.right = "auto";
-    host.style.left  = rect.left + "px";
-    host.style.top   = rect.top  + "px";
-    dragOrigin = { x: e.clientX, y: e.clientY, left: rect.left, top: rect.top };
-    dragTimer = setTimeout(() => {
-      if (!dragOrigin) return;
-      isDragging = true;
-      panel.classList.remove("open");
-      host.style.cursor = "grabbing";
-    }, 500);
+    dragStartX = e.clientX; dragStartY = e.clientY;
+    dragOffsetX = e.clientX - rect.left; dragOffsetY = e.clientY - rect.top;
+    dragging = true; didDrag = false;
+    host.style.right = ""; host.style.left = rect.left + "px"; host.style.top = rect.top + "px";
+    toggleBtn.classList.add("grabbing");
+    document.addEventListener("mousemove", onDragMove);
+    document.addEventListener("mouseup",   onDragEnd);
   });
 }
 
