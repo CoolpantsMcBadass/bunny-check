@@ -460,7 +460,7 @@ function injectStatsWidget() {
   let icon = "🐇";
   try {
     if (chrome.runtime && chrome.runtime.getURL) {
-      icon = `<img src="${chrome.runtime.getURL("icons/bunny-64.png")}" width="26" height="26" alt="">`;
+      icon = `<img src="${chrome.runtime.getURL("icons/bunny-64.png")}" width="26" height="26" alt="" draggable="false">`;
     }
   } catch (_) {}
 
@@ -471,6 +471,7 @@ function injectStatsWidget() {
              justify-content:center;padding:0;font-size:17px; }
       .btn:hover { background:#f1f8e9; }
       .btn.grabbing { cursor:grabbing; }
+      img { -webkit-user-drag:none; pointer-events:none; }
       .panel { display:none;position:absolute;top:44px;right:0;width:252px;background:#fff;
                border:1px solid #c8e6c9;border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,.2);
                font:12px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1b2b1b;
@@ -542,8 +543,11 @@ function injectStatsWidget() {
   document.addEventListener("mousemove", onDocMouseMove, true);
   document.addEventListener("mouseup",   onDocMouseUp,   true);
 
+  host.addEventListener("dragstart", (e) => e.preventDefault());
+
   host.addEventListener("mousedown", (e) => {
     if (e.button !== 0) return;
+    e.preventDefault(); // prevent native image drag (suppresses mousemove during drag)
     // Convert right/top anchoring → left/top NOW, before drag activates.
     // Updating left while right:10px is still set causes a constraint conflict
     // that locks the element in place. right:auto here means only left drives
