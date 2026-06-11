@@ -493,9 +493,13 @@ function injectStatsWidget() {
 
   const panel = shadow.getElementById("panel");
   const toggleBtn = shadow.getElementById("toggle");
-  let dragState = null;
+  let isDragging = false;
+  let dragTimer = null;
+  let dragOrigin = null;
+  let suppressNextClick = false;
 
   toggleBtn.addEventListener("click", () => {
+    if (suppressNextClick) { suppressNextClick = false; return; }
     if (panel.classList.contains("open")) { panel.classList.remove("open"); return; }
     renderStatsPanel(panel);
     panel.classList.add("open");
@@ -504,66 +508,57 @@ function injectStatsWidget() {
     if (e.target && e.target.id === "close") panel.classList.remove("open");
   });
 
-  // Drag on long press (≥500 ms hold without moving ≥8 px).
-  // setPointerCapture is intentionally deferred to drag-activation time, not
-  // called on every pointerdown — calling it immediately reroutes pointerup to
-  // the host element, which breaks the browser's click synthesis for the shadow
-  // DOM button and makes the panel stop opening.
-  // Document-level listeners catch moves/releases even when the pointer drifts
-  // off the 38 px button during the hold period.
+  // Drag on long press — mouse events + capture phase on document.
+  // Pointer events were unreliable: setPointerCapture called from setTimeout
+  // (outside a pointer event handler) is silently ignored, and bubble-phase
+  // pointermove can be stopped by Ulta's own handlers before reaching document.
+  // Capture phase fires top-down before any page element can call stopPropagation.
 
-  function onDocMove(e) {
-    if (!dragState || e.pointerId !== dragState.pointerId) return;
-    const dx = e.clientX - dragState.startX;
-    const dy = e.clientY - dragState.startY;
-    if (!dragState.active) {
-      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) { clearTimeout(dragState.timer); dragState = null; }
+  function onDocMouseMove(e) {
+    if (!dragOrigin) return;
+    const dx = e.clientX - dragOrigin.x;
+    const dy = e.clientY - dragOrigin.y;
+    if (!isDragging) {
+      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) { clearTimeout(dragTimer); dragOrigin = null; }
       return;
     }
-    const newLeft = Math.max(0, Math.min(window.innerWidth - 44, dragState.startLeft + dx));
-    const newTop = Math.max(0, Math.min(window.innerHeight - 44, dragState.startTop + dy));
-    host.style.left = newLeft + "px";
-    host.style.top = newTop + "px";
+    const newLeft = Math.max(0, Math.min(window.innerWidth - 44, dragOrigin.left + dx));
+    const newTop  = Math.max(0, Math.min(window.innerHeight - 44, dragOrigin.top  + dy));
+    host.style.left  = newLeft + "px";
+    host.style.top   = newTop  + "px";
     host.style.right = "auto";
   }
 
-  function onDocUp(e) {
-    if (!dragState || e.pointerId !== dragState.pointerId) return;
-    clearTimeout(dragState.timer);
-    if (dragState.active) {
-      toggleBtn.classList.remove("grabbing");
-      const rect = host.getBoundingClientRect();
-      const moved = Math.abs(rect.left - dragState.startLeft) > 2 || Math.abs(rect.top - dragState.startTop) > 2;
-      if (moved) {
-        savedWidgetPos = { left: rect.left, top: rect.top };
-        try { chrome.storage.local.set({ [WIDGET_POS_KEY]: savedWidgetPos }); } catch (_) {}
+  function onDocMouseUp() {
+    clearTimeout(dragTimer);
+    if (isDragging) {
+      isDragging = false;
+      host.style.cursor = "";
+      suppressNextClick = true;
+      if (dragOrigin) {
+        const rect = host.getBoundingClientRect();
+        if (Math.abs(rect.left - dragOrigin.left) > 2 || Math.abs(rect.top - dragOrigin.top) > 2) {
+          savedWidgetPos = { left: rect.left, top: rect.top };
+          try { chrome.storage.local.set({ [WIDGET_POS_KEY]: savedWidgetPos }); } catch (_) {}
+        }
       }
     }
-    dragState = null;
+    dragOrigin = null;
   }
 
-  document.addEventListener("pointermove", onDocMove);
-  document.addEventListener("pointerup", onDocUp);
-  document.addEventListener("pointercancel", onDocUp);
+  document.addEventListener("mousemove", onDocMouseMove, true);
+  document.addEventListener("mouseup",   onDocMouseUp,   true);
 
-  host.addEventListener("pointerdown", (e) => {
-    if (e.pointerType === "mouse" && e.button !== 0) return;
+  host.addEventListener("mousedown", (e) => {
+    if (e.button !== 0) return;
     const rect = host.getBoundingClientRect();
-    dragState = {
-      active: false,
-      pointerId: e.pointerId,
-      startX: e.clientX,
-      startY: e.clientY,
-      startLeft: rect.left,
-      startTop: rect.top,
-      timer: setTimeout(() => {
-        if (!dragState) return;
-        dragState.active = true;
-        host.setPointerCapture(e.pointerId);
-        panel.classList.remove("open");
-        toggleBtn.classList.add("grabbing");
-      }, 500),
-    };
+    dragOrigin = { x: e.clientX, y: e.clientY, left: rect.left, top: rect.top };
+    dragTimer = setTimeout(() => {
+      if (!dragOrigin) return;
+      isDragging = true;
+      panel.classList.remove("open");
+      host.style.cursor = "grabbing";
+    }, 500);
   });
 }
 
