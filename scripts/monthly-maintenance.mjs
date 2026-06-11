@@ -2,9 +2,10 @@
 // One-shot data-health run, designed to be executed monthly (manually or via
 // launchd — see scripts/com.bunnycheck.maintenance.plist):
 //
-//   1. Re-scrape Leaping Bunny's live list (scrape-lb-names.mjs)
+//   1. Re-scrape both Leaping Bunny lists   — CCIC (scrape-lb-names.mjs)
+//      and Cruelty Free International (scrape-cfi-lb-names.mjs)
 //   2. PETA sweep of peta=FALSE rows        — newly certified brands
-//   3. LB sweep of lb=FALSE rows            — newly certified brands
+//   3. LB sweep of lb=FALSE rows            — newly certified brands (both lists)
 //   4. PETA recheck of peta=TRUE rows       — possible delistings
 //   5. LB recheck of lb=TRUE rows           — possible delistings
 //   6. Scrape Ulta's brand directory        — brands Ulta added/dropped
@@ -44,8 +45,11 @@ function run(label, script, args = []) {
 const sections = [];
 const counts = {};
 
-const lb = run("Refresh Leaping Bunny list", "scrape-lb-names.mjs");
-sections.push(["Leaping Bunny list refresh", lb]);
+const lb = run("Refresh Leaping Bunny list (CCIC)", "scrape-lb-names.mjs");
+sections.push(["Leaping Bunny (CCIC) list refresh", lb]);
+
+const cfi = run("Refresh Leaping Bunny list (CFI)", "scrape-cfi-lb-names.mjs");
+sections.push(["Leaping Bunny (CFI) list refresh", cfi]);
 
 const petaNew = run("PETA sweep (new certifications)", "verify-ulta-csv.mjs");
 counts.petaNew = (petaNew.out.match(/SET peta=TRUE/g) || []).length;

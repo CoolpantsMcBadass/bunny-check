@@ -1,3 +1,8 @@
+2026-06-11 — monthly-maintenance now refreshes both LB lists (no version bump)
+  - scripts/monthly-maintenance.mjs step 1 runs scrape-cfi-lb-names.mjs
+    alongside the CCIC scraper so the CFI list stays fresh; the LB sweeps
+    already read both lists via verify-lb-names.mjs.
+
 2026-06-11 — v0.10.0: CFI Leaping Bunny directory ingested as second LB source
   - New scripts/scrape-cfi-lb-names.mjs: paginates Cruelty Free
     International's /approved-brands/ directory (?_page=N&num=20, capped at
