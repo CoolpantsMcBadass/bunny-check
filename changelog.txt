@@ -1,3 +1,33 @@
+2026-06-11 — v0.10.0: CFI Leaping Bunny directory ingested as second LB source
+  - New scripts/scrape-cfi-lb-names.mjs: paginates Cruelty Free
+    International's /approved-brands/ directory (?_page=N&num=20, capped at
+    20/page server-side; 21 pages) → data/cfi-lb-raw.txt, 403 brands.
+    Gotchas: node fetch is 403'd by CFI's firewall (curl shelled out
+    instead), and a FULL Chrome UA string also 403s (no matching client
+    hints) — the truncated "Mozilla/5.0 (Macintosh...) AppleWebKit/537.36"
+    UA passes. Sanity-aborts below 300 brands.
+  - verify-lb-names.mjs now sweeps BOTH lists (CCIC + CFI) with a source
+    column, gained the v0.9.2 "squash" match tier and a --slugs= flag
+    (parity with verify-ulta-csv.mjs).
+  - Sweep found 10 direct matches; 8 confirmed via CFI listing-page
+    descriptions and applied (notes stamped "LB via CFI programme
+    2026-06-11"):
+      * Benefit Cosmetics — CFI "Benefit" listing text confirms it's the
+        LVMH brand ("Since 1976... world's #1 brow brand"). PETA
+        simultaneously lists Benefit as NOT cruelty-free; badges report
+        each org independently. LB badge + LVMH amber warning.
+      * Garnier, Biolage — L'Oréal brands, genuinely CFI-approved (ambers)
+      * philosophy — Coty (amber)
+      * The INKEY List, Lanolips, Bali Body, MONDAY Haircare (note
+        corrected: owner Zuru Edge, NZ) — independents
+    REJECTED (identity unproven, empty CFI listings, no website link):
+    CFI "Being" vs our being/Being Frenshe rows; CFI "DUO" vs Sephora's
+    DUO lash adhesive. Same standard as the v0.6.6 rejects.
+    18 CFI-source token hits reviewed — all different companies, left
+    alone (The Gel Crew≠American Crew, Curl Jar≠Bounce Curl, etc.).
+  - brands.json 467 → 473 (PETA 293 / LB 245 / both 65; 64 parent
+    warnings). Smoke test 21/21. README documents the dual-licensor sweep.
+
 2026-06-11 — v0.9.3: REFY badged — second Leaping Bunny licensor discovered
   - User report: REFY is Leaping Bunny approved but had no badge. Root cause
     is a data-source gap, not matching: TWO organizations license the

@@ -28,15 +28,17 @@ bunny-check/
     sephora.js             — Sephora site adapter (ProductTile spans, data-at testids,
                              DisplayName-only PDP brand selector)
   data/
-    brands.json            — 467 certified brands across Ulta + Sephora catalogs
-                             (PETA 293 / LB 237 / both 63; 60 parent warnings)
+    brands.json            — 473 certified brands across Ulta + Sephora catalogs
+                             (PETA 293 / LB 245 / both 65; 64 parent warnings)
     retailer-brands-researched.csv — Canonical research CSV: every brand seen at a
                              supported retailer (Ulta + Sephora; 1,187 rows), with
                              PETA/LB flags, parent research, and cross-retailer aliases
     brands-master.csv      — Full merged PETA+LB dataset (8,859 brands)
     brands-researched.csv  — Older manual parent-company research (superseded)
     peta-raw.txt           — Clean PETA brand list (6,822)
-    lb-raw.txt             — Clean Leaping Bunny brand list (2,325)
+    lb-raw.txt             — Leaping Bunny brand list, CCIC programme (2,325)
+    cfi-lb-raw.txt         — Leaping Bunny brand list, Cruelty Free International
+                             programme (403) — the second licensor of the mark
     wikidata-parents.tsv   — Wikidata subsidiary→parent pairs for bad parents
     SOURCES.md             — Data provenance documentation
   scripts/
@@ -44,7 +46,8 @@ bunny-check/
     build-brands-json.mjs      — Builds from brands-master.csv (full-DB pipeline, unused since v0.6.0)
     build-brand-csv.mjs        — Merges peta-raw.txt + lb-raw.txt into brands-master.csv
     scrape-peta-names.mjs      — PETA WP REST API scraper
-    scrape-lb-names.mjs        — Leaping Bunny shopping-guide scraper
+    scrape-lb-names.mjs        — Leaping Bunny (CCIC) shopping-guide scraper
+    scrape-cfi-lb-names.mjs    — Leaping Bunny (CFI) approved-brands directory scraper
     fix-peta-flags.mjs         — Corrects CF vs does-test flags from PETA API
     verify-ulta-csv.mjs        — Live-verifies peta=FALSE rows against PETA page H1s (--apply to write)
     smoke-test.mjs             — Playwright regression test of the matching pipeline (21 checks)
@@ -60,12 +63,13 @@ bunny-check/
 
 ## Brand data
 
-`data/brands.json` contains **467 certified brands** from the Ulta and Sephora catalogs, keyed by brand slug, verified against:
+`data/brands.json` contains **473 certified brands** from the Ulta and Sephora catalogs, keyed by brand slug, verified against:
 
 - **PETA Beauty Without Bunnies** — https://www.peta.org/living/personal-care-fashion/beauty-without-bunnies/
-- **Leaping Bunny brand search** — https://www.leapingbunny.org/guide/brands
+- **Leaping Bunny (CCIC) brand search** — https://www.leapingbunny.org/guide/brands
+- **Leaping Bunny (Cruelty Free International) approved brands** — https://www.crueltyfreeinternational.org/approved-brands/
 
-Note: two organizations license the Leaping Bunny mark — CCIC (leapingbunny.org, North America) and Cruelty Free International (crueltyfreeinternational.org, international). `data/lb-raw.txt` covers only the CCIC list; CFI-only approvals (e.g. REFY) are recorded manually in the CSV with the CFI listing URL in `notes`. A CFI `/approved-brands/` directory scrape is a candidate second LB source.
+Two organizations license the same Leaping Bunny mark — CCIC (leapingbunny.org, North America) and CFI (international). The LB sweep (`verify-lb-names.mjs`) checks both lists and reports which one matched; UK/EU brands like REFY, Benefit, Garnier, and The INKEY List appear only on CFI's. Note that CFI approval can coexist with a "not cruelty-free" PETA listing (Benefit) — the badges report each organization's position independently, and the amber parent warning still applies (Benefit/LVMH, Garnier/L'Oréal, philosophy/Coty).
 
 Parent-company status (the "⚠ parent tests" warning) comes from manual research recorded in the `parent_company` / `parent_cf` / `notes` columns of `data/retailer-brands-researched.csv`. Known data corrections (PETA typos, stale entries like Estée Lauder) are documented in `changelog.txt`; a denylist in the build script prevents known-bad entries from re-entering on rebuild.
 

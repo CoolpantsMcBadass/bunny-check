@@ -233,7 +233,7 @@
     "ulta_slug": "bali-body",
     "aliases": [],
     "peta": true,
-    "leaping_bunny": false,
+    "leaping_bunny": true,
     "parent_cf_bad": false,
     "data_version": "2026-06-11"
   },
@@ -305,6 +305,16 @@
     "parent_cf_bad": false,
     "data_version": "2026-06-11"
   },
+  "benefit-cosmetics": {
+    "display_name": "Benefit Cosmetics",
+    "ulta_slug": "benefit-cosmetics",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "LVMH",
+    "data_version": "2026-06-11"
+  },
   "billie": {
     "display_name": "billie",
     "ulta_slug": "billie",
@@ -334,6 +344,16 @@
     "leaping_bunny": false,
     "parent_cf_bad": false,
     "parent_company": "Beauty By Imagination (BBI)",
+    "data_version": "2026-06-11"
+  },
+  "biolage": {
+    "display_name": "Biolage",
+    "ulta_slug": "biolage",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "L'Oréal SA",
     "data_version": "2026-06-11"
   },
   "biore": {
@@ -1245,6 +1265,16 @@
     "parent_company": "Nestlé Health Science",
     "data_version": "2026-06-11"
   },
+  "garnier": {
+    "display_name": "Garnier",
+    "ulta_slug": "garnier",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "L'Oréal SA",
+    "data_version": "2026-06-11"
+  },
   "gigi": {
     "display_name": "Gigi",
     "ulta_slug": "gigi",
@@ -1980,6 +2010,15 @@
     "parent_cf_bad": false,
     "data_version": "2026-06-11"
   },
+  "lanolips": {
+    "display_name": "Lanolips",
+    "ulta_slug": "lanolips",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "data_version": "2026-06-11"
+  },
   "laura-geller": {
     "display_name": "LAURA GELLER",
     "ulta_slug": "laura-geller",
@@ -2332,7 +2371,7 @@
     "ulta_slug": "monday-haircare",
     "aliases": [],
     "peta": true,
-    "leaping_bunny": false,
+    "leaping_bunny": true,
     "parent_cf_bad": false,
     "data_version": "2026-06-11"
   },
@@ -2879,6 +2918,17 @@
     "peta": true,
     "leaping_bunny": false,
     "parent_cf_bad": false,
+    "generic_name": true,
+    "data_version": "2026-06-11"
+  },
+  "philosophy": {
+    "display_name": "Philosophy",
+    "ulta_slug": "philosophy",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": true,
+    "parent_company": "Coty",
     "generic_name": true,
     "data_version": "2026-06-11"
   },
@@ -3597,6 +3647,17 @@
     "leaping_bunny": true,
     "parent_cf_bad": false,
     "parent_company": "La Mend, Inc.",
+    "data_version": "2026-06-11"
+  },
+  "inkey-list": {
+    "display_name": "The INKEY List",
+    "ulta_slug": "inkey-list",
+    "aliases": [
+      "inkey list"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
     "data_version": "2026-06-11"
   },
   "nue-co": {

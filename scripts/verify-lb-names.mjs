@@ -1,6 +1,8 @@
 // verify-lb-names.mjs
 // Matches Ulta brands marked leaping_bunny=FALSE in data/retailer-brands-researched.csv
-// against the (freshly scraped) Leaping Bunny list in data/lb-raw.txt.
+// against BOTH Leaping Bunny lists: CCIC (data/lb-raw.txt, leapingbunny.org)
+// and Cruelty Free International (data/cfi-lb-raw.txt, the other licensor of
+// the same mark — UK/EU brands like REFY appear only there).
 //
 // LB often lists brands under a corporate name ("Iredale Cosmetics, Inc." for
 // Ulta's "jane iredale"), so in addition to exact/suffix/prefix name matches
@@ -22,12 +24,18 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CSV_PATH = path.join(__dirname, "../data/retailer-brands-researched.csv");
 const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "retailer-brands-researched.csv");
-const LB_PATH = path.join(__dirname, "../data/lb-raw.txt");
+const LB_SOURCES = [
+  { src: "ccic", file: path.join(__dirname, "../data/lb-raw.txt") },
+  { src: "cfi",  file: path.join(__dirname, "../data/cfi-lb-raw.txt") },
+];
 const APPLY = process.argv.includes("--apply");
 // --recheck flips the sweep: rows already lb=TRUE that no longer have ANY
 // direct or token match in the (freshly scraped) LB list are reported as
 // possible delistings. Report-only.
 const RECHECK = process.argv.includes("--recheck");
+// --slugs=a,b,c restricts the sweep (same flag as verify-ulta-csv.mjs).
+const slugsArg = process.argv.find(a => a.startsWith("--slugs="));
+const ONLY_SLUGS = slugsArg ? new Set(slugsArg.slice(8).split(",").map(s => s.trim()).filter(Boolean)) : null;
 
 // ─── CSV helpers (same dialect as verify-ulta-csv.mjs) ───────────────────────
 
@@ -60,6 +68,11 @@ function norm(s) {
     .toLowerCase().replace(/\s*\([^)]*\)/g, "").replace(/[®™©℗]/g, "")
     .replace(/['’]/g, "").replace(/[^\w\s-]/g, " ").replace(/\s+/g, " ").trim();
 }
+// Squash: letters+digits only — bridges retailer styling like "OLEHENRIKSEN"
+// vs "Ole Henriksen" (same tier added to verify-ulta-csv.mjs in v0.9.2).
+function squash(s) {
+  return norm(s).replace(/[^a-z0-9]/g, "");
+}
 function stems(name) {
   const n = norm(name); const out = [n];
   const s = n.replace(SUFFIX, "").trim();
@@ -76,6 +89,7 @@ const GENERIC_TAIL = new Set([
 function matchQuality(ultaName, lbName) {
   const u = norm(ultaName), p = norm(lbName);
   if (u === p) return "exact";
+  if (squash(ultaName).length >= 5 && squash(ultaName) === squash(lbName)) return "squash";
   const us = stems(ultaName), ps = stems(lbName);
   if (us.some(a => ps.includes(a))) {
     const stem = us.find(a => ps.includes(a));
@@ -99,7 +113,17 @@ function tokens(name) {
   return norm(name).split(/[\s-]+/).filter(t => t.length >= 4 && !STOP.has(t) && !/^\d+$/.test(t));
 }
 
-const lbNames = readFileSync(LB_PATH, "utf8").split(/\r?\n/).filter(l => l.trim());
+// name → "ccic" | "cfi" | "ccic+cfi"
+const lbSources = new Map();
+for (const { src, file } of LB_SOURCES) {
+  for (const l of readFileSync(file, "utf8").split(/\r?\n/)) {
+    const name = l.trim();
+    if (!name) continue;
+    const prev = lbSources.get(name);
+    lbSources.set(name, prev && prev !== src ? "ccic+cfi" : (prev ?? src));
+  }
+}
+const lbNames = [...lbSources.keys()];
 
 // token → LB names containing it; tokens appearing in many LB entries are
 // too common to identify a company.
@@ -116,14 +140,15 @@ const MAX_TOKEN_FREQ = 2;
 
 const { header, rows } = parseCSV(readFileSync(CSV_PATH, "utf8"));
 const candidates = rows.filter(r =>
-  (RECHECK ? r.leaping_bunny === "TRUE" : r.leaping_bunny !== "TRUE") && r.brand_name && r.ulta_slug);
-console.log(`Matching ${candidates.length} leaping_bunny=${RECHECK ? "TRUE (recheck)" : "FALSE"} rows against ${lbNames.length} live LB names...\n`);
-console.log("ulta_slug\tlb_name\tmatch\tverdict");
+  (RECHECK ? r.leaping_bunny === "TRUE" : r.leaping_bunny !== "TRUE") && r.brand_name && r.ulta_slug
+  && (!ONLY_SLUGS || ONLY_SLUGS.has(r.ulta_slug)));
+console.log(`Matching ${candidates.length} leaping_bunny=${RECHECK ? "TRUE (recheck)" : "FALSE"} rows against ${lbNames.length} LB names (CCIC + CFI)...\n`);
+console.log("ulta_slug\tlb_name\tsource\tmatch\tverdict");
 
 const corrections = [];
 for (const row of candidates) {
   // Pass 1: direct name match.
-  const rank = { exact: 0, suffix: 1, prefix: 2, loose: 3 };
+  const rank = { exact: 0, squash: 1, suffix: 2, prefix: 3, loose: 4 };
   let best = null;
   for (const lb of lbNames) {
     const q = matchQuality(row.brand_name, lb);
@@ -144,18 +169,18 @@ for (const row of candidates) {
     // A TRUE row with neither a direct match nor any token candidate in the
     // fresh list has likely been delisted (or renamed beyond recognition).
     if (!best && tokenHits.length === 0) {
-      console.log(`${row.ulta_slug}\t-\t-\tREVIEW (lb=TRUE but no match in live LB list)`);
+      console.log(`${row.ulta_slug}\t-\t-\t-\tREVIEW (lb=TRUE but no match in live LB lists)`);
     }
     continue;
   }
 
   if (best) {
-    console.log(`${row.ulta_slug}\t${best.lb}\t${best.q}\tSET lb=TRUE`);
+    console.log(`${row.ulta_slug}\t${best.lb}\t${lbSources.get(best.lb)}\t${best.q}\tSET lb=TRUE`);
     corrections.push(row);
     continue;
   }
   for (const { lb, t } of tokenHits) {
-    console.log(`${row.ulta_slug}\t${lb}\ttoken:${t}\tREVIEW (corporate name?)`);
+    console.log(`${row.ulta_slug}\t${lb}\t${lbSources.get(lb)}\ttoken:${t}\tREVIEW (corporate name?)`);
   }
 }
 
