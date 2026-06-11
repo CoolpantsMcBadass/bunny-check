@@ -7,7 +7,7 @@ A Chrome MV3 extension that detects cruelty-free beauty brands near product imag
 1. On install, the background service worker (`background.js`) loads the bundled `data/brands.json` into `chrome.storage.local`. The content script reads it directly from storage (no message round-trip — avoids an MV3 cold-start race).
 2. A `MutationObserver` (debounced 300 ms) + `IntersectionObserver` pair finds product images as they enter the viewport, including dynamically loaded grid cards.
 3. For each image, `content.js` gathers brand-name candidates in three tiers:
-   - **Tier 0** — Ulta's explicit brand-name DOM element (`Text-brandName`, `data-testid="brand"`, etc.), searched within the image's own product card only (the walk stops at the card boundary so neighboring cards can't cross-match). Brands whose name is a common English word (essence, LUSH, Hair+ — flagged `generic_name` at build time) match **only** here, so category tiles like "Nails" or "Hair" never badge.
+   - **Tier 0** — the site's explicit brand-name DOM element (selectors supplied by the site adapter; for Ulta: `Text-brandName`, `data-testid="brand"`, etc.), searched within the image's own product card only (the walk stops at the card boundary so neighboring cards can't cross-match). Brands whose name is a common English word (essence, LUSH, Hair+ — flagged `generic_name` at build time) match **only** here, so category tiles like "Nails" or "Hair" never badge.
    - **Tier 1** — the image's own attributes (`alt`, `title`, `aria-label`, `data-brand`).
    - **Tier 2** — the first rendered text line of the product-card ancestor.
    - **PDP fallback** — on `/p/` product detail pages, where the brand element is structurally unrelated to the image gallery, the page-level brand element is used — but only for images that have no card brand of their own (so recommendation carousels aren't badged with the page's brand).
@@ -20,8 +20,11 @@ A Chrome MV3 extension that detects cruelty-free beauty brands near product imag
 bunny-check/
   manifest.json            — MV3 manifest (Ulta-only host permissions)
   background.js            — Service worker: data loading, caching, remote refresh
-  content.js               — Page scanner, brand extraction, badge injection
+  content.js               — Site-agnostic core: page scanner, brand extraction, badge injection
   matcher.js               — BrandMatcher class
+  adapters/
+    ulta.js                — Ulta site adapter: brand selectors, card bounds, PDP detection,
+                             observer attribute filter (one adapter loads per host, before content.js)
   data/
     brands.json            — 374 certified Ulta brands (PETA 247 / LB 171 / both 44; 52 parent warnings)
     brands-master.csv      — Full merged PETA+LB dataset (8,859 brands)
@@ -38,7 +41,7 @@ bunny-check/
     scrape-lb-names.mjs        — Leaping Bunny shopping-guide scraper
     fix-peta-flags.mjs         — Corrects CF vs does-test flags from PETA API
     verify-ulta-csv.mjs        — Live-verifies peta=FALSE rows against PETA page H1s (--apply to write)
-    smoke-test.mjs             — Playwright regression test of the matching pipeline (11 checks)
+    smoke-test.mjs             — Playwright regression test of the matching pipeline (16 checks)
     console-audit.js           — Paste into DevTools console for a full-page match audit
     diagnose.mjs               — Playwright DOM diagnosis helper
   badges/                  — PETA / Leaping Bunny badge SVG artwork

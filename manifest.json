@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "BunnyCheck",
-  "version": "0.7.3",
+  "version": "0.8.0",
   "description": "Detects cruelty-free beauty brands near product images and overlays PETA and Leaping Bunny certification badges.",
   "permissions": [
     "storage",
@@ -16,7 +16,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.ulta.com/*"],
-      "js": ["matcher.js", "content.js"],
+      "js": ["matcher.js", "adapters/ulta.js", "content.js"],
       "run_at": "document_idle"
     }
   ],

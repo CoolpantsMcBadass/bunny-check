@@ -1,3 +1,24 @@
+2026-06-10 — v0.8.0: Adapter refactor — content.js is now a site-agnostic core
+  - Everything Ulta-specific moved into new adapters/ulta.js, which sets
+    window._bunnyAdapter: brand-name selectors (formerly ULTA_BRAND_SELECTORS),
+    maxBrandWalk (8) / maxCardText (1200) walk bounds, isProductDetailPage()
+    (the /p/ URL test), and the MutationObserver attributeFilter (class/style/
+    data-visible/hidden — the Ulta card-reveal quirk).
+  - content.js reads ADAPTER for all of the above; getUltaBrandFromAncestors →
+    getBrandFromAncestors, getUltaDetailPageBrand → getDetailPageBrand. The
+    tier-2 walk's inline 1200-char bounds now use ADAPTER.maxCardText. If no
+    adapter is loaded the content script logs an error and stays inactive
+    (observer not attached, init not run).
+  - Manifest loads adapters/ulta.js between matcher.js and content.js; adding
+    a new retailer is now: write adapters/<site>.js + add a content_scripts
+    block + host_permission. No behavior change on Ulta intended or observed.
+  - Fixed a latent init bug: the DOMContentLoaded path passed the Event object
+    as init's attempt parameter, which disabled the storage-retry backoff when
+    the script loaded before body existed (rare at document_idle, but wrong).
+    Now wrapped in an arrow function.
+  - Smoke test loads the adapter file and gains an "ulta adapter loaded"
+    check — 16/16 PASS. README updated (file structure, tier-0 wording).
+
 2026-06-10 — v0.7.3: Stats widget repositioned to top-right; draggable on long press
   - Default position changed from top:150px to top:5px (top-right corner of viewport).
   - Drag on long press: hold button ≥500 ms without moving to enter drag mode; cursor

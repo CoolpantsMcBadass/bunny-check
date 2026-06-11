@@ -126,44 +126,35 @@ function injectBadge(imgEl, brandEntry) {
   `;
 }
 
-// ─── Ulta-specific brand extraction ──────────────────────────────────────────
+// ─── Site adapter ─────────────────────────────────────────────────────────────
 
-// Selectors for Ulta's rendered brand-name elements (grid cards + detail page).
-// Ulta uses Polymer web components; class names follow pal-c-* and Text-* patterns.
-const ULTA_BRAND_SELECTORS = [
-  '[class*="Text-brandName"]',
-  '[class*="ProductCard__brandName"]',
-  '[class*="ProductCard-brandName"]',
-  '[class*="brandName"]',
-  '[class*="brand-name"]',
-  '[data-testid="brand-name"]',
-  '[data-testid="brand"]',
-  '[itemprop="brand"]',
-  'a[href*="/brand/"]',
-];
+// Everything site-specific (brand-name selectors, walk bounds, PDP detection,
+// observer attribute filter) lives in the adapter file the manifest loads
+// before this one. See adapters/ulta.js for the contract.
+const ADAPTER = window._bunnyAdapter;
+if (!ADAPTER) {
+  console.error("[BunnyCheck] No site adapter loaded — content script inactive.");
+}
 
-// Tier-0 walk stops once an ancestor's text exceeds a single product card
-// (same 1200-char bound as the tier-2 walk; large enough for shade-heavy cards).
-const MAX_BRAND_WALK = 8;
-const MAX_CARD_TEXT = 1200;
+// ─── Brand extraction ─────────────────────────────────────────────────────────
 
 /**
- * Walks up from imgEl and searches descendants at each level for a
- * Ulta-specific brand element. Returns the brand name string or null.
+ * Walks up from imgEl and searches descendants at each level for one of the
+ * adapter's brand-name elements. Returns the brand name string or null.
  * Used as tier-0 — faster and more reliable than full innerText parsing on
  * product cards that have brand elements explicitly in the DOM.
  *
  * The walk is bounded to the product card: once an ancestor's text exceeds
- * MAX_CARD_TEXT we are above the card (grid/page level), where querySelector
- * would return the FIRST brand element on the page — a different product's
- * brand, or a nav link — so we stop instead of cross-matching.
+ * ADAPTER.maxCardText we are above the card (grid/page level), where
+ * querySelector would return the FIRST brand element on the page — a different
+ * product's brand, or a nav link — so we stop instead of cross-matching.
  */
-function getUltaBrandFromAncestors(imgEl) {
+function getBrandFromAncestors(imgEl) {
   let node = imgEl.parentElement;
-  for (let i = 0; i < MAX_BRAND_WALK; i++) {
+  for (let i = 0; i < ADAPTER.maxBrandWalk; i++) {
     if (!node || node === document.body) break;
-    if ((node.textContent || "").trim().length > MAX_CARD_TEXT) break;
-    for (const sel of ULTA_BRAND_SELECTORS) {
+    if ((node.textContent || "").trim().length > ADAPTER.maxCardText) break;
+    for (const sel of ADAPTER.brandSelectors) {
       const els = node.querySelectorAll(sel);
       if (els.length === 0) continue;
       const text = (els[0].innerText || els[0].textContent || "").trim();
@@ -186,13 +177,13 @@ function getUltaBrandFromAncestors(imgEl) {
 }
 
 /**
- * On a product detail page (/p/ in the URL), the brand name is in a page-level
- * element not structurally related to the product image gallery. Search the
- * whole document for it.
+ * On a product detail page, the brand name is in a page-level element not
+ * structurally related to the product image gallery. Search the whole
+ * document for it.
  */
-function getUltaDetailPageBrand() {
-  if (!/\/p\//.test(location.pathname)) return null;
-  for (const sel of ULTA_BRAND_SELECTORS) {
+function getDetailPageBrand() {
+  if (!ADAPTER.isProductDetailPage()) return null;
+  for (const sel of ADAPTER.brandSelectors) {
     const el = document.querySelector(sel);
     if (el) {
       const text = (el.innerText || el.textContent || "").trim();
@@ -207,7 +198,7 @@ function getUltaDetailPageBrand() {
 /**
  * Gathers text candidates for brand matching around a product image.
  *
- * Tier 0 — Ulta-specific brand name element (explicit DOM element, most
+ * Tier 0 — the site's brand name element (explicit DOM element, most
  *          reliable; kept separate because its text is vouched-for as a brand
  *          name, so generic-named brands like essence/LUSH may match it).
  * Tier 1 — the image's own attributes (alt, title, data-brand, aria-label).
@@ -217,8 +208,8 @@ function gatherNearbyText(imgEl) {
   const tier1 = [];
   const tier2 = [];
 
-  // Tier 0: Ulta-specific brand element in ancestor subtree.
-  const tier0 = getUltaBrandFromAncestors(imgEl);
+  // Tier 0: adapter brand element in ancestor subtree.
+  const tier0 = getBrandFromAncestors(imgEl);
 
   // Tier 1: image's own attributes.
   for (const attr of ["alt", "title", "aria-label", "data-product-name", "data-brand"]) {
@@ -244,7 +235,7 @@ function gatherNearbyText(imgEl) {
     // Use innerText so block elements produce newline separators — this ensures
     // "BrandName" and "Product Name" are split even without explicit whitespace.
     const tcLen = (node.textContent || "").trim().length;
-    if (tcLen >= 15 && tcLen <= 1200) {
+    if (tcLen >= 15 && tcLen <= ADAPTER.maxCardText) {
       const inner = (node.innerText || "").trim();
       // If innerText is empty but textContent is not, the element is CSS-hidden
       // (e.g. visibility:hidden during Ulta's card reveal animation). Don't fall
@@ -256,7 +247,7 @@ function gatherNearbyText(imgEl) {
       if (firstLine) tier2.push(firstLine.trim().slice(0, 150));
       break;
     }
-    if (tcLen > 1200) break;
+    if (tcLen > ADAPTER.maxCardText) break;
 
     node = node.parentElement;
   }
@@ -418,7 +409,7 @@ function tryBadgeElement(el) {
   // carousel product has its own card brand, and badging it with the page's
   // brand would be wrong. The page brand element is also vouched-for text.
   if (!tier0) {
-    const pageBrand = getUltaDetailPageBrand();
+    const pageBrand = getDetailPageBrand();
     if (pageBrand) {
       // Full-string match only — same reasoning as tier 0.
       const brand = window._bunnyMatcher.match(pageBrand, true);
@@ -659,16 +650,18 @@ const mutationObserver = new MutationObserver(() => {
   clearTimeout(mutationTimer);
   mutationTimer = setTimeout(scanPage, 300);
 });
-// Attributes are watched too: Ulta reveals cards by flipping attributes
-// (data-visible / class) on text that is already in the DOM, so a
-// childList-only observer never fires for them and the empty-text retry
-// (v0.5.3/v0.5.5) would wait forever.
-mutationObserver.observe(document.body, {
-  childList: true,
-  subtree: true,
-  attributes: true,
-  attributeFilter: ["class", "style", "data-visible", "hidden"],
-});
+// Attributes are watched too (per the adapter's filter): some sites reveal
+// cards by flipping attributes (Ulta: data-visible / class) on text that is
+// already in the DOM, so a childList-only observer never fires for them and
+// the empty-text retry (v0.5.3/v0.5.5) would wait forever.
+if (ADAPTER) {
+  mutationObserver.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ADAPTER.observerAttributeFilter,
+  });
+}
 
 // ─── Console audit bridge ─────────────────────────────────────────────────────
 
@@ -749,8 +742,10 @@ function init(attempt = 1) {
   });
 }
 
-if (document.body) {
-  init();
-} else {
-  document.addEventListener("DOMContentLoaded", init);
+if (ADAPTER) {
+  if (document.body) {
+    init();
+  } else {
+    document.addEventListener("DOMContentLoaded", () => init());
+  }
 }

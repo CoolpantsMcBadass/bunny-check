@@ -1,5 +1,5 @@
-// BunnyCheck smoke test — runs the real matcher.js + content.js against a
-// synthetic Ulta-style grid with a stubbed chrome.storage API.
+// BunnyCheck smoke test — runs the real matcher.js + adapters/ulta.js +
+// content.js against a synthetic Ulta-style grid with a stubbed chrome.storage API.
 //
 // Scenarios:
 //   card1 — normal card with Text-brandName "Pacifica" (in DB) → should badge
@@ -91,6 +91,7 @@ await page.evaluate((db) => {
   };
 }, brands);
 await page.addScriptTag({ path: PROJ + "/matcher.js" });
+await page.addScriptTag({ path: PROJ + "/adapters/ulta.js" });
 await page.addScriptTag({ path: PROJ + "/content.js" });
 await page.waitForTimeout(800);
 
@@ -98,6 +99,7 @@ const r1 = await page.evaluate(() => {
   const img1 = document.getElementById("img1");
   const badge1 = document.querySelector("#card1 [data-bunnycheck-badge]");
   return {
+    adapterId: window._bunnyAdapter?.id ?? null,
     img1Done: img1.getAttribute("data-bunnycheck-done"),
     img1GreatGrandparent: img1.parentElement.parentElement.parentElement.id,
     card1Badge: !!badge1,
@@ -156,6 +158,7 @@ const results = { ...r1, ...rw, ...r2 };
 console.log(JSON.stringify(results, null, 2));
 
 const checks = {
+  "ulta adapter loaded": results.adapterId === "ulta",
   "card1 badged": results.card1Badge === true && results.img1Done === "1",
   "card1 badge is Pacifica": (results.badge1Label ?? "").includes("Pacifica"),
   "img1 not reparented": results.img1GreatGrandparent === "card1",
