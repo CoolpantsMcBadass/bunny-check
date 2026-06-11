@@ -1,6 +1,6 @@
 // verify-ulta-csv.mjs
 // Live-verifies PETA certification for Ulta brands marked peta=FALSE in
-// ~/Desktop/ulta-brands-researched.csv whose names appear (under
+// ~/Desktop/retailer-brands-researched.csv whose names appear (under
 // normalization) in PETA's company list.
 //
 // Ground truth = the company page H1 on crueltyfree.peta.org:
@@ -23,8 +23,8 @@ import path from "path";
 
 import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CSV_PATH = path.join(__dirname, "../data/ulta-brands-researched.csv");
-const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "ulta-brands-researched.csv");
+const CSV_PATH = path.join(__dirname, "../data/retailer-brands-researched.csv");
+const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "retailer-brands-researched.csv");
 const API = "https://crueltyfree.peta.org/wp-json/wp/v2/company";
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 const APPLY = process.argv.includes("--apply");

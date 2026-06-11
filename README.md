@@ -30,14 +30,17 @@ bunny-check/
   data/
     brands.json            — 462 certified brands across Ulta + Sephora catalogs
                              (PETA 287 / LB 236 / both 61; 59 parent warnings)
+    retailer-brands-researched.csv — Canonical research CSV: every brand seen at a
+                             supported retailer (Ulta + Sephora; 1,187 rows), with
+                             PETA/LB flags, parent research, and cross-retailer aliases
     brands-master.csv      — Full merged PETA+LB dataset (8,859 brands)
-    brands-researched.csv  — Manual parent-company research (in progress)
+    brands-researched.csv  — Older manual parent-company research (superseded)
     peta-raw.txt           — Clean PETA brand list (6,822)
     lb-raw.txt             — Clean Leaping Bunny brand list (2,325)
     wikidata-parents.tsv   — Wikidata subsidiary→parent pairs for bad parents
     SOURCES.md             — Data provenance documentation
   scripts/
-    build-ulta-brands-json.mjs — Builds brands.json from ulta-brands-researched.csv (current pipeline)
+    build-ulta-brands-json.mjs — Builds brands.json from retailer-brands-researched.csv (current pipeline)
     build-brands-json.mjs      — Builds from brands-master.csv (full-DB pipeline, unused since v0.6.0)
     build-brand-csv.mjs        — Merges peta-raw.txt + lb-raw.txt into brands-master.csv
     scrape-peta-names.mjs      — PETA WP REST API scraper
@@ -62,7 +65,7 @@ bunny-check/
 - **PETA Beauty Without Bunnies** — https://www.peta.org/living/personal-care-fashion/beauty-without-bunnies/
 - **Leaping Bunny brand search** — https://www.leapingbunny.org/guide/brands
 
-Parent-company status (the "⚠ parent tests" warning) comes from manual research recorded in `data/brands-researched.csv`. Known data corrections (PETA typos, stale entries like Estée Lauder) are documented in `changelog.txt`; a denylist in the build script prevents known-bad entries from re-entering on rebuild.
+Parent-company status (the "⚠ parent tests" warning) comes from manual research recorded in the `parent_company` / `parent_cf` / `notes` columns of `data/retailer-brands-researched.csv`. Known data corrections (PETA typos, stale entries like Estée Lauder) are documented in `changelog.txt`; a denylist in the build script prevents known-bad entries from re-entering on rebuild.
 
 Rebuild with: `node scripts/build-ulta-brands-json.mjs`
 

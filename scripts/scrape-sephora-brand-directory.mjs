@@ -1,6 +1,6 @@
 // scrape-sephora-brand-directory.mjs
 // Scrapes Sephora's brand directory (https://www.sephora.com/brands-list) and
-// diffs it against the researched dataset (data/ulta-brands-researched.csv +
+// diffs it against the researched dataset (data/retailer-brands-researched.csv +
 // data/known-brands.json): brands Sephora stocks that we've never researched.
 //
 // Sephora is behind Akamai bot protection. /brands-list is one of the few
@@ -22,7 +22,7 @@ import { fileURLToPath } from "url";
 import { chromium } from "playwright";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CSV_PATH = path.join(__dirname, "../data/ulta-brands-researched.csv");
+const CSV_PATH = path.join(__dirname, "../data/retailer-brands-researched.csv");
 const KNOWN_PATH = path.join(__dirname, "../data/known-brands.json");
 const OUT_PATH = path.join(__dirname, "../data/sephora-brand-directory.txt");
 

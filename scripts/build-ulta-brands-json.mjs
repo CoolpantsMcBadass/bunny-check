@@ -1,5 +1,5 @@
 // BunnyCheck — build-ulta-brands-json.mjs
-// Builds data/brands.json from data/ulta-brands-researched.csv.
+// Builds data/brands.json from data/retailer-brands-researched.csv.
 // Only includes brands certified by PETA or Leaping Bunny (peta=TRUE or leaping_bunny=TRUE).
 // Also emits data/known-brands.json: normalized names + aliases of EVERY
 // researched row (certified or not), so the content script's unknown-brand
@@ -12,7 +12,7 @@ import { fileURLToPath } from "url";
 import path from "path";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CSV_PATH  = path.join(__dirname, "../data/ulta-brands-researched.csv");
+const CSV_PATH  = path.join(__dirname, "../data/retailer-brands-researched.csv");
 const OUT_PATH  = path.join(__dirname, "../data/brands.json");
 const KNOWN_PATH = path.join(__dirname, "../data/known-brands.json");
 const VERSION   = new Date().toISOString().slice(0, 10);
@@ -158,7 +158,7 @@ const PETA_DENYLIST = new Set([
 
 function main() {
   const rows = parseCSV(readFileSync(CSV_PATH, "utf8"));
-  console.log(`Loaded ${rows.length} brands from ulta-brands-researched.csv`);
+  console.log(`Loaded ${rows.length} brands from retailer-brands-researched.csv`);
 
   const brands = {};
 

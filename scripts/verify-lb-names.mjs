@@ -1,5 +1,5 @@
 // verify-lb-names.mjs
-// Matches Ulta brands marked leaping_bunny=FALSE in data/ulta-brands-researched.csv
+// Matches Ulta brands marked leaping_bunny=FALSE in data/retailer-brands-researched.csv
 // against the (freshly scraped) Leaping Bunny list in data/lb-raw.txt.
 //
 // LB often lists brands under a corporate name ("Iredale Cosmetics, Inc." for
@@ -20,8 +20,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CSV_PATH = path.join(__dirname, "../data/ulta-brands-researched.csv");
-const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "ulta-brands-researched.csv");
+const CSV_PATH = path.join(__dirname, "../data/retailer-brands-researched.csv");
+const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "retailer-brands-researched.csv");
 const LB_PATH = path.join(__dirname, "../data/lb-raw.txt");
 const APPLY = process.argv.includes("--apply");
 // --recheck flips the sweep: rows already lb=TRUE that no longer have ANY

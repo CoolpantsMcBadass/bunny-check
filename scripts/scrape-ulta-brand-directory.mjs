@@ -1,6 +1,6 @@
 // scrape-ulta-brand-directory.mjs
 // Scrapes Ulta's A–Z brand directory (https://www.ulta.com/brand) and diffs it
-// against data/ulta-brands-researched.csv: brands Ulta added that we've never
+// against data/retailer-brands-researched.csv: brands Ulta added that we've never
 // researched, and researched brands Ulta no longer lists.
 //
 // Ulta is behind Akamai bot protection: plain fetch and headless browsers get
@@ -21,7 +21,7 @@ import { fileURLToPath } from "url";
 import { chromium } from "playwright";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CSV_PATH = path.join(__dirname, "../data/ulta-brands-researched.csv");
+const CSV_PATH = path.join(__dirname, "../data/retailer-brands-researched.csv");
 const OUT_PATH = path.join(__dirname, "../data/ulta-brand-directory.txt");
 
 function norm(s) {

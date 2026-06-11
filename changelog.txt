@@ -1,3 +1,12 @@
+2026-06-10 — data/ulta-brands-researched.csv renamed to retailer-brands-researched.csv
+  - The CSV has covered more than Ulta since the Sephora catalog research; the
+    name was a misnomer. All script paths + console messages updated
+    (build-ulta-brands-json, verify-ulta-csv, verify-lb-names,
+    ingest-new-brands, both directory scrapers), README updated, and the
+    Desktop synced copy renamed to ~/Desktop/retailer-brands-researched.csv.
+  - Script FILE names (build-ulta-brands-json.mjs, verify-ulta-csv.mjs) kept —
+    only the data file was renamed. Rebuilt + smoke test 21/21 to confirm.
+
 2026-06-10 — v0.9.1: Sephora catalog research — 65 new certified brands (397 → 462)
   - New scripts/scrape-sephora-brand-directory.mjs: scrapes /brands-list (loads
     on direct goto after homepage warm-up; headed bundled Chromium), visible

@@ -1,5 +1,5 @@
 // ingest-new-brands.mjs
-// Adds newly spotted Ulta brands to data/ulta-brands-researched.csv as
+// Adds newly spotted Ulta brands to data/retailer-brands-researched.csv as
 // unresearched rows (peta=FALSE, leaping_bunny=FALSE, peta_status=pending),
 // ready for the verify pipeline.
 //
@@ -23,8 +23,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CSV_PATH = path.join(__dirname, "../data/ulta-brands-researched.csv");
-const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "ulta-brands-researched.csv");
+const CSV_PATH = path.join(__dirname, "../data/retailer-brands-researched.csv");
+const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "retailer-brands-researched.csv");
 
 function norm(s) {
   return s.normalize("NFD").replace(/[̀-ͯ]/g, "")
