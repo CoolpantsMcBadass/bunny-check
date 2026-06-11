@@ -1,3 +1,16 @@
+2026-06-11 — Sephora coverage re-verified: 340/340 brands researched
+  - Re-ran scrape-sephora-brand-directory.mjs against the live brands-list to
+    confirm nothing was missed in the v0.9.1 research: every brand on the
+    page is in retailer-brands-researched.csv. 0 new.
+  - Scraper fixes found by the re-check: (1) trailing "NEW" merch badge now
+    stripped at scrape time (was inflating the diff with COACH NEW etc.);
+    (2) non-brand house entries (Sephora Favorites, The Merch Shop) skipped
+    by slug AND text — the slug-only guess missed the Merch Shop; (3) the
+    diff now reads the CSV aliases column directly — aliases previously only
+    flowed in via known-brands.json, whose normalization keeps "L'Oréal" as
+    "l or al" while the scraper's strips to "loreal", so the Steampod alias
+    false-flagged as new. data/sephora-brand-directory.txt re-written clean.
+
 2026-06-10 — data/ulta-brands-researched.csv renamed to retailer-brands-researched.csv
   - The CSV has covered more than Ulta since the Sephora catalog research; the
     name was a misnomer. All script paths + console messages updated

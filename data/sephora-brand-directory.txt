@@ -54,7 +54,7 @@ Cinema Secrets
 Clarins
 CLEAN RESERVE
 CLINIQUE
-COACH NEW
+COACH
 COLOR WOW
 Commodity
 Community Sixty-Six
@@ -261,14 +261,12 @@ ROSE Ingleton MD
 Rosebud Perfume Co.
 Rossano Ferretti Parma
 RŌZ
-RUHVEDA NEW
+RUHVEDA
 Saie
 Saint Jane
 Salt & Stone
 Sarah Creal
 SEPHORA COLLECTION
-Sephora Favorites
-SEPHORA The Merch Shop
 Shani Darden Skin Care
 Shark Beauty
 SHAZ & KIKS
@@ -306,7 +304,7 @@ The Maker
 The Nue Co.
 The Ordinary
 The Original MakeUp Eraser
-THE STEAM BAR NEW
+THE STEAM BAR
 Then I Met You
 Therabody
 TOM FORD
@@ -318,10 +316,10 @@ Tower 28 Beauty
 TWEEZERMAN
 U Beauty
 Ultra Violette
-UNITE Hair NEW
+UNITE Hair
 UNOVE
 Urban Decay
-Vacation NEW
+Vacation
 Valentino
 Vegamour
 Velour Lashes

@@ -57,14 +57,18 @@ for (let i = 0; i < 15; i++) {
 }
 
 const { brands, blocked } = await page.evaluate(() => {
+  // Not brands: sampler kits and merch sold under the house label.
+  const NON_BRANDS = new Set(["sephora-favorites", "sephora-the-merch-shop"]);
   const out = new Map();
   for (const a of document.querySelectorAll('a[href*="/brand/"]')) {
     if (a.offsetParent === null) continue; // hidden flyout duplicates
     const href = a.getAttribute("href") || "";
     const m = href.match(/\/brand\/([a-z0-9][a-z0-9-]*)\/?(?:[?#]|$)/i);
-    if (!m) continue;
-    const text = (a.innerText || a.textContent || "").trim().replace(/\s+/g, " ");
+    if (!m || NON_BRANDS.has(m[1].toLowerCase())) continue;
+    const text = (a.innerText || a.textContent || "").trim().replace(/\s+/g, " ")
+      .replace(/\s+NEW$/, ""); // directory appends a "NEW" merch badge to recent additions
     if (text.length < 2 || text.length > 60) continue;
+    if (/^sephora (favorites|the merch shop)$/i.test(text)) continue; // non-brands, slug varies
     if (!out.has(m[1].toLowerCase())) out.set(m[1].toLowerCase(), text);
   }
   return {
@@ -96,11 +100,17 @@ function splitRow(line) {
 }
 
 const researched = new Set();
-for (const line of readFileSync(CSV_PATH, "utf8").split(/\r?\n/).slice(1)) {
+const csvLines = readFileSync(CSV_PATH, "utf8").split(/\r?\n/);
+const iAlias = splitRow(csvLines[0]).indexOf("aliases");
+for (const line of csvLines.slice(1)) {
   if (!line.trim()) continue;
   const c = splitRow(line);
   researched.add(norm(c[0]));
   if (c[1]) researched.add(norm(c[1].trim().replace(/-/g, " ")));
+  // Manual aliases (cross-retailer display names) count as researched too.
+  if (iAlias >= 0 && c[iAlias]) {
+    for (const a of c[iAlias].split("|")) if (a.trim()) researched.add(norm(a));
+  }
 }
 for (const name of JSON.parse(readFileSync(KNOWN_PATH, "utf8")).names) {
   researched.add(norm(name));
