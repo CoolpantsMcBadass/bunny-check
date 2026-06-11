@@ -116,6 +116,26 @@ const r1 = await page.evaluate(() => {
   };
 });
 
+// Stats widget: open the panel and read the live page counts.
+const rw = await page.evaluate(() => {
+  const w = document.getElementById("bunnycheck-stats-widget");
+  if (!w) return { widget: false };
+  w.shadowRoot.getElementById("toggle").click();
+  const text = w.shadowRoot.getElementById("panel").textContent;
+  const grab = (label) => {
+    const m = text.match(new RegExp(label + "(\\d+)"));
+    return m ? +m[1] : -1;
+  };
+  return {
+    widget: true,
+    open: w.shadowRoot.getElementById("panel").classList.contains("open"),
+    badged: grab("Products badged"),
+    peta: grab("PETA Cruelty-Free"),
+    lb: grab("Leaping Bunny"),
+    dbTotal: grab("Certified brands"),
+  };
+});
+
 // Simulate a framework re-render detaching the badged image.
 await page.evaluate(() => document.getElementById("img1").remove());
 await page.waitForTimeout(700);
@@ -130,7 +150,7 @@ const r2 = await page.evaluate(() => ({
 
 await browser.close();
 
-const results = { ...r1, ...r2 };
+const results = { ...r1, ...rw, ...r2 };
 console.log(JSON.stringify(results, null, 2));
 
 const checks = {
@@ -147,6 +167,9 @@ const checks = {
   "badge pruned after re-render": results.card1BadgeAfterImgRemoved === false,
   "extended name not prefix-matched (Being Frenshe ≠ being)":
     results.card7Badge === false && results.img7Done === "0",
+  "stats widget opens with correct counts":
+    results.widget === true && results.open === true && results.badged === 2 &&
+    results.peta === 2 && results.lb === 1 && results.dbTotal === 4,
   "unknown brand collected": results.collectedUnknowns.includes("Being Frenshe"),
   "known non-certified brand not collected": !results.collectedUnknowns.includes("SomeTester"),
 };

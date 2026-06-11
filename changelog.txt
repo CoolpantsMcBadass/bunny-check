@@ -1,3 +1,21 @@
+2026-06-11 — v0.7.2: On-page stats widget with the new bunny icon
+  - Floating bunny button fixed top-right (below the sticky header at top:150px,
+    z-index above page UI — it's deliberate chrome, unlike badges) on all Ulta
+    pages. Click toggles a stats panel (shadow DOM, isolated styles):
+    * This page — products badged, unique brands, PETA / LB / parent-warning counts
+      (live, from data-bc-* attributes now stamped on each badge host)
+    * Database — certified totals, PETA/LB/both, parent-flagged, data version
+    * New brands spotted — the unknown-brand collector's current list
+  - Icon: user-supplied bunny.png (Desktop), auto-cropped from 128px (content
+    bbox 60×58) and resized to icons/bunny-{16,32,48,64}.png + 128. bunny-64
+    is web_accessible for the in-page widget; the 16/32/48/128 set replaces the
+    placeholder extension/toolbar icons. Falls back to a 🐇 glyph if
+    chrome.runtime.getURL is unavailable.
+  - Widget re-injects on scanPage() if an SPA re-render drops it.
+  - Smoke test: 15 checks (new: widget opens, page counts correct, DB total
+    correct) — 15/15 PASS. Live-verified on ulta.com: panel renders with
+    29 badged / 24 PETA / 6 LB / 4 parent warnings; DB 397/258/190/51/52.
+
 2026-06-11 — v0.7.1: Ingest the 22 new Ulta brands found by the directory diff;
   5 newly certified
   - First real run of the v0.7.0 pipeline: scripts/ingest-new-brands.mjs added all

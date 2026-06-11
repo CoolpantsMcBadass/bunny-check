@@ -93,6 +93,12 @@ function injectBadge(imgEl, brandEntry) {
 
   const hasParentWarn = !!brandEntry.parent_cf_bad;
 
+  // Typed counts for the on-page stats panel.
+  host.setAttribute("data-bc-peta", hasPeta ? "1" : "0");
+  host.setAttribute("data-bc-lb", hasLB ? "1" : "0");
+  host.setAttribute("data-bc-warn", hasParentWarn ? "1" : "0");
+  host.setAttribute("data-bc-brand", brandEntry.display_name || "");
+
   let badgeHTML = "";
   if (useSmallDot) {
     badgeHTML = dotBadgeSVG(hasPeta, hasLB);
@@ -429,6 +435,114 @@ function tryBadgeElement(el) {
   el.setAttribute(PROCESSED_ATTR, "0");
 }
 
+// ─── Stats widget ─────────────────────────────────────────────────────────────
+// Small fixed bunny button top-right; click opens a panel with live page
+// counts, database totals, and any new-to-us brands the collector has seen.
+
+const WIDGET_ID = "bunnycheck-stats-widget";
+
+function injectStatsWidget() {
+  if (!document.body || document.getElementById(WIDGET_ID)) return;
+  const host = document.createElement("div");
+  host.id = WIDGET_ID;
+  // Below Ulta's sticky header (~150px) so the button never hides under it.
+  host.style.cssText = "position:fixed;top:150px;right:10px;z-index:2147483000;line-height:0;";
+  document.body.appendChild(host);
+  const shadow = host.attachShadow({ mode: "open" });
+
+  let icon = "🐇";
+  try {
+    if (chrome.runtime && chrome.runtime.getURL) {
+      icon = `<img src="${chrome.runtime.getURL("icons/bunny-64.png")}" width="26" height="26" alt="">`;
+    }
+  } catch (_) {}
+
+  shadow.innerHTML = `
+    <style>
+      .btn { width:38px;height:38px;border-radius:50%;background:#fff;border:2px solid #2e7d32;
+             box-shadow:0 2px 8px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;
+             justify-content:center;padding:0;font-size:17px; }
+      .btn:hover { background:#f1f8e9; }
+      .panel { display:none;position:absolute;top:44px;right:0;width:252px;background:#fff;
+               border:1px solid #c8e6c9;border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,.2);
+               font:12px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1b2b1b;
+               padding:12px 14px;text-align:left; }
+      .panel.open { display:block; }
+      .hd { font-size:13px;font-weight:700;color:#2e7d32;display:flex;justify-content:space-between;
+            align-items:center;margin-bottom:4px; }
+      .sec { font-size:10px;font-weight:600;margin:8px 0 1px;color:#558b2f;
+             text-transform:uppercase;letter-spacing:.5px; }
+      .row { display:flex;justify-content:space-between; }
+      .v { font-weight:600;color:#2e7d32; }
+      .v.warn { color:#b45309; }
+      .unk { color:#4a4a4a;max-height:74px;overflow-y:auto;white-space:pre-line; }
+      .muted { color:#888; }
+      .x { cursor:pointer;border:none;background:none;font-size:14px;color:#888;padding:0 2px; }
+    </style>
+    <button class="btn" id="toggle" title="BunnyCheck stats" aria-label="Open BunnyCheck statistics">${icon}</button>
+    <div class="panel" id="panel" role="dialog" aria-label="BunnyCheck statistics"></div>
+  `;
+
+  const panel = shadow.getElementById("panel");
+  shadow.getElementById("toggle").addEventListener("click", () => {
+    if (panel.classList.contains("open")) { panel.classList.remove("open"); return; }
+    renderStatsPanel(panel);
+    panel.classList.add("open");
+  });
+  panel.addEventListener("click", (e) => {
+    if (e.target && e.target.id === "close") panel.classList.remove("open");
+  });
+}
+
+function renderStatsPanel(panel) {
+  const esc = (s) => String(s).replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c]));
+
+  // Live page counts from connected badge hosts.
+  const hosts = [...document.querySelectorAll("[data-bunnycheck-badge]")].filter((h) => h.isConnected);
+  const pagePeta = hosts.filter((h) => h.getAttribute("data-bc-peta") === "1").length;
+  const pageLB = hosts.filter((h) => h.getAttribute("data-bc-lb") === "1").length;
+  const pageWarn = hosts.filter((h) => h.getAttribute("data-bc-warn") === "1").length;
+  const pageBrands = new Set(hosts.map((h) => h.getAttribute("data-bc-brand")).filter(Boolean));
+
+  // Database totals.
+  const db = Object.values(window._bunnyBrands || {});
+  const dbPeta = db.filter((b) => b.peta).length;
+  const dbLB = db.filter((b) => b.leaping_bunny).length;
+  const dbBoth = db.filter((b) => b.peta && b.leaping_bunny).length;
+  const dbWarn = db.filter((b) => b.parent_cf_bad).length;
+  let version = "";
+  for (const b of db) if (b.data_version && b.data_version > version) version = b.data_version;
+
+  panel.innerHTML = `
+    <div class="hd">BunnyCheck stats <button class="x" id="close" aria-label="Close">✕</button></div>
+    <div class="sec">This page</div>
+    <div class="row"><span>Products badged</span><span class="v">${hosts.length}</span></div>
+    <div class="row"><span>Brands</span><span class="v">${pageBrands.size}</span></div>
+    <div class="row"><span>PETA Cruelty-Free</span><span class="v">${pagePeta}</span></div>
+    <div class="row"><span>Leaping Bunny</span><span class="v">${pageLB}</span></div>
+    <div class="row"><span>⚠ Parent-company warnings</span><span class="v warn">${pageWarn}</span></div>
+    <div class="sec">Database</div>
+    <div class="row"><span>Certified brands</span><span class="v">${db.length}</span></div>
+    <div class="row"><span>PETA</span><span class="v">${dbPeta}</span></div>
+    <div class="row"><span>Leaping Bunny</span><span class="v">${dbLB}</span></div>
+    <div class="row"><span>Both</span><span class="v">${dbBoth}</span></div>
+    <div class="row"><span>Parent flagged</span><span class="v warn">${dbWarn}</span></div>
+    <div class="row"><span>Data version</span><span class="v">${esc(version || "—")}</span></div>
+    <div class="sec">New brands spotted</div>
+    <div class="unk" id="unk"><span class="muted">None yet</span></div>
+  `;
+
+  try {
+    chrome.storage.local.get(UNKNOWN_KEY, (result) => {
+      const entries = Object.values((result || {})[UNKNOWN_KEY] || {});
+      const unk = panel.querySelector("#unk");
+      if (!unk || entries.length === 0) return;
+      entries.sort((a, b) => b.count - a.count);
+      unk.textContent = entries.map((e) => e.name).join("\n");
+    });
+  } catch (_) {}
+}
+
 // ─── Page scanner ─────────────────────────────────────────────────────────────
 
 const observedElements = new WeakSet();
@@ -463,6 +577,7 @@ function pruneBadges() {
 
 function scanPage() {
   pruneBadges();
+  injectStatsWidget(); // re-add if an SPA re-render removed it
 
   document.querySelectorAll(`img:not([${PROCESSED_ATTR}])`).forEach((img) => {
     if (!observedElements.has(img)) {
@@ -571,6 +686,7 @@ function init(attempt = 1) {
       knownNames = new Set(known.names);
     }
     window._bunnyMatcher = new BrandMatcher(brands);
+    window._bunnyBrands = brands; // for the stats panel's database section
     console.log("[BunnyCheck] Loaded", Object.keys(brands).length, "brands. Scanning page...");
     scanPage();
   });
