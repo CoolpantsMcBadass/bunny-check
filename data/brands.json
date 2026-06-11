@@ -1663,6 +1663,19 @@
     "parent_company": "L'Oréal SA",
     "data_version": "2026-06-11"
   },
+  "its-a-10": {
+    "display_name": "It's A 10",
+    "ulta_slug": "its-a-10",
+    "aliases": [
+      "Its A 10",
+      "its a 10"
+    ],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Independent",
+    "data_version": "2026-06-11"
+  },
   "jcat-beauty": {
     "display_name": "J.Cat Beauty",
     "ulta_slug": "jcat-beauty",
@@ -3905,6 +3918,46 @@
     "peta": false,
     "leaping_bunny": true,
     "parent_cf_bad": false,
+    "data_version": "2026-06-11"
+  },
+  "athletic-cosmetic-company": {
+    "display_name": "Athletic Cosmetic Company",
+    "ulta_slug": "athletic-cosmetic-company",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Independent (Athletic Cosmetic Company LLC)",
+    "data_version": "2026-06-11"
+  },
+  "being-frenshe": {
+    "display_name": "Being Frenshe",
+    "ulta_slug": "being-frenshe",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Maesa (Bain Capital)",
+    "data_version": "2026-06-11"
+  },
+  "humanist-beauty": {
+    "display_name": "Humanist Beauty",
+    "ulta_slug": "humanist-beauty",
+    "aliases": [],
+    "peta": false,
+    "leaping_bunny": true,
+    "parent_cf_bad": false,
+    "parent_company": "Independent",
+    "data_version": "2026-06-11"
+  },
+  "monpure": {
+    "display_name": "Monpure",
+    "ulta_slug": "monpure",
+    "aliases": [],
+    "peta": true,
+    "leaping_bunny": false,
+    "parent_cf_bad": false,
+    "parent_company": "Independent",
     "data_version": "2026-06-11"
   }
 }

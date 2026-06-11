@@ -411,7 +411,7 @@ ISOI,isoi,FALSE,FALSE,not_found,,,,,Independent Korean brand
 Isopure Protein,isopure-protein,FALSE,FALSE,not_found,Glanbia Performance Nutrition,UNKNOWN,,,Glanbia owns Isopure (acquired with Optimum Nutrition)
 IT Brushes For ULTA,it-brushes-ulta,FALSE,FALSE,not_found,L'Oréal SA,FALSE,,,IT Cosmetics (L'Oréal) collaboration with Ulta Beauty
 IT Cosmetics,it-cosmetics,TRUE,FALSE,cf,L'Oréal SA,FALSE,,,Acquired by L'Oréal 2016 ($1.2B)
-It's A 10,its-a-10,FALSE,FALSE,not_found,,,,,Independent; sole owner Carolyn Aronson (bought out co-founder 2017)
+It's A 10,its-a-10,FALSE,TRUE,not_found,Independent,TRUE,,,"Independent; sole owner Carolyn Aronson (bought out co-founder 2017); Founder/owner Carolyn Aronson, self-owned; LB cert under It's A 10 Haircare — surfaced after HTML-entity cleanup of brand names"
 Izzy Zero Waste Beauty,izzy-zero-waste-beauty,FALSE,FALSE,not_found,,,,,Independent
 J.Cat Beauty,jcat-beauty,TRUE,TRUE,cf,,,,,Parent unknown
 Jack Black,jack-black,TRUE,FALSE,cf,Edgewell Personal Care,FALSE,,,Acquired by Edgewell 2018
@@ -970,3 +970,25 @@ Youthforia,youthforia,FALSE,FALSE,not_found,,,,,CLOSED August 2025; founder Fion
 Yves Saint Laurent,yves-saint-laurent,FALSE,FALSE,not_found,L'Oréal SA,FALSE,,,YSL Beauté; L'Oréal Luxe brand
 Zadro,zadro,FALSE,FALSE,not_found,,,,,Parent unknown
 Zoya,zoya,FALSE,FALSE,not_found,Art of Beauty,UNKNOWN,,,Art of Beauty (Zoya & Michael Reyzis; independent)
+Almost Famous,almost-famous,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Athletic Cosmetic Company,athletic-cosmetic-company,FALSE,TRUE,not_found,Independent (Athletic Cosmetic Company LLC),TRUE,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research; LB cert under ATHLETIC COSMETIC COMPANY LLC
+Be Your Own Desire,be-your-own-desire,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Being Frenshe,being-frenshe,TRUE,FALSE,cf,Maesa (Bain Capital),TRUE,,,"Auto-added from extension unknown-brand collector 2026-06-11; needs parent research; Ashley Tisdale brand developed by Maesa (brand incubator, Bain Capital majority since 2019); PETA cert under Being Frenshe (Maesa)"
+Blue Lagoon Skin Science,blue-lagoon-skin-science,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Candorlov,candorlov,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Cozy Clip,cozy-clip,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Flimeal,flimeal,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Glam & Grace,glam-grace,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+GLISTER,glister,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+glowiest,glowiest,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Hauteness,hauteness,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Humanist Beauty,humanist-beauty,FALSE,TRUE,not_found,Independent,TRUE,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research; Founder Jennifer Norman; LB cert exact name match
+Marley Fragrance,marley-fragrance,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Mia Secret,mia-secret,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Monpure,monpure,TRUE,FALSE,cf,Independent,TRUE,,,"Auto-added from extension unknown-brand collector 2026-06-11; needs parent research; Monpure London, independent scalp-care brand; PETA-verified cruelty-free"
+Nail Reformation,nail-reformation,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Prime Prometics,prime-prometics,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Salon Step,salon-step,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Spa Sciences,spa-sciences,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+TFIT,tfit,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research
+Tiri Pro,tiri-pro,FALSE,FALSE,not_found,,,,,Auto-added from extension unknown-brand collector 2026-06-11; needs parent research

@@ -1,3 +1,26 @@
+2026-06-11 — v0.7.1: Ingest the 22 new Ulta brands found by the directory diff;
+  5 newly certified
+  - First real run of the v0.7.0 pipeline: scripts/ingest-new-brands.mjs added all
+    22 as pending rows; verify-ulta-csv.mjs gained --slugs=a,b,c to sweep just the
+    new rows instead of all peta=FALSE rows.
+  - PETA (verified live, applied): Being Frenshe (listed as "Being Frenshe
+    (Maesa)"), Monpure.
+  - Leaping Bunny (applied): Athletic Cosmetic Company (ATHLETIC COSMETIC COMPANY
+    LLC), Humanist Beauty (exact), plus a bonus recovery — It's A 10 ("It's A 10
+    Haircare"), which only matched after v0.7.0's HTML-entity cleanup fixed the
+    CSV name "It&#x27;s A 10".
+  - Token-match reviews rejected (different companies): Glam & Grace vs Madam
+    Glam/MD GLAM, Salon Step vs Salon Perfect, Spa Sciences vs Aeonia by Delavie
+    Sciences.
+  - Parent research recorded: Being Frenshe → Maesa (Bain Capital majority,
+    brand incubator, clean); Monpure, Athletic Cosmetic Company, Humanist Beauty
+    (founder-led independents); It's A 10 → founder-owned (Carolyn Aronson).
+  - Remaining 17 new brands: checked against PETA + LB, not certified by either
+    (peta_status not_found); rows kept for the known-brands list so the collector
+    stays quiet about them.
+  - brands.json: 392 → 397 (PETA 258, LB 190, both 51); known-brands.json now
+    covers 993 researched rows. Smoke test 14/14 PASS.
+
 2026-06-10 — v0.7.0: Self-updating brand pipeline (unknown-brand collector, recheck
   sweeps, Ulta directory diff, monthly orchestrator) + Being Frenshe false-badge fix
   - FIXED REAL FALSE-BADGE BUG found while testing: tier-0/PDP matching applied

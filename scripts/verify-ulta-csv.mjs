@@ -32,6 +32,10 @@ const APPLY = process.argv.includes("--apply");
 // report any whose PETA page no longer says "is cruelty-free" (delistings,
 // acquisitions). Always report-only — removals are applied by hand.
 const RECHECK = process.argv.includes("--recheck");
+// --slugs a,b,c restricts the sweep to specific ulta_slugs (e.g. rows just
+// added by ingest-new-brands.mjs) instead of every peta=FALSE row.
+const slugsArg = process.argv.find(a => a.startsWith("--slugs="));
+const ONLY_SLUGS = slugsArg ? new Set(slugsArg.slice(8).split(",").map(s => s.trim()).filter(Boolean)) : null;
 
 // Brands that are themselves a company known to test (or to own testing
 // operations) — never auto-apply even if PETA's H1 claims cruelty-free
@@ -136,7 +140,8 @@ async function pageH1Status(link) {
 
 const { header, rows } = parseCSV(readFileSync(CSV_PATH, "utf8"));
 const candidates = rows.filter(r =>
-  (RECHECK ? r.peta === "TRUE" : r.peta !== "TRUE") && r.brand_name && r.ulta_slug);
+  (RECHECK ? r.peta === "TRUE" : r.peta !== "TRUE") && r.brand_name && r.ulta_slug
+  && (!ONLY_SLUGS || ONLY_SLUGS.has(r.ulta_slug)));
 console.log(`Checking ${candidates.length} peta=${RECHECK ? "TRUE (recheck)" : "FALSE"} rows against PETA live...\n`);
 console.log("ulta_slug\tpeta_title\tpeta_slug\tmatch\th1_status\tverdict");
 
