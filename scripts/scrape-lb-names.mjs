@@ -1,7 +1,7 @@
 // scrape-lb-names.mjs
 // Fetches all brand display names from Leaping Bunny's shopping guide.
 // Pages through https://www.leapingbunny.org/shopping-guide?page=N
-// Writes a sorted plain-text list to data/lb-raw.txt and Desktop/lb-raw.txt.
+// Writes a sorted plain-text list to data/lb-raw.txt.
 // Run with: node scripts/scrape-lb-names.mjs
 
 import { writeFileSync } from "fs";
@@ -10,7 +10,6 @@ import path from "path";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = path.join(__dirname, "../data/lb-raw.txt");
-const DESKTOP_PATH = path.join(process.env.HOME || "/Users/williamparker", "Desktop/lb-raw.txt");
 
 const BASE = "https://www.leapingbunny.org/shopping-guide";
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
@@ -83,9 +82,7 @@ async function main() {
 
   const output = unique.join("\n") + "\n";
   writeFileSync(OUT_PATH, output);
-  writeFileSync(DESKTOP_PATH, output);
   console.log(`\nWritten to: ${OUT_PATH}`);
-  console.log(`Written to: ${DESKTOP_PATH}`);
   console.log(`Final count: ${unique.length}`);
 }
 

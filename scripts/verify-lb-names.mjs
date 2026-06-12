@@ -17,13 +17,11 @@
 // Run: node scripts/verify-lb-names.mjs [--apply]
 
 import { readFileSync, writeFileSync } from "fs";
-import os from "os";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CSV_PATH = path.join(__dirname, "../data/retailer-brands-researched.csv");
-const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "retailer-brands-researched.csv");
 const LB_SOURCES = [
   { src: "ccic", file: path.join(__dirname, "../data/lb-raw.txt") },
   { src: "cfi",  file: path.join(__dirname, "../data/cfi-lb-raw.txt") },
@@ -192,8 +190,7 @@ if (APPLY && corrections.length) {
     .concat(rows.map(r => header.map(h => quoteCell(r[h] ?? "")).join(",")))
     .join("\n") + "\n";
   writeFileSync(CSV_PATH, out, "utf8");
-  writeFileSync(DESKTOP_CSV, out, "utf8");
-  console.log(`Applied to ${CSV_PATH} (+ Desktop copy). Now run: node scripts/build-ulta-brands-json.mjs`);
+  console.log(`Applied to ${CSV_PATH}. Now run: node scripts/build-ulta-brands-json.mjs`);
 } else if (corrections.length) {
   console.log("Dry run — re-run with --apply to write the CSV.");
 }

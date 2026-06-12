@@ -1,6 +1,6 @@
 // verify-ulta-csv.mjs
 // Live-verifies PETA certification for Ulta brands marked peta=FALSE in
-// ~/Desktop/retailer-brands-researched.csv whose names appear (under
+// data/retailer-brands-researched.csv whose names appear (under
 // normalization) in PETA's company list.
 //
 // Ground truth = the company page H1 on crueltyfree.peta.org:
@@ -18,13 +18,11 @@
 // Run: node scripts/verify-ulta-csv.mjs [--apply]
 
 import { readFileSync, writeFileSync } from "fs";
-import os from "os";
 import path from "path";
 
 import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CSV_PATH = path.join(__dirname, "../data/retailer-brands-researched.csv");
-const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "retailer-brands-researched.csv");
 const API = "https://crueltyfree.peta.org/wp-json/wp/v2/company";
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 const APPLY = process.argv.includes("--apply");
@@ -225,8 +223,7 @@ if (APPLY && corrections.length) {
     .concat(rows.map(r => header.map(h => quoteCell(r[h] ?? "")).join(",")))
     .join("\n") + "\n";
   writeFileSync(CSV_PATH, out, "utf8");
-  writeFileSync(DESKTOP_CSV, out, "utf8");
-  console.log(`Applied to ${CSV_PATH} (+ Desktop copy). Now run: node scripts/build-ulta-brands-json.mjs`);
+  console.log(`Applied to ${CSV_PATH}. Now run: node scripts/build-ulta-brands-json.mjs`);
 } else if (corrections.length) {
   console.log("Dry run — re-run with --apply to write the CSV.");
 }

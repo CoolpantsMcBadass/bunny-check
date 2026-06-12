@@ -18,13 +18,11 @@
 //   node scripts/build-ulta-brands-json.mjs
 
 import { readFileSync, writeFileSync } from "fs";
-import os from "os";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CSV_PATH = path.join(__dirname, "../data/retailer-brands-researched.csv");
-const DESKTOP_CSV = path.join(os.homedir(), "Desktop", "retailer-brands-researched.csv");
 
 function norm(s) {
   return s.normalize("NFD").replace(/[̀-ͯ]/g, "")
@@ -83,7 +81,6 @@ for (const name of names) {
 if (added.length) {
   const out = csvText.replace(/\n*$/, "\n") + added.join("\n") + "\n";
   writeFileSync(CSV_PATH, out, "utf8");
-  writeFileSync(DESKTOP_CSV, out, "utf8");
 }
 
 console.log(`Added ${added.length} new rows, skipped ${skipped.length} already-known.`);

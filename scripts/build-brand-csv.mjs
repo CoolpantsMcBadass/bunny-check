@@ -12,7 +12,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PETA_PATH  = path.join(__dirname, "../data/peta-raw.txt");
 const LB_PATH    = path.join(__dirname, "../data/lb-raw.txt");
 const OUT_PATH   = path.join(__dirname, "../data/brands-master.csv");
-const DESKTOP    = path.join(process.env.HOME || "/Users/williamparker", "Desktop/brands-master.csv");
 
 // ─── Bad parent companies ─────────────────────────────────────────────────────
 // Key: normalized parent name fragment (lowercase, stripped)
@@ -219,9 +218,7 @@ function main() {
   const csv = [header, ...body].join("\n") + "\n";
 
   writeFileSync(OUT_PATH, csv);
-  writeFileSync(DESKTOP, csv);
   console.log(`\nWritten to: ${OUT_PATH}`);
-  console.log(`Written to: ${DESKTOP}`);
 }
 
 main();

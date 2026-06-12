@@ -39,6 +39,8 @@ bunny-check/
     lb-raw.txt             — Leaping Bunny brand list, CCIC programme (2,325)
     cfi-lb-raw.txt         — Leaping Bunny brand list, Cruelty Free International
                              programme (403) — the second licensor of the mark
+    ulta-brands.csv        — Original Ulta brand-directory snapshot (2026-06-07),
+                             the seed list the research pipeline started from
     wikidata-parents.tsv   — Wikidata subsidiary→parent pairs for bad parents
     SOURCES.md             — Data provenance documentation
   scripts/
@@ -56,6 +58,11 @@ bunny-check/
     live-test-sephora.mjs      — Live Sephora check with the extension loaded (headed Chromium)
     console-audit.js           — Paste into DevTools console for a full-page match audit
     diagnose.mjs               — Playwright DOM diagnosis helper
+    archive/                   — Retired bootstrap pipeline (2026-06-07), kept for
+                                 provenance: scrape-ulta-brands.mjs (seed scrape),
+                                 research-ulta-brands.mjs (first PETA/LB pass),
+                                 update-parents.mjs (parent research one-shot —
+                                 do not rerun; its data is a June 7 snapshot)
   badges/                  — PETA / Leaping Bunny badge SVG artwork
   popup/                   — Popup UI (brand counts, data version)
   icons/                   — Extension icons (placeholders — replace before store submission)

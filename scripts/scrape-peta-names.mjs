@@ -9,7 +9,6 @@ import path from "path";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = path.join(__dirname, "../data/peta-raw.txt");
-const DESKTOP_PATH = path.join(process.env.HOME || "/Users/williamparker", "Desktop/peta-raw.txt");
 
 const BASE = "https://crueltyfree.peta.org/wp-json/wp/v2/company";
 const PER_PAGE = 100;
@@ -153,9 +152,7 @@ async function main() {
 
   const output = unique.join("\n") + "\n";
   writeFileSync(OUT_PATH, output);
-  writeFileSync(DESKTOP_PATH, output);
   console.log(`\nWritten to: ${OUT_PATH}`);
-  console.log(`Written to: ${DESKTOP_PATH}`);
   console.log(`Final count: ${unique.length}`);
 }
 

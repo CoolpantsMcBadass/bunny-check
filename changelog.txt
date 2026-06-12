@@ -1,3 +1,18 @@
+2026-06-12 — Desktop cleanup: bootstrap files moved into the repo (no version bump)
+  - The original June 7 pipeline files living on the Desktop are now in the
+    repo: scrape-ulta-brands.mjs, research-ulta-brands.mjs, and
+    update-parents.mjs → scripts/archive/ (paths rewritten repo-relative,
+    ARCHIVED headers added; update-parents.mjs must not be rerun — its DATA
+    table is a June 7 snapshot and would overwrite newer research);
+    ulta-brands.csv → data/ (the seed brand list).
+  - Removed the Desktop sync copies (lb-raw.txt,
+    retailer-brands-researched.csv — both byte-identical to data/) and
+    deleted the Desktop-write code from scrape-lb-names.mjs,
+    scrape-peta-names.mjs, build-brand-csv.mjs, ingest-new-brands.mjs,
+    verify-ulta-csv.mjs, verify-lb-names.mjs. data/ is now the single home
+    for all pipeline data.
+  - README file structure updated (scripts/archive/, data/ulta-brands.csv).
+
 2026-06-11 — monthly-maintenance now refreshes both LB lists (no version bump)
   - scripts/monthly-maintenance.mjs step 1 runs scrape-cfi-lb-names.mjs
     alongside the CCIC scraper so the CFI list stays fresh; the LB sweeps
